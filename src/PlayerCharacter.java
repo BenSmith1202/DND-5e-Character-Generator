@@ -36,10 +36,12 @@ public class PlayerCharacter {
 
     }
 
-    /** ??????????????????????????????????????????
-     * @return ???
+    /**
+     * Returns the modifier that the player will get on an ability based on their score
+     * @param = the ability in AbilityScores that will be calculated with
+     * @return The ability modifier number
      */
-    public int getMod(){
+    public int getMod(String ability){
         return -1; // stub
     }
 

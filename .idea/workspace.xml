@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Filled out the stubs for methods and variables in InventoryItem and Weapon Classes, also made weapon inherit from InventoryItem">
-      <change beforePath="$PROJECT_DIR$/src/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spell.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added stubs for Spell variables and Constructor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681844468979</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added stubs for Spell variables and Constructor">
+      <created>1681844895210</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681844895210</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,6 +85,7 @@
     <MESSAGE value="Removed the Package line thingy from each class&#10;&#10;Added stubs for most variables and methods in PlayerCharacter" />
     <MESSAGE value="Added more stubs to fill out PlayerCharacter methods and variable" />
     <MESSAGE value="Filled out the stubs for methods and variables in InventoryItem and Weapon Classes, also made weapon inherit from InventoryItem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filled out the stubs for methods and variables in InventoryItem and Weapon Classes, also made weapon inherit from InventoryItem" />
+    <MESSAGE value="Added stubs for Spell variables and Constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added stubs for Spell variables and Constructor" />
   </component>
 </project>

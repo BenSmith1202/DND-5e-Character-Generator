@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added stubs for Spell variables and Constructor">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Fixing descrepancies with spell version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681844895210</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixing descrepancies with inventory item and weapon versions">
+      <created>1681924511175</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681924511176</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -86,6 +93,8 @@
     <MESSAGE value="Added more stubs to fill out PlayerCharacter methods and variable" />
     <MESSAGE value="Filled out the stubs for methods and variables in InventoryItem and Weapon Classes, also made weapon inherit from InventoryItem" />
     <MESSAGE value="Added stubs for Spell variables and Constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added stubs for Spell variables and Constructor" />
+    <MESSAGE value="Fixing descrepancies with inventory item and weapon versions" />
+    <MESSAGE value="Fixing descrepancies with spell version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing descrepancies with spell version" />
   </component>
 </project>

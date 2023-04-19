@@ -6,8 +6,8 @@ public class InventoryItem {
         this.name = name;
         this.quantity = quantity;
     }
-    public InventoryItem(){ //makes a new generic item
+   /* public InventoryItem(){ //makes a new generic item
         name = "Unknown Item";
         quantity = 1;
-    }
+    }*/
 }

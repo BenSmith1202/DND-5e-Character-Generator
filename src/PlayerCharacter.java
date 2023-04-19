@@ -43,8 +43,11 @@ public class PlayerCharacter {
     public void clearDS(){
 
     }
-//    attack(Weapon)returns damage
-    public int attack(Weapon weapon){
+    public int rollToHit(){
+        return -1;
+    }
+//    rollDamage(Weapon)returns damage
+    public int rollDamage(Weapon weapon){
         return -1; //stub
     }
 //    addItem/removeItem

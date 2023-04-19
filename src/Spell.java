@@ -1,6 +1,7 @@
 public class Spell {
 
-    private String name;
+  //hopefully this pushes now
+  private String name;
     private int damage;
     private int slotLevel;
 

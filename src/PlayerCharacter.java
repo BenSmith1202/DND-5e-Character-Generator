@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * @Author Ben Smith, David Olinger
+ * @Author: Ben Smith, David Olinger
  */
 
 public class PlayerCharacter {
@@ -33,13 +33,18 @@ public class PlayerCharacter {
         this.currentHealth = maxHealth;
         this.gold = r.nextInt(20); // stub
         this.armorClass = r.nextInt(10,18); // stub
-        this.speed = r.nextInt(4,7) * 5; // stub
+        this.speed = r.nextInt(4,9) * 5; // stub
 
         this.succDS = 0;
         this.failDS = 0;
 
-        abilityScores = new HashMap(6,75); // stub
-        // fill out the proper ability scores, Ben you know how to do this with HashMaps
+        abilityScores = new HashMap<>(6); // stub
+        abilityScores.put("Strength", 12);
+        abilityScores.put("Dexterity", 12);
+        abilityScores.put("Constitution", 12);
+        abilityScores.put("Intelligence", 12);
+        abilityScores.put("Wisdom", 12);
+        abilityScores.put("Charisma", 12);
 
         inventory =  new ArrayList<>();
     }
@@ -60,9 +65,7 @@ public class PlayerCharacter {
      * @return The ability modifier number
      */
     public int getMod(String ability){
-        return (abilityScores.get(ability) - 10) / 2; // I dont know if this is correct lol
-
-        //kinda stub
+        return (abilityScores.get(ability) - 10) / 2;
     }
 
     /**
@@ -102,7 +105,7 @@ public class PlayerCharacter {
      * @return the attack roll
      */
     public int rollToHit(Weapon weapon){
-        return weapon.toHit();
+        return PlayerCharacter.rollDice(1, 20, weapon.getWeaponBonus());
     }
 
     /**
@@ -111,7 +114,8 @@ public class PlayerCharacter {
      * @return number of damage dealt
      */
     public int rollDamage(Weapon weapon){
-        return weapon.getDamage();
+        return PlayerCharacter.rollDice(weapon.getNumDamageDice(), weapon.getDamageDie(), weapon.getWeaponBonus()) +
+                getMod(weapon.getWeaponType());
     }
 
     /**
@@ -126,8 +130,7 @@ public class PlayerCharacter {
      * rolls a d20 for an ability check, calculating with the players ability modifiers
      * @return the total result of the roll
      */
-    public int rollAbilityCheck(String ability){
-        return rollDice(1,20,getMod(ability)); //stub
+    public int rollAbilityCheck(String ability){return rollDice(1,20,getMod(ability)); //stub
     }
 //    rollDie(Number, Sides,  Bonus)
 
@@ -138,7 +141,7 @@ public class PlayerCharacter {
      * @param bonus = any bonus being added onto the total dice roll
      * @return the total combined number of the rolled dice
      */
-    public int rollDice(int number, int sides, int bonus){
+    public static int rollDice(int number, int sides, int bonus){
         Random r = new Random();
         int total = 0;
         for (int i = 0; i < number; i++) {

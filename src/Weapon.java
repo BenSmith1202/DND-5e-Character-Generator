@@ -25,19 +25,20 @@ public class Weapon extends InventoryItem {
         //takes in one string and uses regular expressions to extract data from it like "Iron Sword, +1, 2d6, Dexterity, Slashing"
     }
 
-    /**
-     *
-     * @return returns the roll to hit value
-     */
-    public int toHit(){
-        return -1;
-    } //delete this comment
 
-    /**
-     *
-     * @return the total damage dealt
-     */
-    public int getDamage(){
-        return -1;
+    public int getWeaponBonus() {
+        return weaponBonus;
+    }
+
+    public int getNumDamageDice() {
+        return numDamageDice;
+    }
+
+    public String getWeaponType() {
+        return weaponType;
+    }
+
+    public int getDamageDie() {
+        return damageDie;
     }
 }

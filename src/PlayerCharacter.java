@@ -130,7 +130,12 @@ public class PlayerCharacter {
      * rolls a d20 for an ability check, calculating with the players ability modifiers
      * @return the total result of the roll
      */
-    public int rollAbilityCheck(String ability){return rollDice(1,20,getMod(ability)); //stub
+    public int rollAbilityCheck(String ability){
+        int roll = rollDice(1,20,getMod(ability));
+        if (roll < 1){
+            return 1;
+        }
+        else return roll;
     }
 //    rollDie(Number, Sides,  Bonus)
 

@@ -1,14 +1,16 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @Author Ben Smith, David Olinger
  */
 
 public class PlayerCharacter {
-    private HashMap<String, Integer> abilityScores = new HashMap(6,75);
+    private HashMap<String, Integer> abilityScores;
     //hashmap of spells needed
-    private ArrayList<InventoryItem> inventory = new ArrayList<>();
+    private ArrayList<InventoryItem> inventory;
 
     //Player stats
     private int maxHealth;
@@ -17,15 +19,29 @@ public class PlayerCharacter {
     private int armorClass;
     private int speed;
     //Keeps track of failed and succeeded death saves
-    private int[] succDS;
-    private int[] failDS;
+    private int succDS;
+    private int failDS;
 
 
     /**
      * Default Constructor for PlayerCharacter
+     *
      */
     public PlayerCharacter(){
+        Random r = new Random();
+        this.maxHealth = r.nextInt(20); // stub
+        this.currentHealth = maxHealth;
+        this.gold = r.nextInt(20); // stub
+        this.armorClass = r.nextInt(10,18); // stub
+        this.speed = r.nextInt(4,7) * 5; // stub
 
+        this.succDS = 0;
+        this.failDS = 0;
+
+        abilityScores = new HashMap(6,75); // stub
+        // fill out the proper ability scores, Ben you know how to do this with HashMaps
+
+        inventory =  new ArrayList<>();
     }
 
     /**
@@ -33,6 +49,8 @@ public class PlayerCharacter {
      * @param fileName = a file containing strings with the proper info to create a character
      */
     public PlayerCharacter(String fileName){
+        Scanner scnr = new Scanner(fileName);
+            //stub this will read through the text the way we want it to, filling out each variable and stuff
 
     }
 
@@ -42,21 +60,31 @@ public class PlayerCharacter {
      * @return The ability modifier number
      */
     public int getMod(String ability){
-        return -1; // stub
+        return (abilityScores.get(ability) - 10) / 2; // I dont know if this is correct lol
+
+        //kinda stub
     }
 
     /**
      * rolls a death saving throw, if failed will add to failDS, if suceeded will add to succDS, also acounts for critical rolls of 20
      */
     public void rollDS(){
-
+        int roll = rollDice(1,20,0);
+        if (roll == 1){
+            failDS += 2;
+        } else if (roll == 20){
+            succDS = 3;
+        } else if (roll < 10){
+            failDS++;
+        } else succDS++;
     }
 
     /**
      * Clears the death saving throw count arrays after a player has survived
      */
     public void clearDS(){
-
+        failDS = 0;
+        succDS = 0;
     }
 
     /**
@@ -64,7 +92,8 @@ public class PlayerCharacter {
      * @param weapon = The weapon that the player is attacking with
      */
     public void attack(Weapon weapon){
-         //stub
+        System.out.println(weapon.toHit());
+        System.out.println(weapon.getDamage());
     }
 
     /**
@@ -73,8 +102,7 @@ public class PlayerCharacter {
      * @return the attack roll
      */
     public int rollToHit(Weapon weapon){
-        //stub
-        return -1;
+        return weapon.toHit();
     }
 
     /**
@@ -83,8 +111,7 @@ public class PlayerCharacter {
      * @return number of damage dealt
      */
     public int rollDamage(Weapon weapon){
-        //stub
-        return -1;
+        return weapon.getDamage();
     }
 
     /**
@@ -92,16 +119,15 @@ public class PlayerCharacter {
      * @param newItem = the item to be added
      */
     public void addItem(InventoryItem newItem){
-
+        inventory.add(newItem); // stub idk if this is right
     }
-//            rollAbilityCheck
 
     /**
      * rolls a d20 for an ability check, calculating with the players ability modifiers
      * @return the total result of the roll
      */
-    public int rollAbilityCheck(){
-        return -1; //stub
+    public int rollAbilityCheck(String ability){
+        return rollDice(1,20,getMod(ability)); //stub
     }
 //    rollDie(Number, Sides,  Bonus)
 
@@ -113,7 +139,13 @@ public class PlayerCharacter {
      * @return the total combined number of the rolled dice
      */
     public int rollDice(int number, int sides, int bonus){
-        return -1; //stub
+        Random r = new Random();
+        int total = 0;
+        for (int i = 0; i < number; i++) {
+            total += r.nextInt(1,sides+1);
+        }
+        total += bonus;
+        return total;
     }
 
 
@@ -130,7 +162,7 @@ public class PlayerCharacter {
      * @return the amount of gold
      */
     public int getGold() {
-        return -1; //stub
+        return this.gold;
     }
 
     /**
@@ -138,7 +170,7 @@ public class PlayerCharacter {
      * @param numChange = the amount to be added or subtracted
      */
     public void changeGold(int numChange){
-
+        this.gold += numChange;
     }
 
     /**
@@ -166,6 +198,30 @@ public class PlayerCharacter {
     }
 
 
+    public int getSpeed() {
+        return speed;
+    }
 
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public void changeHealth(int change) {
+        this.currentHealth += change;
+        if (currentHealth > maxHealth){
+            currentHealth = maxHealth;
+        }
+    }
 }

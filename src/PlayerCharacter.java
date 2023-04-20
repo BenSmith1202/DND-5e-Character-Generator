@@ -95,8 +95,8 @@ public class PlayerCharacter {
      * @param weapon = The weapon that the player is attacking with
      */
     public void attack(Weapon weapon){
-        System.out.println(weapon.toHit());
-        System.out.println(weapon.getDamage());
+        System.out.println(rollToHit(weapon));
+        System.out.println(rollDamage(weapon));
     }
 
     /**

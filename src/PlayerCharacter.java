@@ -21,6 +21,8 @@ public class PlayerCharacter {
     //Keeps track of failed and succeeded death saves
     private int succDS;
     private int failDS;
+    private int numHitDice;
+    private int hitDie;
 
 
     /**
@@ -37,6 +39,8 @@ public class PlayerCharacter {
 
         this.succDS = 0;
         this.failDS = 0;
+        this.numHitDice = 2;
+        this.hitDie = 6;
 
         abilityScores = new HashMap<>(6); // stub
         abilityScores.put("Strength", 12);
@@ -56,6 +60,7 @@ public class PlayerCharacter {
     public PlayerCharacter(String fileName){
         Scanner scnr = new Scanner(fileName);
             //stub this will read through the text the way we want it to, filling out each variable and stuff
+        // Ben's gonna do this one
 
     }
 
@@ -193,17 +198,17 @@ public class PlayerCharacter {
      * performs a long rest, restoring all spell slots and returning health to max
      */
     public void longRest(){
-
+        this.currentHealth = maxHealth;
     }
-//+shortRest(numHitDice)
 
     /**
-     *
-     * @param numHitDice =
+     * the player does a short rest and restores health according to their hit die
      */
-    public void shortRest(int numHitDice){
-
+    public void shortRest(){
+        changeHealth(rollDice(numHitDice,hitDie,0));
     }
+
+
 
 
     public int getSpeed() {

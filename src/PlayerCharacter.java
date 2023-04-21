@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @Author: Ben Smith, David Olinger
@@ -11,6 +8,9 @@ public class PlayerCharacter {
     private HashMap<String, Integer> abilityScores;
     //hashmap of spells needed
     private ArrayList<InventoryItem> inventory;
+
+    private int[] maxSpellSlots;
+    private int[] remainingSpellSlots;
 
     //Player stats
     private int maxHealth;
@@ -30,7 +30,6 @@ public class PlayerCharacter {
     public PlayerCharacter(){
         Random r = new Random();
         this.maxHealth = r.nextInt(20); // stub
-        this.currentHealth = maxHealth;
         this.gold = r.nextInt(20); // stub
         this.armorClass = r.nextInt(10,18); // stub
         this.speed = r.nextInt(4,9) * 5; // stub
@@ -47,6 +46,11 @@ public class PlayerCharacter {
         abilityScores.put("Charisma", 12);
 
         inventory =  new ArrayList<>();
+
+        maxSpellSlots = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        remainingSpellSlots = new int[9];
+        //at the end
+        longRest();
     }
 
     /**
@@ -193,6 +197,10 @@ public class PlayerCharacter {
      * performs a long rest, restoring all spell slots and returning health to max
      */
     public void longRest(){
+        currentHealth = maxHealth;
+        for (int i = 0; i < 9; i++) {
+            remainingSpellSlots[i] = maxSpellSlots[i];
+        }
 
     }
 //+shortRest(numHitDice)

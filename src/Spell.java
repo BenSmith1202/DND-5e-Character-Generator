@@ -12,7 +12,9 @@ public class Spell {
    * @param slotLevel level of spell
    */
   public Spell(String name, int damage, int slotLevel){
-
+    this.name = name;
+    this.damage = damage;
+    this.slotLevel = slotLevel;
   }
 
 

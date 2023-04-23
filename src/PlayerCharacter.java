@@ -5,6 +5,8 @@ import java.util.*;
  */
 
 public class PlayerCharacter {
+    private String name;
+    private int level;
     private HashMap<String, Integer> abilityScores;
     //hashmap of spells needed
     private ArrayList<InventoryItem> inventory;
@@ -29,10 +31,12 @@ public class PlayerCharacter {
      */
     public PlayerCharacter(){
         Random r = new Random();
-        this.maxHealth = r.nextInt(20); // stub
-        this.gold = r.nextInt(20); // stub
-        this.armorClass = r.nextInt(10,18); // stub
-        this.speed = r.nextInt(4,9) * 5; // stub
+        this.name = "Test Character";
+        this.level = 1;
+        this.maxHealth = 8 + getMod("Constitution") + rollDice(level-1, 8, getMod("Constitution"));
+        this.gold = 10* rollDice(5, 4);
+        this.armorClass = 10+getMod("Dex");
+        this.speed = 30;
 
         this.succDS = 0;
         this.failDS = 0;
@@ -47,7 +51,7 @@ public class PlayerCharacter {
 
         inventory =  new ArrayList<>();
 
-        maxSpellSlots = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
         remainingSpellSlots = new int[9];
         //at the end
         longRest();
@@ -160,6 +164,16 @@ public class PlayerCharacter {
         return total;
     }
 
+    public static int rollDice(int number, int sides){
+        Random r = new Random();
+        int total = 0;
+        for (int i = 0; i < number; i++) {
+            total += r.nextInt(1,sides+1);
+        }
+
+        return total;
+    }
+
 
     /**
      * Casts the given spell ????????????????????????
@@ -189,7 +203,11 @@ public class PlayerCharacter {
      * prints out the character sheet of the player in a file
      */
     public void printSheet(){
-
+        System.out.println("-----------------------------------------------");
+        System.out.println("Name: " + name +   "            Level: " + level);
+        System.out.println("Speed: " + speed + "            Armor Class: " + armorClass);
+        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "            Death Saves (S/F): " + succDS+"/"+failDS);
+        System.out.println("Strenth: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")");
     }
 //+longRest()
 

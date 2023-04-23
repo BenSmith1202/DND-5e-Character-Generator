@@ -16,6 +16,7 @@ public class Main {
         Weapon sword = new Weapon("sword", 2, 6, 2, "sword", "slashing");
         p1.addItem(sword);
         System.out.println(p1.rollToHit(sword));
+        p1.printSheet();
 
     }
 }

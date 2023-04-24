@@ -11,6 +11,15 @@ public class InventoryItem {
         this.name = name;
         this.quantity = quantity;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
    /* public InventoryItem(){ //makes a new generic item
         name = "Unknown Item";
         quantity = 1;

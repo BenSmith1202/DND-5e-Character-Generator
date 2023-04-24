@@ -31,15 +31,6 @@ public class PlayerCharacter {
      */
     public PlayerCharacter(){
         Random r = new Random();
-        this.name = "Test Character";
-        this.level = 1;
-        this.maxHealth = 8 + getMod("Constitution") + rollDice(level-1, 8, getMod("Constitution"));
-        this.gold = 10* rollDice(5, 4);
-        this.armorClass = 10+getMod("Dex");
-        this.speed = 30;
-
-        this.succDS = 0;
-        this.failDS = 0;
 
         abilityScores = new HashMap<>(6); // stub
         abilityScores.put("Strength", 12);
@@ -53,6 +44,18 @@ public class PlayerCharacter {
 
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
         remainingSpellSlots = new int[9];
+
+        this.name = "Test Character";
+        this.level = 1;
+        this.maxHealth = 8 + getMod("Constitution") + rollDice(level-1, 8, getMod("Constitution"));
+        this.gold = 10* rollDice(5, 4);
+        this.armorClass = 10+getMod("Dexterity"); //must always spell out full word or it don't work, unless we want to implement that
+        this.speed = 30;
+
+        this.succDS = 0;
+        this.failDS = 0;
+
+
         //at the end
         longRest();
     }
@@ -207,9 +210,27 @@ public class PlayerCharacter {
         System.out.println("Name: " + name +   "            Level: " + level);
         System.out.println("Speed: " + speed + "            Armor Class: " + armorClass);
         System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "            Death Saves (S/F): " + succDS+"/"+failDS);
-        System.out.println("Strenth: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")");
+        System.out.println("Gold: " + gold);
+
+        System.out.println("Strenth: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")" + "       " +
+                "Dexterity: " + abilityScores.get("Dexterity") + "(+" + getMod("Dexterity")+ ")" + "      " +
+                "Constitution: " + abilityScores.get("Constitution") + "(+" + getMod("Constitution")+ ")");
+        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(+" + getMod("Intelligence")+ ")" + "     " +
+                "Wisdom: " + abilityScores.get("Wisdom") + "(+" + getMod("Wisdom")+ ")" + "     " +
+                "Charisma: " + abilityScores.get("Charisma") + "(+" + getMod("Charisma")+ ")");
+
+        System.out.print("Inventory: ");
+        if (inventory.size() == 0) System.out.print("Empty");
+        for (int i = 0; i < inventory.size(); i++) {
+            if (i>0) System.out.print(", ");
+            System.out.print(inventory.get(i).getQuantity() + " " + inventory.get(i).getName());
+        }
+        System.out.println();
+        System.out.print("Spells: ");
+
+
     }
-//+longRest()
+
 
     /**
      * performs a long rest, restoring all spell slots and returning health to max
@@ -221,7 +242,7 @@ public class PlayerCharacter {
         }
 
     }
-//+shortRest(numHitDice)
+
 
     /**
      *

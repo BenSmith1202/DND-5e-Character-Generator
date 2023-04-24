@@ -10,6 +10,7 @@ public class PlayerCharacter {
     private HashMap<String, Integer> abilityScores;
     //hashmap of spells needed
     private ArrayList<InventoryItem> inventory;
+    private ArrayList<Spell> spells;
 
     private int[] maxSpellSlots;
     private int[] remainingSpellSlots;
@@ -41,6 +42,7 @@ public class PlayerCharacter {
         abilityScores.put("Charisma", 12);
 
         inventory =  new ArrayList<>();
+        spells = new ArrayList<>();
 
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
         remainingSpellSlots = new int[9];
@@ -106,8 +108,8 @@ public class PlayerCharacter {
      * @param weapon = The weapon that the player is attacking with
      */
     public void attack(Weapon weapon){
-        System.out.println(rollToHit(weapon));
-        System.out.println(rollDamage(weapon));
+        System.out.println("Roll to hit = " + rollToHit(weapon));
+        System.out.println("Damage dealt on hit = " + rollDamage(weapon));
     }
 
     /**
@@ -130,12 +132,20 @@ public class PlayerCharacter {
     }
 
     /**
-     * Adds a new Item to the players inventory
+     * Adds a new Item to the player's inventory
      * @param newItem = the item to be added
      */
     public void addItem(InventoryItem newItem){
-        inventory.add(newItem); // stub idk if this is right
+        inventory.add(newItem);
     }
+    /**
+     * Adds a new spell to the player's spells
+     * @param newSpell = the spell to be added
+     */
+    public void addSpell(Spell newSpell){
+        spells.add(newSpell);
+    }
+
 
     /**
      * rolls a d20 for an ability check, calculating with the players ability modifiers
@@ -183,8 +193,28 @@ public class PlayerCharacter {
      * @param spell the spell being casts
      */
     public void castSpell(Spell spell){
-
+        System.out.println("Roll to hit = " + rollToHit(spell));
+        System.out.println("Damage dealt on hit = " + rollDamage(spell));
     }
+    /**
+     * Returns the attack roll for trying to hit an enemy
+     * @param spell = The spell that the player is casting
+     * @return the attack roll
+     */
+    public int rollToHit(Spell spell){
+        return PlayerCharacter.rollDice(1, 20, 0); //idk how spell bonuses work
+    }
+
+    /**
+     * Returns the damage a spell would do if it hits
+     * @param spell = The spell that the player is casting
+     * @return number of damage dealt
+     */
+    public int rollDamage(Spell spell){
+        return PlayerCharacter.rollDice(spell.getNumDamageDice(), spell.getDamageDie(), 0); // idk how spell bonus works
+    }
+
+
 
     /**
      * Returns the amount of gold the player has
@@ -227,7 +257,11 @@ public class PlayerCharacter {
         }
         System.out.println();
         System.out.print("Spells: ");
-
+        if (spells.size() == 0) System.out.print("Empty");
+        for (int i = 0; i < spells.size(); i++) {
+            if (i>0) System.out.print(", ");
+            System.out.print(spells.get(i).getName());
+        }
 
     }
 

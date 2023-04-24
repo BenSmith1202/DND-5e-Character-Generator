@@ -9,15 +9,21 @@ public class Main {
         System.out.println(p1.getMod("Dexterity"));
 
 
-                 // I made abilityScores public to test these
-
-
-
         Weapon sword = new Weapon("sword", 2, 6, 2, "sword", "slashing");
         p1.addItem(sword);
         System.out.println(p1.rollToHit(sword));
+
         InventoryItem rocks = new InventoryItem("rocks", 5);
         p1.addItem(rocks);
+
+        Spell fireball = new Spell("fireball", 6,8,4);
+        p1.addSpell(fireball);
+
+        p1.castSpell(fireball);
+
+        Spell lightingBolt = new Spell("lighting bolt", 6,8,4);
+        p1.addSpell(lightingBolt);
+
         p1.printSheet();
 
     }

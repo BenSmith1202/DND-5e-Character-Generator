@@ -19,6 +19,9 @@ public class InventoryItem {
     public int getQuantity() {
         return quantity;
     }
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 
    /* public InventoryItem(){ //makes a new generic item
         name = "Unknown Item";

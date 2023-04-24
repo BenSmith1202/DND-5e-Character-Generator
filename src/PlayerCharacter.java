@@ -70,14 +70,31 @@ public class PlayerCharacter {
         inventory =  new ArrayList<>();
         spells = new ArrayList<>();
 
+        abilityScores = new HashMap<>(6);
+
         Scanner scnr = new Scanner(fileName);
 
         scnr.next();
         name = scnr.nextLine();
         scnr.next();
         level = scnr.nextInt();
+        scnr.nextLine();
         scnr.next();
         maxHealth = scnr.nextInt();
+        scnr.nextLine();
+        scnr.next();
+        speed = scnr.nextInt();
+        scnr.nextLine();
+        scnr.next();
+        armorClass = scnr.nextInt();
+        scnr.nextLine();
+        scnr.next();
+        gold = scnr.nextInt();
+
+        for (int i = 0; i < 6; i++) {
+            abilityScores.put(scnr.next(), scnr.nextInt());
+            scnr.nextLine();
+        }
 
 
 
@@ -152,6 +169,13 @@ public class PlayerCharacter {
      */
     public void addItem(InventoryItem newItem){
         inventory.add(newItem);
+    }
+    /**
+     * Adds a new Item to the player's inventory
+     * @param newItem = the item to be added
+     */
+    public void RemoveItem(InventoryItem newItem){
+        inventory.remove(newItem);
     }
     /**
      * Adds a new spell to the player's spells

@@ -67,9 +67,24 @@ public class PlayerCharacter {
      * @param fileName = a file containing strings with the proper info to create a character
      */
     public PlayerCharacter(String fileName){
-        Scanner scnr = new Scanner(fileName);
-            //stub this will read through the text the way we want it to, filling out each variable and stuff
+        inventory =  new ArrayList<>();
+        spells = new ArrayList<>();
 
+        Scanner scnr = new Scanner(fileName);
+
+        scnr.next();
+        name = scnr.nextLine();
+        scnr.next();
+        level = scnr.nextInt();
+        scnr.next();
+        maxHealth = scnr.nextInt();
+
+
+
+
+        succDS = 0;
+        failDS = 0;
+        currentHealth = maxHealth;
     }
 
     /**
@@ -242,7 +257,7 @@ public class PlayerCharacter {
         System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "            Death Saves (S/F): " + succDS+"/"+failDS);
         System.out.println("Gold: " + gold);
 
-        System.out.println("Strenth: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")" + "       " +
+        System.out.println("Strength: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")" + "       " +
                 "Dexterity: " + abilityScores.get("Dexterity") + "(+" + getMod("Dexterity")+ ")" + "      " +
                 "Constitution: " + abilityScores.get("Constitution") + "(+" + getMod("Constitution")+ ")");
         System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(+" + getMod("Intelligence")+ ")" + "     " +

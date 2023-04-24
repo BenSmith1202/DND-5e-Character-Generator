@@ -204,21 +204,26 @@ public class PlayerCharacter {
 
 
     /**
-     * Casts the given spell ????????????????????????
+     * Casts the given spell
+     * @param spell the spell being casts
+     */
+    public void castAttackSpell(Spell spell){
+        System.out.println(spell.getAffect());
+        System.out.println("Damage dealt on hit = " + rollDamage(spell));
+    }
+    /**
+     * Casts the given spell
      * @param spell the spell being casts
      */
     public void castSpell(Spell spell){
-        System.out.println("Roll to hit = " + rollToHit(spell));
-        System.out.println("Damage dealt on hit = " + rollDamage(spell));
+        System.out.println(spell.getAffect());
     }
     /**
      * Returns the attack roll for trying to hit an enemy
      * @param spell = The spell that the player is casting
      * @return the attack roll
      */
-    public int rollToHit(Spell spell){
-        return PlayerCharacter.rollDice(1, 20, 0); //idk how spell bonuses work
-    }
+
 
     /**
      * Returns the damage a spell would do if it hits

@@ -16,12 +16,12 @@ public class Main {
         InventoryItem rocks = new InventoryItem("rocks", 5);
         p1.addItem(rocks);
 
-        Spell fireball = new Spell("fireball", 6,8,4);
+        Spell fireball = new Spell("fireball", 6,8,4,"Dexterity Saving throw DC: idk really");
         p1.addSpell(fireball);
 
-        p1.castSpell(fireball);
+        p1.castAttackSpell(fireball);
 
-        Spell lightingBolt = new Spell("lighting bolt", 6,8,4);
+        Spell lightingBolt = new Spell("lighting bolt", 6,8,4,"this casts biggy bolty");
         p1.addSpell(lightingBolt);
 
         p1.printSheet();

@@ -125,14 +125,7 @@
       <option name="project" value="LOCAL" />
       <updated>1682378077531</updated>
     </task>
-    <task id="LOCAL-00011" summary="Added Affect variable to Spell and changed CastSpell implementaion, also added castAttackSpell">
-      <created>1682378933137</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1682378933137</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,10 +148,7 @@
     <MESSAGE value="Fixing descrepancies with spell version" />
     <MESSAGE value="Added to hit method and removed unnecessary default constructor for InventoryItem" />
     <MESSAGE value="added javadocs for some classes" />
-    <MESSAGE value="Fixed Construction error due to ordering,&#10;Added to PrintSheet Method&#10;Added Getters for InventoryItem variables" />
-    <MESSAGE value="Added spells arrayList, added to Spell class, Made rollDamage and RollToHit methods for spells, added to PrintSheet method" />
-    <MESSAGE value="Made part of FileName Constructor for player character and added FileCharacter file" />
-    <MESSAGE value="Added Affect variable to Spell and changed CastSpell implementaion, also added castAttackSpell" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Affect variable to Spell and changed CastSpell implementaion, also added castAttackSpell" />
+    <MESSAGE value="Updated spell system to use a regular array and tweaked the spell class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated spell system to use a regular array and tweaked the spell class." />
   </component>
 </project>

@@ -10,5 +10,3 @@ Constitution 12
 Intelligence 12
 Wisdom 12
 Charisma 12
-
-

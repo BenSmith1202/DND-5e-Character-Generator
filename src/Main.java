@@ -26,7 +26,7 @@ public class Main {
 
         p1.printSheet();
 
-        PlayerCharacter fileChar = new PlayerCharacter("FileCharacter");
+        PlayerCharacter fileChar = new PlayerCharacter("FileCharacter.txt");
         fileChar.printSheet();
 
     }

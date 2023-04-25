@@ -5,6 +5,32 @@ import java.util.*;
  */
 
 public class PlayerCharacter {
+
+    private static String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
+    "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",
+    "ro", "to", "bo", "ry", "co", "ca", "co", "la" };
+
+    private static String[] dwarfNameSyls = new String[]{"tik", "lik", "dik", "pik", "puk", "duk", "luk", "tuk", "arz", "alz" , "anz", "urz",
+    "unz", "ulz", "rok", "nok", "bok", "sok", "ruk", "nuk", "dwar", "vy", "suk", "buk", "enger", "dale", "tal", "mith", "koka", "darl", "karl", "snarl", "barl",
+    "jarl", "nug", "rog", "rik", "nik", "pik", "akz", "daye", "mond", "mund", "trund"};
+
+    private static String[] elfNameSyls = new String[]{"dru", "ehr", "grim", "lynn", "wynn", "ev", "eth", "gael", "eltar", "bryl", "jan", "dar",
+    "ero", "lith", "gant", "faor", "fho", "fyl", "ha", "la", "ri", "paer", "ril", "thil", "aerm", "aum", "rath", "cali", "ban", "wisp", "bel",
+    "droth", "darry", "thor", "idan", "ian", "rian", "lian", "trine", "rina", "dal", "yor", "bel", "naith", "evos", "assin", "lil", "sus" };
+
+    private static String[] elfSurnames = new String[]{"leaf", "branch", "river", "stone", "ice", "flame", "cove", "birch", "oak", "dawn", "dusk",
+    "flax", "flood", "gale", "breeze", "zephyr", "air", "sky", "ash", "silk", "vine", "jewel", "pond", "marsh", "moon", "star", "sun", "wild", "tide",
+    "heath", "hawk", "reef", "frost", "bud", "jay", "pine", "aspen", "cedar", "grove", "thorn", "wisp", "ink", "rook"};
+
+    private static String[] humanSurnames = new String[]{"wheeler", "chapman", "smith", "olinger", "coward", "dempster", "davis", "fitz", "hurst",
+            "shaw", "townsend", "cruikshank", "moody", "lark", "taylor", "butcher", "gouy", "pozu", "heavyarms", "wheezer", "foster", "folger", "trombka",
+            "toms", "stanski", "mamajek", "jordan", "arkwright", "brewster", "walker", "marshall", "turner", "johnson", "lister", "lucky", "ebert", "wing"};
+
+    private static String[] dwarfSurnamesModifyer = new String[]{"strong", "steel", "dark", "stormy", "diamond", "ruby", "onyx", "iron", "golden", "stoney",
+    "blazing", "slaughter", "war", "lumber", "rock", "splitter", "dwarven", "flinty", "mica", "granite", "marble", "under", "over", "twisted", "welded", "scrawny"};
+    private static String[] dwarfSurnamesObject = new String[]{"crown", "sword", "pick", "mine", "gem", "flint", "rock", "armor", "weapon", "tools", "boots", "passage",
+    "dwarf", "blade", "edge", "head", "foot", "fist", "fists", "lord", "forge", "field", "drink", "ale", "plow", "beam", "plate", "guard", "gourd", "cheese",
+    "wood", "stone", "crystal", "hammer", "chisel", "saw"};
     private String name;
     private int level;
     private HashMap<String, Integer> abilityScores;
@@ -307,6 +333,68 @@ public class PlayerCharacter {
             System.out.print(spells.get(i).getName());
         }
 
+    }
+
+    public static String getDwarfName(){
+        StringBuilder firstNameBuilder = new StringBuilder();
+        StringBuilder lastNameBuilder = new StringBuilder();
+        Random random = new Random();
+        int r = random.nextInt(2);
+        if (r == 1){
+            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+            firstNameBuilder.append(" ");
+        } else {
+            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+            firstNameBuilder.append(" ");
+        }
+        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1);
+        lastNameBuilder.append(dwarfSurnamesModifyer[(random.nextInt(dwarfSurnamesModifyer.length))]);
+        lastNameBuilder.append(dwarfSurnamesObject[(random.nextInt(dwarfSurnamesObject.length))]);
+        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);
+    }
+
+    public static String getHumanName(){
+        StringBuilder firstNameBuilder = new StringBuilder();
+        StringBuilder lastNameBuilder = new StringBuilder();
+        Random random = new Random();
+        int r = random.nextInt(2);
+        if (r == 1){
+            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+            firstNameBuilder.append(" ");
+        } else {
+            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+            firstNameBuilder.append(" ");
+        }
+        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1);
+        lastNameBuilder.append(humanSurnames[(random.nextInt(humanSurnames.length))]);
+        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);
+    }
+
+    public static String getElfName(){
+        StringBuilder firstNameBuilder = new StringBuilder();
+        StringBuilder lastNameBuilder = new StringBuilder();
+        Random random = new Random();
+        int r = random.nextInt(2);
+        if (r == 1){
+            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+            firstNameBuilder.append(" ");
+        } else {
+            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+            firstNameBuilder.append(" ");
+        }
+        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1);
+        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
+        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
+        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);
     }
 
 

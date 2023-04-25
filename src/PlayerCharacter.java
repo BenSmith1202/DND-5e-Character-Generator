@@ -59,15 +59,14 @@ public class PlayerCharacter {
      *
      */
     public PlayerCharacter(){
-        Random r = new Random();
 
         abilityScores = new HashMap<>(6); // stub
-        abilityScores.put("Strength", 12);
-        abilityScores.put("Dexterity", 12);
-        abilityScores.put("Constitution", 12);
-        abilityScores.put("Intelligence", 12);
-        abilityScores.put("Wisdom", 12);
-        abilityScores.put("Charisma", 12);
+        abilityScores.put("Strength", rollDice(3,6) + 5); // idk how we wanna do the random but this kinda works
+        abilityScores.put("Dexterity", rollDice(3,6) + 5);
+        abilityScores.put("Constitution", rollDice(3,6) + 5);
+        abilityScores.put("Intelligence", rollDice(3,6) + 5);
+        abilityScores.put("Wisdom", rollDice(3,6) + 5);
+        abilityScores.put("Charisma", rollDice(3,6) + 5);
 
         inventory =  new ArrayList<>();
         spells = new ArrayList<>();
@@ -75,12 +74,12 @@ public class PlayerCharacter {
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
         remainingSpellSlots = new int[9];
 
-        this.name = "Test Character";
+        this.name = getDwarfName();
         this.level = 1;
         this.maxHealth = 8 + getMod("Constitution") + rollDice(level-1, 8, getMod("Constitution"));
         this.gold = 10* rollDice(5, 4);
-        this.armorClass = 10+getMod("Dexterity"); //must always spell out full word or it don't work, unless we want to implement that
-        this.speed = 30;
+        this.armorClass = 10 + getMod("Dexterity");
+        this.speed = rollDice(1,6) * 5 + 10;
 
         this.succDS = 0;
         this.failDS = 0;
@@ -170,6 +169,7 @@ public class PlayerCharacter {
      * @param weapon = The weapon that the player is attacking with
      */
     public void attack(Weapon weapon){
+        System.out.println("Attacking with " + weapon.getName() + ":"); // Need to Implement Crits now
         System.out.println("Roll to hit = " + rollToHit(weapon));
         System.out.println("Damage dealt on hit = " + rollDamage(weapon));
     }
@@ -180,7 +180,7 @@ public class PlayerCharacter {
      * @return the attack roll
      */
     public int rollToHit(Weapon weapon){
-        return PlayerCharacter.rollDice(1, 20, weapon.getWeaponBonus());
+        return PlayerCharacter.rollDice(1, 20, weapon.getWeaponBonus() + getMod("Strength"));
     }
 
     /**
@@ -189,8 +189,7 @@ public class PlayerCharacter {
      * @return number of damage dealt
      */
     public int rollDamage(Weapon weapon){
-        return PlayerCharacter.rollDice(weapon.getNumDamageDice(), weapon.getDamageDie(), weapon.getWeaponBonus()) +
-                getMod(weapon.getWeaponType());
+        return PlayerCharacter.rollDice(weapon.getNumDamageDice(), weapon.getDamageDie(), weapon.getWeaponBonus());
     }
 
     /**
@@ -262,6 +261,7 @@ public class PlayerCharacter {
      * @param spell the spell being casts
      */
     public void castAttackSpell(Spell spell){
+        System.out.println("Casting " + spell.getName() + ":");
         System.out.println(spell.getAffect());
         System.out.println("Damage dealt on hit = " + rollDamage(spell));
     }
@@ -304,16 +304,16 @@ public class PlayerCharacter {
      */
     public void printSheet(){
         System.out.println("-----------------------------------------------");
-        System.out.println("Name: " + name +   "            Level: " + level);
-        System.out.println("Speed: " + speed + "            Armor Class: " + armorClass);
-        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "            Death Saves (S/F): " + succDS+"/"+failDS);
+        System.out.println("Name: " + name +   "        Level: " + level);
+        System.out.println("Speed: " + speed + "              Armor Class: " + armorClass);
+        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "      Death Saves (S/F): " + succDS+"/"+failDS);
         System.out.println("Gold: " + gold);
 
         System.out.println("Strength: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")" + "       " +
-                "Dexterity: " + abilityScores.get("Dexterity") + "(+" + getMod("Dexterity")+ ")" + "      " +
+                "Dexterity: " + abilityScores.get("Dexterity") + "(+" + getMod("Dexterity")+ ")" + "   " +
                 "Constitution: " + abilityScores.get("Constitution") + "(+" + getMod("Constitution")+ ")");
-        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(+" + getMod("Intelligence")+ ")" + "     " +
-                "Wisdom: " + abilityScores.get("Wisdom") + "(+" + getMod("Wisdom")+ ")" + "     " +
+        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(+" + getMod("Intelligence")+ ")" + "   " +
+                "Wisdom: " + abilityScores.get("Wisdom") + "(+" + getMod("Wisdom")+ ")" + "      " +
                 "Charisma: " + abilityScores.get("Charisma") + "(+" + getMod("Charisma")+ ")");
 
         System.out.print("Inventory: ");
@@ -327,7 +327,7 @@ public class PlayerCharacter {
         }
 
         System.out.print("Spells: ");
-        if (spells.size() == 0) System.out.print("Empty");
+        if (spells.size() == 0) System.out.println("Empty");
         else {
             for (int i = 0; i < spells.size(); i++) {
                 if (i > 0) System.out.print(", ");

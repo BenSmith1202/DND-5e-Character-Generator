@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
@@ -66,13 +68,14 @@ public class PlayerCharacter {
      *  Constructs a character using a file in the proper format to fill out each variable in the character sheet
      * @param fileName = a file containing strings with the proper info to create a character
      */
-    public PlayerCharacter(String fileName){
+    public PlayerCharacter(String fileName) throws FileNotFoundException {
         inventory =  new ArrayList<>();
         spells = new ArrayList<>();
 
         abilityScores = new HashMap<>(6);
 
-        Scanner scnr = new Scanner(fileName);
+        File f = new File(fileName);
+        Scanner scnr = new Scanner(f);
 
         scnr.next();
         name = scnr.nextLine();
@@ -294,17 +297,22 @@ public class PlayerCharacter {
                 "Charisma: " + abilityScores.get("Charisma") + "(+" + getMod("Charisma")+ ")");
 
         System.out.print("Inventory: ");
-        if (inventory.size() == 0) System.out.print("Empty");
-        for (int i = 0; i < inventory.size(); i++) {
-            if (i>0) System.out.print(", ");
-            System.out.print(inventory.get(i).getQuantity() + " " + inventory.get(i).getName());
+        if (inventory.size() == 0) System.out.println("Empty");
+        else {
+            for (int i = 0; i < inventory.size(); i++) {
+                if (i > 0) System.out.print(", ");
+                System.out.print(inventory.get(i).getQuantity() + " " + inventory.get(i).getName());
+            }
+            System.out.println();
         }
-        System.out.println();
         System.out.print("Spells: ");
-        if (spells.size() == 0) System.out.print("Empty");
-        for (int i = 0; i < spells.size(); i++) {
-            if (i>0) System.out.print(", ");
-            System.out.print(spells.get(i).getName());
+        if (spells.size() == 0) System.out.println("Empty");
+        else {
+            for (int i = 0; i < spells.size(); i++) {
+                if (i > 0) System.out.print(", ");
+                System.out.print(spells.get(i).getName());
+            }
+            System.out.println();
         }
 
     }

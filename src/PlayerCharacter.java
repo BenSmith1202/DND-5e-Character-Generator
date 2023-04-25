@@ -86,7 +86,6 @@ public class PlayerCharacter {
         this.failDS = 0;
 
 
-        //at the end
         longRest();
     }
 
@@ -95,8 +94,11 @@ public class PlayerCharacter {
      * @param fileName = a file containing strings with the proper info to create a character
      */
     public PlayerCharacter(String fileName) throws FileNotFoundException {
-        inventory =  new ArrayList<>();
+        inventory = new ArrayList<>();
         spells = new ArrayList<>();
+
+        maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
+        remainingSpellSlots = new int[9];
 
         abilityScores = new HashMap<>(6);
 
@@ -125,12 +127,11 @@ public class PlayerCharacter {
             scnr.nextLine();
         }
 
-
-
-
-        succDS = 0;
-        failDS = 0;
         currentHealth = maxHealth;
+        this.succDS = 0;
+        this.failDS = 0;
+
+        longRest();
     }
 
     /**
@@ -324,8 +325,9 @@ public class PlayerCharacter {
             }
             System.out.println();
         }
+
         System.out.print("Spells: ");
-        if (spells.size() == 0) System.out.println("Empty");
+        if (spells.size() == 0) System.out.print("Empty");
         else {
             for (int i = 0; i < spells.size(); i++) {
                 if (i > 0) System.out.print(", ");

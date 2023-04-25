@@ -268,12 +268,6 @@ public class PlayerCharacter {
     public void castSpell(Spell spell){
         System.out.println(spell.getAffect());
     }
-    /**
-     * Returns the attack roll for trying to hit an enemy
-     * @param spell = The spell that the player is casting
-     * @return the attack roll
-     */
-
 
     /**
      * Returns the damage a spell would do if it hits
@@ -283,7 +277,6 @@ public class PlayerCharacter {
     public int rollDamage(Spell spell){
         return PlayerCharacter.rollDice(spell.getNumDamageDice(), spell.getDamageDie(), 0); // idk how spell bonus works
     }
-
 
 
     /**

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Attempted to fix FileCharacter">
-      <change afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added name generators for three races">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,14 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682379911812</updated>
     </task>
-    <task id="LOCAL-00010" summary="Made part of FileName Constructor for player character and added FileCharacter file">
-      <created>1682378077531</created>
+    <task id="LOCAL-00010" summary="Added name generators for three races">
+      <created>1682384618884</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1682378077531</updated>
+      <updated>1682384618884</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +165,7 @@
     <MESSAGE value="added javadocs for some classes" />
     <MESSAGE value="Updated spell system to use a regular array and tweaked the spell class." />
     <MESSAGE value="Attempted to fix FileCharacter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempted to fix FileCharacter" />
+    <MESSAGE value="Added name generators for three races" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added name generators for three races" />
   </component>
 </project>

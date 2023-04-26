@@ -58,7 +58,7 @@ public class PlayerCharacter {
      * Default Constructor for PlayerCharacter
      *
      */
-    public PlayerCharacter(){
+    public PlayerCharacter(int level, String name){
 
         abilityScores = new HashMap<>(6); // stub
         abilityScores.put("Strength", rollDice(3,6) + 5); // idk how we wanna do the random but this kinda works
@@ -74,8 +74,9 @@ public class PlayerCharacter {
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
         remainingSpellSlots = new int[9];
 
-        this.name = getDwarfName();
-        this.level = 1;
+
+        this.name = name;
+        this.level = level;
         this.maxHealth = 8 + getMod("Constitution") + rollDice(level-1, 8, getMod("Constitution"));
         this.gold = 10* rollDice(5, 4);
         this.armorClass = 10 + getMod("Dexterity");

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added file creator in main and bad exception handling for random creator">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.nameGenerator">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SmithOlingerProject5" />
@@ -64,9 +63,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.nameGenerator" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.nameGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682531470373</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test">
+      <created>1682558865949</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682558865949</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +229,7 @@
     <MESSAGE value="Made test class for testing, copied from main" />
     <MESSAGE value="Changed main to GUI character creator, added createRandom pathway" />
     <MESSAGE value="Added file creator in main and bad exception handling for random creator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added file creator in main and bad exception handling for random creator" />
+    <MESSAGE value="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test" />
   </component>
 </project>

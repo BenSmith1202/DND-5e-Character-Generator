@@ -148,13 +148,23 @@ public class PlayerCharacter {
      */
     public void rollDS(){
         int roll = rollDice(1,20,0);
+        System.out.println("Death Save Roll = " + roll);
         if (roll == 1){
             failDS += 2;
+            System.out.println("fails: " + failDS + "\nsuccesses: " + succDS);
         } else if (roll == 20){
             succDS = 3;
         } else if (roll < 10){
             failDS++;
         } else succDS++;
+        if (succDS >= 3){
+            System.out.println("You stabilize");
+            clearDS();
+        }
+        if (failDS >= 3){
+            System.out.println("You Died");
+            clearDS();
+        }
     }
 
     /**
@@ -173,6 +183,13 @@ public class PlayerCharacter {
         System.out.println("Attacking with " + weapon.getName() + ":"); // Need to Implement Crits now
         System.out.println("Roll to hit = " + rollToHit(weapon));
         System.out.println("Damage dealt on hit = " + rollDamage(weapon));
+    }
+    public void attack(String weaponName){
+        for (int i = 0; i < inventory.size(); i++) {
+            if (weaponName.equals(inventory.get(i).getName())){
+                attack((Weapon) inventory.get(i));
+            }
+        }
     }
 
     /**
@@ -272,6 +289,17 @@ public class PlayerCharacter {
      */
     public void castSpell(Spell spell){
         System.out.println(spell.getAffect());
+    }
+    public void castSpell(String spellName, boolean attackSpell){
+        for (int i = 0; i < inventory.size(); i++) {
+            if (spellName.equals(spells.get(i).getName())){
+                if (attackSpell){
+                    castAttackSpell(spells.get(i));
+                } else {
+                castSpell(spells.get(i));
+                }
+            }
+        }
     }
 
     /**
@@ -448,5 +476,6 @@ public class PlayerCharacter {
         if (currentHealth > maxHealth){
             currentHealth = maxHealth;
         }
+        System.out.println("Updated health: " + currentHealth + "/" + maxHealth);
     }
 }

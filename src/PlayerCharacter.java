@@ -61,12 +61,12 @@ public class PlayerCharacter {
     public PlayerCharacter(int level, String name){
 
         abilityScores = new HashMap<>(6); // stub
-        abilityScores.put("Strength", rollDice(3,6) + 5); // idk how we wanna do the random but this kinda works
-        abilityScores.put("Dexterity", rollDice(3,6) + 5);
-        abilityScores.put("Constitution", rollDice(3,6) + 5);
-        abilityScores.put("Intelligence", rollDice(3,6) + 5);
-        abilityScores.put("Wisdom", rollDice(3,6) + 5);
-        abilityScores.put("Charisma", rollDice(3,6) + 5);
+        abilityScores.put("Strength", rollCharacterStats());
+        abilityScores.put("Dexterity", rollCharacterStats());
+        abilityScores.put("Constitution", rollCharacterStats());
+        abilityScores.put("Intelligence", rollCharacterStats());
+        abilityScores.put("Wisdom", rollCharacterStats());
+        abilityScores.put("Charisma", rollCharacterStats());
 
         inventory =  new ArrayList<>();
         spells = new ArrayList<>();
@@ -184,6 +184,10 @@ public class PlayerCharacter {
         System.out.println("Roll to hit = " + rollToHit(weapon));
         System.out.println("Damage dealt on hit = " + rollDamage(weapon));
     }
+    /**
+     * Prints out the attack roll and potential damage of an attack, taken from a name string
+     * @param weaponName = The name of the weapon that the player is attacking with
+     */
     public void attack(String weaponName){
         for (int i = 0; i < inventory.size(); i++) {
             if (weaponName.equals(inventory.get(i).getName())){
@@ -262,7 +266,12 @@ public class PlayerCharacter {
         total += bonus;
         return total;
     }
-
+    /**
+     * Rolls a set of dice and returns the result, doesn't use bonus
+     * @param number = the number of dice being rolled
+     * @param sides = the number of sides each of those dice has
+     * @return the total combined number of the rolled dice
+     */
     public static int rollDice(int number, int sides){
         Random r = new Random();
         int total = 0;
@@ -271,6 +280,19 @@ public class PlayerCharacter {
         }
 
         return total;
+    }
+    public static int rollCharacterStats(){
+        Random r = new Random();
+        int total = 0;
+        int r1 = r.nextInt(1,7);
+        int r2 = r.nextInt(1,7);
+        int r3 = r.nextInt(1,7);
+        int r4 = r.nextInt(1,7);
+        if (r1 < r2 && r1< r3 && r1<r4){
+
+        } //IDK BEN MAKE A GOOD WAY TO TOSS OUT THE MIN AHHHHH
+
+        return 12;
     }
 
 

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added UI to access all listed methods in main, tweaked cast spell, change health, and death saves">
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682558865949</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added UI to access all listed methods in main, tweaked cast spell, change health, and death saves">
+      <created>1682573414948</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682573414948</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +235,7 @@
     <MESSAGE value="Changed main to GUI character creator, added createRandom pathway" />
     <MESSAGE value="Added file creator in main and bad exception handling for random creator" />
     <MESSAGE value="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test" />
+    <MESSAGE value="Added UI to access all listed methods in main, tweaked cast spell, change health, and death saves" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added UI to access all listed methods in main, tweaked cast spell, change health, and death saves" />
   </component>
 </project>

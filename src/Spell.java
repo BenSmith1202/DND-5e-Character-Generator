@@ -21,6 +21,13 @@ public class Spell {
     this.slotLevel = slotLevel;
     this.affect = affect;
   }
+  public Spell(String name, int slotLevel, String affect){
+    this.name = name;
+    this.damageDie = 0;
+    this.numDamageDice = 0;
+    this.slotLevel = slotLevel;
+    this.affect = affect;
+  }
 
 
   public String getName() {

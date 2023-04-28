@@ -21,17 +21,22 @@ public class Test {
         p2.addSpell(fireball);
         Spell lightingBolt = new Spell("lighting bolt", 6,8,4,"this casts biggy bolty");
         p2.addSpell(lightingBolt);
+        Spell becomeFrog = new Spell("becomeFrog", 2,"you become a frog");
+        p2.addSpell(becomeFrog);
 
+
+        p2.castAttackSpell(fireball);
+        System.out.println();
+        p2.attack(sword);
+        System.out.println();
+        p2.castSpell(becomeFrog);
 
         p2.printSheet();
         p1.printSheet();
 
 
 //        System.out.println(p2.rollToHit(sword));
-        System.out.println();
-        p2.castAttackSpell(fireball);
-        System.out.println();
-        p2.attack(sword);
+
 
 
     }

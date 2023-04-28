@@ -317,7 +317,7 @@ public class PlayerCharacter {
         System.out.println(spell.getAffect());
     }
     public void castSpell(String spellName, boolean attackSpell){
-        for (int i = 0; i < inventory.size(); i++) {
+        for (int i = 0; i < spells.size(); i++) {
             if (spellName.equals(spells.get(i).getName())){
                 if (attackSpell){
                     castAttackSpell(spells.get(i));

@@ -1,0 +1,4 @@
+1 10 0 Strength slashing Iron Longsword
+1 8 0 Dexterity slashing Iron Shortsword
+1 10 0 Strength bludgeoning Iron Hammer
+1 4 0 Dexterity piercing Iron Dagger

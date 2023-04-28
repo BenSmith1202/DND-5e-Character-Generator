@@ -9,8 +9,10 @@ public class Main {
      */
     public static void main(String[] args) throws FileNotFoundException {
 
-        System.out.println("Choose one of the options by typing in the given string:\n" +
-                "createRandom\ncreateFile");
+        System.out.println("""
+                Choose one of the options by typing in the given string:
+                createRandom
+                createFile""");
 
         Scanner scnr = new Scanner(System.in);
         String store = scnr.next();
@@ -41,9 +43,18 @@ public class Main {
 
             boolean done = false;
             while (!done){
-                System.out.println("\n\nChoose any of the actions below by typing in the string, or type 'done' to exit:\n" +
-                        "addItem\n" + "addSpell\n" + "attack\n" + "rest\n" + "castSpell\n" +
-                        "changeHealth\n" + "rollDS\n" + "printSheet");
+                System.out.println("""
+
+
+                        Choose any of the actions below by typing in the string, or type 'done' to exit:
+                        addItem
+                        addSpell
+                        attack
+                        rest
+                        castSpell
+                        changeHealth
+                        rollDS
+                        printSheet""");
                 String input = scnr.next();
 
 

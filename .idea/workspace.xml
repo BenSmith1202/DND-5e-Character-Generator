@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs.">
-      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="oops, fixed a couple warnings">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_COMP 220 S23 Recursion starter.zip/starter/factorial/Factorial.java" root0="FORCE_HIGHLIGHTING" />
@@ -230,7 +232,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682661076049</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="oops, fixed a couple warnings">
+      <created>1682661557843</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1682661557843</updated>
+    </task>
+    <task id="LOCAL-00022" summary="oops, fixed a couple warnings">
+      <created>1682661670601</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1682661670601</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,6 +282,7 @@
     <MESSAGE value="Added UI to access all listed methods in main, tweaked cast spell, change health, and death saves" />
     <MESSAGE value="Fixed spell bug, added lists of possible items for inventory randomization" />
     <MESSAGE value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
+    <MESSAGE value="oops, fixed a couple warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="oops, fixed a couple warnings" />
   </component>
 </project>

@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InventoryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InventoryItem.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs.">
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starterItems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/starterItems.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682643467753</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs.">
+      <created>1682661076049</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682661076049</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -262,6 +265,7 @@
     <MESSAGE value="Added more ways for the user to do things in main such as addItem, change Health, or addSpell, also added a basic spell constructor to spell and tested that in Test" />
     <MESSAGE value="Added UI to access all listed methods in main, tweaked cast spell, change health, and death saves" />
     <MESSAGE value="Fixed spell bug, added lists of possible items for inventory randomization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed spell bug, added lists of possible items for inventory randomization" />
+    <MESSAGE value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
   </component>
 </project>

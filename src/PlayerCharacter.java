@@ -72,10 +72,8 @@ public class PlayerCharacter {
         abilityScores.put("Wisdom", rollCharacterStats());
         abilityScores.put("Charisma", rollCharacterStats());
 
-
         inventory =  new ArrayList<>();
         File starterItems = new File("starterItems.txt"); //open file for starting items
-
         Scanner checkStartingItems = new Scanner(starterItems); //checks how many items are in the Starting items file so we don't have to
         int starterItemsLen = 0;
         while (checkStartingItems.hasNextLine()){
@@ -94,7 +92,6 @@ public class PlayerCharacter {
         }
 
         File trinkets = new File("trinketsList.txt"); //open file for trinkets
-
         Scanner checkTrinkets = new Scanner(trinkets); //checks how many items are in the trinkets file so we don't have to
         int trinketsLen = 0;
         while (checkTrinkets.hasNextLine()){
@@ -112,12 +109,10 @@ public class PlayerCharacter {
             scan.close();
         }
 
-
         spells = new ArrayList<>();
 
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
         remainingSpellSlots = new int[9];
-
 
         this.name = name;
         this.level = level;
@@ -128,7 +123,6 @@ public class PlayerCharacter {
 
         this.succDS = 0;
         this.failDS = 0;
-
 
         longRest();
     }
@@ -233,9 +227,9 @@ public class PlayerCharacter {
      * @param weaponName = The name of the weapon that the player is attacking with
      */
     public void attack(String weaponName){
-        for (int i = 0; i < inventory.size(); i++) {
-            if (weaponName.equals(inventory.get(i).getName())){
-                attack((Weapon) inventory.get(i));
+        for (InventoryItem inventoryItem : inventory) {
+            if (weaponName.equals(inventoryItem.getName())) {
+                attack((Weapon) inventoryItem);
             }
         }
     }
@@ -291,10 +285,7 @@ public class PlayerCharacter {
      */
     public int rollAbilityCheck(String ability){
         int roll = rollDice(1,20,getMod(ability));
-        if (roll < 1){
-            return 1;
-        }
-        else return roll;
+        return Math.max(roll, 1);
     }
 //    rollDie(Number, Sides,  Bonus)
 
@@ -421,7 +412,7 @@ public class PlayerCharacter {
         else {
             System.out.print("\n");
             for (int i = 0; i < inventory.size(); i++) {
-                System.out.println(inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
+                System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
             }
             System.out.println();
         }
@@ -488,9 +479,7 @@ public class PlayerCharacter {
      */
     public void longRest(){
         currentHealth = maxHealth;
-        for (int i = 0; i < 9; i++) {
-            remainingSpellSlots[i] = maxSpellSlots[i];
-        }
+        System.arraycopy(maxSpellSlots, 0, remainingSpellSlots, 0, 9);
 
     }
 

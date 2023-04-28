@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class InventoryItem {
-    private String name;
+    private final String name;
     private int quantity;
 
     /**

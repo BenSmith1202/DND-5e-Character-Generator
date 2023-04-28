@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Made different way to get random numbers for random Constructor, added polish to random places">
-      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="tweaked name generation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +23,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_COMP 220 S23 Recursion starter.zip/starter/factorial/Factorial.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/FileCharacter.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PlayerCharacter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Spell.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Weapon.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/nameGenerator.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -40,16 +47,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.nameGenerator">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SmithOlingerProject5" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="SmithOlingerProject5" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -64,9 +64,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.nameGenerator" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -135,42 +134,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682357554903</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added spells arrayList, added to Spell class, Made rollDamage and RollToHit methods for spells, added to PrintSheet method">
-      <created>1682363708026</created>
+    <task id="LOCAL-00009" summary="Attempted to fix FileCharacter">
+      <created>1682379911812</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1682363708026</updated>
+      <updated>1682379911812</updated>
     </task>
-    <task id="LOCAL-00010" summary="Made part of FileName Constructor for player character and added FileCharacter file">
-      <created>1682378077531</created>
+    <task id="LOCAL-00010" summary="Added name generators for three races">
+      <created>1682384618884</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1682378077531</updated>
+      <updated>1682384618884</updated>
     </task>
-    <task id="LOCAL-00011" summary="Added Affect variable to Spell and changed CastSpell implementaion, also added castAttackSpell">
-      <created>1682378933137</created>
+    <task id="LOCAL-00011" summary="tweaked name generation">
+      <created>1682390423856</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1682378933137</updated>
+      <updated>1682390423856</updated>
     </task>
-    <task id="LOCAL-00012" summary="Fixed the file Constructor for PlayerCharacter, it now works">
-      <created>1682400836362</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1682400836362</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Made different way to get random numbers for random Constructor, added polish to random places">
-      <created>1682405023509</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1682405023509</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,12 +178,10 @@
     <MESSAGE value="Fixing descrepancies with spell version" />
     <MESSAGE value="Added to hit method and removed unnecessary default constructor for InventoryItem" />
     <MESSAGE value="added javadocs for some classes" />
-    <MESSAGE value="Fixed Construction error due to ordering,&#10;Added to PrintSheet Method&#10;Added Getters for InventoryItem variables" />
-    <MESSAGE value="Added spells arrayList, added to Spell class, Made rollDamage and RollToHit methods for spells, added to PrintSheet method" />
-    <MESSAGE value="Made part of FileName Constructor for player character and added FileCharacter file" />
-    <MESSAGE value="Added Affect variable to Spell and changed CastSpell implementaion, also added castAttackSpell" />
-    <MESSAGE value="Fixed the file Constructor for PlayerCharacter, it now works" />
-    <MESSAGE value="Made different way to get random numbers for random Constructor, added polish to random places" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made different way to get random numbers for random Constructor, added polish to random places" />
+    <MESSAGE value="Updated spell system to use a regular array and tweaked the spell class." />
+    <MESSAGE value="Attempted to fix FileCharacter" />
+    <MESSAGE value="Added name generators for three races" />
+    <MESSAGE value="tweaked name generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="tweaked name generation" />
   </component>
 </project>

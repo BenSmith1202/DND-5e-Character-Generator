@@ -10,7 +10,7 @@ public class PlayerCharacter {
 
     private static final String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
     "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",
-    "ro", "to", "bo", "ry", "co", "ca", "co", "la" };
+    "ro", "to", "bo", "ry", "co", "ca", "well", "max", "jo", "co", "la", "so", "tay", "" };
 
     private static final String[] dwarfNameSyls = new String[]{"tik", "lik", "dik", "pik", "puk", "duk", "luk", "tuk", "arz", "alz" , "anz", "urz",
     "unz", "ulz", "rok", "nok", "bok", "sok", "ruk", "nuk", "dwar", "vy", "suk", "buk", "enger", "dale", "tal", "mith", "koka", "darl", "karl", "snarl", "barl",
@@ -22,11 +22,15 @@ public class PlayerCharacter {
 
     private static final String[] elfSurnames = new String[]{"leaf", "branch", "river", "stone", "ice", "flame", "cove", "birch", "oak", "dawn", "dusk",
     "flax", "flood", "gale", "breeze", "zephyr", "air", "sky", "ash", "silk", "vine", "jewel", "pond", "marsh", "moon", "star", "sun", "wild", "tide",
-    "heath", "hawk", "reef", "frost", "bud", "jay", "pine", "aspen", "cedar", "grove", "thorn", "wisp", "ink", "rook"};
+    "heath", "hawk", "reef", "frost", "bud", "jay", "pine", "aspen", "cedar", "grove", "thorn", "wisp", "ink", "rook", "tree", "trunk", "bark", "stem",
+    "lord", "sage", "fruit", "seed", "sky", "storm", "rain", "apple", "mage", "lake", "swamp", "sea", ""};
 
     private static final String[] humanSurnames = new String[]{"wheeler", "chapman", "smith", "olinger", "coward", "dempster", "davis", "fitz", "hurst",
             "shaw", "townsend", "cruikshank", "moody", "lark", "taylor", "butcher", "gouy", "pozu", "heavyarms", "wheezer", "foster", "folger", "trombka",
-            "toms", "stanski", "mamajek", "jordan", "arkwright", "brewster", "walker", "marshall", "turner", "johnson", "lister", "lucky", "ebert", "wing"};
+            "toms", "stanski", "mamajek", "jordan", "arkwright", "brewster", "walker", "marshall", "turner", "johnson", "lister", "lucky", "ebert", "wing", "williams",
+            "brown", "jones", "miller","rodriguez", "wilson", "anderson", "moore", "thompson", "lewis", "king", "matteran", "lucio", "hall", "green", "adams", "narn",
+            "skaye", "roberts", "nickel", "denarii", "jupiter", "mars", "reaker", "fulloat", "spinner", "power", "garnet", "flint",
+            "array", "stinger", "chrysos", "million"};
 
     private static final String[] dwarfSurnamesModifyer = new String[]{"strong", "steel", "dark", "stormy", "diamond", "ruby", "onyx", "iron", "golden", "stoney",
     "blazing", "slaughter", "war", "lumber", "rock", "splitter", "dwarven", "flinty", "mica", "granite", "marble", "under", "over", "twisted", "welded", "scrawny"};

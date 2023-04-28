@@ -1,5 +1,7 @@
+import java.io.FileNotFoundException;
+
 public class nameGenerator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println("DWARF NAMES:");
         for (int i = 0; i < 25; i++) {
             System.out.println(PlayerCharacter.getDwarfName());
@@ -14,5 +16,10 @@ public class nameGenerator {
         for (int i = 0; i < 25; i++) {
             System.out.println(PlayerCharacter.getElfName());
         }
+
+        PlayerCharacter p1 = new PlayerCharacter(1, PlayerCharacter.getHumanName());
+        p1.printSheet();
+
+
     }
 }

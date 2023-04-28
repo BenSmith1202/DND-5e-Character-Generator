@@ -62,9 +62,9 @@ public class PlayerCharacter {
      * Default Constructor for PlayerCharacter
      *
      */
-    public PlayerCharacter(int level, String name){
+    public PlayerCharacter(int level, String name) throws FileNotFoundException {
 
-        abilityScores = new HashMap<>(6); // stub
+        abilityScores = new HashMap<>(6); // roll all the stats
         abilityScores.put("Strength", rollCharacterStats());
         abilityScores.put("Dexterity", rollCharacterStats());
         abilityScores.put("Constitution", rollCharacterStats());
@@ -72,7 +72,47 @@ public class PlayerCharacter {
         abilityScores.put("Wisdom", rollCharacterStats());
         abilityScores.put("Charisma", rollCharacterStats());
 
+
         inventory =  new ArrayList<>();
+        File starterItems = new File("starterItems.txt"); //open file for starting items
+
+        Scanner checkStartingItems = new Scanner(starterItems); //checks how many items are in the Starting items file so we don't have to
+        int starterItemsLen = 0;
+        while (checkStartingItems.hasNextLine()){
+            starterItemsLen++;
+            checkStartingItems.nextLine();
+        }
+        checkStartingItems.close();
+
+        for (int i = 0; i < 8; i++) {
+            Scanner scan = new Scanner(starterItems);
+            for (int j = 0; j < rollDice(1, starterItemsLen-1); j++) { //sides is number of lines in file -1
+                scan.nextLine(); //cycle to a random line
+            }
+            inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
+            scan.close();
+        }
+
+        File trinkets = new File("trinketsList.txt"); //open file for trinkets
+
+        Scanner checkTrinkets = new Scanner(trinkets); //checks how many items are in the trinkets file so we don't have to
+        int trinketsLen = 0;
+        while (checkTrinkets.hasNextLine()){
+            trinketsLen++;
+            checkTrinkets.nextLine();
+        }
+        checkTrinkets.close();
+
+        for (int i = 0; i < 3; i++) {
+            Scanner scan = new Scanner(trinkets);
+            for (int j = 0; j < rollDice(1, trinketsLen-1); j++) { //sides is number of lines in file -1
+                scan.nextLine(); //cycle to a random line
+            }
+            inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
+            scan.close();
+        }
+
+
         spells = new ArrayList<>();
 
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
@@ -225,12 +265,16 @@ public class PlayerCharacter {
     public void addItem(InventoryItem newItem){
         inventory.add(newItem);
     }
+    public void addItem(String itemString){
+        InventoryItem newItem = new InventoryItem(itemString);
+        inventory.add(newItem);
+    }
     /**
-     * Adds a new Item to the player's inventory
-     * @param newItem = the item to be added
+     * removes an Item from the player's inventory
+     * @param item = the item to be removed
      */
-    public void RemoveItem(InventoryItem newItem){
-        inventory.remove(newItem);
+    public void RemoveItem(InventoryItem item){
+        inventory.remove(item);
     }
     /**
      * Adds a new spell to the player's spells
@@ -286,17 +330,18 @@ public class PlayerCharacter {
         return total;
     }
     public static int rollCharacterStats(){
-        Random r = new Random();
         int total = 0;
-        int r1 = r.nextInt(1,7);
-        int r2 = r.nextInt(1,7);
-        int r3 = r.nextInt(1,7);
-        int r4 = r.nextInt(1,7);
-        if (r1 < r2 && r1< r3 && r1<r4){
+        int lowest = 7;
+        for (int i = 0; i < 4; i++) {
+            int num = rollDice(1, 6);
+            if (num < lowest){
+                lowest = num;
+            }
+            total += num;
+        }
+        total -= lowest;
 
-        } //IDK BEN MAKE A GOOD WAY TO TOSS OUT THE MIN AHHHHH
-
-        return 12;
+        return total;
     }
 
 
@@ -364,19 +409,19 @@ public class PlayerCharacter {
         System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "      Death Saves (S/F): " + succDS+"/"+failDS);
         System.out.println("Gold: " + gold);
 
-        System.out.println("Strength: " + abilityScores.get("Strength") + "(+" + getMod("Strength")+ ")" + "       " +
-                "Dexterity: " + abilityScores.get("Dexterity") + "(+" + getMod("Dexterity")+ ")" + "   " +
-                "Constitution: " + abilityScores.get("Constitution") + "(+" + getMod("Constitution")+ ")");
-        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(+" + getMod("Intelligence")+ ")" + "   " +
-                "Wisdom: " + abilityScores.get("Wisdom") + "(+" + getMod("Wisdom")+ ")" + "      " +
-                "Charisma: " + abilityScores.get("Charisma") + "(+" + getMod("Charisma")+ ")");
+        System.out.println("Strength: " + abilityScores.get("Strength") + "(" + getMod("Strength")+ ")" + "       " +
+                "Dexterity: " + abilityScores.get("Dexterity") + "(" + getMod("Dexterity")+ ")" + "   " +
+                "Constitution: " + abilityScores.get("Constitution") + "(" + getMod("Constitution")+ ")");
+        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(" + getMod("Intelligence")+ ")" + "   " +
+                "Wisdom: " + abilityScores.get("Wisdom") + "(" + getMod("Wisdom")+ ")" + "      " +
+                "Charisma: " + abilityScores.get("Charisma") + "(" + getMod("Charisma")+ ")");
 
         System.out.print("Inventory: ");
         if (inventory.size() == 0) System.out.println("Empty");
         else {
+            System.out.print("\n");
             for (int i = 0; i < inventory.size(); i++) {
-                if (i > 0) System.out.print(", ");
-                System.out.print(inventory.get(i).getQuantity() + " " + inventory.get(i).getName());
+                System.out.println(inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
             }
             System.out.println();
         }
@@ -385,7 +430,7 @@ public class PlayerCharacter {
         if (spells.size() == 0) System.out.println("Empty");
         else {
             for (int i = 0; i < spells.size(); i++) {
-                if (i > 0) System.out.print(", ");
+                if (i > 0) System.out.print("i");
                 System.out.print(spells.get(i).getName());
             }
             System.out.println();
@@ -397,62 +442,44 @@ public class PlayerCharacter {
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
         Random random = new Random();
-        int r = random.nextInt(2);
-        if (r == 1){
-            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-            firstNameBuilder.append(" ");
-        } else {
-            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-            firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-            firstNameBuilder.append(" ");
-        }
-        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1);
-        lastNameBuilder.append(dwarfSurnamesModifyer[(random.nextInt(dwarfSurnamesModifyer.length))]);
-        lastNameBuilder.append(dwarfSurnamesObject[(random.nextInt(dwarfSurnamesObject.length))]);
-        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);
+        firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]); //pick two syllables for the first name
+        firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+        int r = random.nextInt(2); //sometimes the name gets an extra syllable
+        if (r != 1){firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);} //sometimes the names get an extra syllable
+        firstNameBuilder.append(" "); //put a space between names
+        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
+        lastNameBuilder.append(dwarfSurnamesModifyer[(random.nextInt(dwarfSurnamesModifyer.length))]);  //dwarf names have a modifyer which
+        lastNameBuilder.append(dwarfSurnamesObject[(random.nextInt(dwarfSurnamesObject.length))]);      //gets added before an object
+        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);//capitalize and return full name
     }
 
     public static String getHumanName(){
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
         Random random = new Random();
+        firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]); //pick two syllables for the first name
+        firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
         int r = random.nextInt(2);
-        if (r == 1){
-            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
-            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
-            firstNameBuilder.append(" ");
-        } else {
-            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
-            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
-            firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
-            firstNameBuilder.append(" ");
-        }
-        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1);
-        lastNameBuilder.append(humanSurnames[(random.nextInt(humanSurnames.length))]);
-        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);
+        if (r != 1){firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);} //sometimes the names get an extra syllable
+        firstNameBuilder.append(" ");
+        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
+        lastNameBuilder.append(humanSurnames[(random.nextInt(humanSurnames.length))]); //pick random last name
+        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
     }
 
     public static String getElfName(){
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
         Random random = new Random();
+        firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]); //picks two syllables for the name
+        firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
         int r = random.nextInt(2);
-        if (r == 1){
-            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-            firstNameBuilder.append(" ");
-        } else {
-            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-            firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-            firstNameBuilder.append(" ");
-        }
-        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1);
+        if (r != 1){firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);} //sometimes they get an extra syllable
+        firstNameBuilder.append(" ");
+        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
+        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]); //pick two last name parts
         lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
-        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
-        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);
+        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
     }
 
 

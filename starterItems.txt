@@ -1,9 +1,9 @@
 3 20 feet of rope
 10 torches
 20 meager rations
-20 cheap rations
-10 expensive rations
-5 luxurious rations
+10 cheap rations
+5 expensive rations
+1 luxurious ration
 1 sharpening stone
 1 extra adventuring clothes
 1 thief's tools

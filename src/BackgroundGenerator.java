@@ -135,6 +135,6 @@ public class BackgroundGenerator {
     //One day, after a long night of drinking, some of my [relatives], my friend [getName] and I were exploring an abandoned
     // [mysterySite] near [Location2], but I was separated from them at some point, and found myself standing in front of a [MysteryEntity].
     //I could feel its voice stirring something within me, reminding me of my ideals and strengthening my resolve. If I
-    //wanted to achieve my dreams as a [Class], I couldn't go [verbing] around any longer. I needed to become an adventurer.
+    //wanted to achieve my dreams as a [Class], I couldn't just go [verbing] around any longer. I needed to become an adventurer.
 
 }

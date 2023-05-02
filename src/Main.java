@@ -18,17 +18,35 @@ public class Main {
         PlayerCharacter p1 = null;
 
             if (store == 1) {
-                System.out.println("Please enter one of the following character races: [1] Dwarf, [2] Elf, or [3] Human");
-                int race = scnr.nextInt();
-                System.out.println("Please enter the characters level");
-                int level = scnr.nextInt();
-                String name = switch (race) {
-                    case 1 -> RandomNameGenerator.getDwarfName();
-                    case 2 -> RandomNameGenerator.getElfName();
-                    case 3 -> RandomNameGenerator.getHumanName();
+                System.out.println("Please enter one of the following character races: [1] Dwarf, [2] Elf, [3] Human, or [4] Random Race");
+                int raceChoice = scnr.nextInt();
+                String race = switch (raceChoice) {
+                    case 1 -> "Dwarf";
+                    case 2 -> "Elf";
+                    case 3 -> "Human";
+                    case 4 -> "Random";
                     default -> "";
                 };
-                p1 = new PlayerCharacter(level, name);
+                String name = switch (race) {
+                    case "Dwarf" -> RandomNameGenerator.getDwarfName();
+                    case "Elf" -> RandomNameGenerator.getElfName();
+                    case "Human" -> RandomNameGenerator.getHumanName();
+                    case "Random" -> RandomNameGenerator.getDwarfName();
+                    default -> "";
+                };
+                System.out.println("Please enter one of the following classes: [1] Fighter, [2] Barbarian, [3] Bard, [4] Random Class");
+                int classChoice = scnr.nextInt();
+                String characterClass = switch (classChoice) {
+                    case 1 -> "Fighter";
+                    case 2 -> "Barbarian";
+                    case 3 -> "Bard";
+                    case 4 -> "Random";
+                    default -> "";
+                };
+                System.out.println("Please enter the characters level");
+                int level = scnr.nextInt();
+
+                p1 = new PlayerCharacter(level, name, race, characterClass);
                 p1.printSheet();
             }
 

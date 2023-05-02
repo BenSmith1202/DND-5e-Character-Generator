@@ -17,11 +17,11 @@ public class nameGenerator {
             System.out.println(RandomNameGenerator.getElfName());
         }
 
-        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getHumanName());
+        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getHumanName(),"Dwarf","Bard");
         p1.printSheet();
-        PlayerCharacter p2 = new PlayerCharacter(5, RandomNameGenerator.getDwarfName());
+        PlayerCharacter p2 = new PlayerCharacter(5, RandomNameGenerator.getDwarfName(),"Dwarf","Bard");
         p2.printSheet();
-        PlayerCharacter p3 = new PlayerCharacter(20, RandomNameGenerator.getElfName());
+        PlayerCharacter p3 = new PlayerCharacter(20, RandomNameGenerator.getElfName(),"Dwarf","Bard");
         p3.printSheet();
 
 

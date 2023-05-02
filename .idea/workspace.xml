@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="tried to add rollCharacterStats to roll for the inital random stats, dropping min value">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="made test create a bunch of random characters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,7 @@
       <recent name="C:\Users\SMITHBA22\OneDrive - Grove City College\Documents\Homework\Comp 220\SmithOlingerProject5" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SmithOlingerProject5" />
@@ -77,8 +77,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.nameGenerator" />
       </list>
     </recent_temporary>
@@ -253,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682701614038</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="made test create a bunch of random characters">
+      <created>1683056282185</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683056282185</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,6 +297,7 @@
     <MESSAGE value="Fixed spell bug, added lists of possible items for inventory randomization" />
     <MESSAGE value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
     <MESSAGE value="oops, fixed a couple warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="oops, fixed a couple warnings" />
+    <MESSAGE value="made test create a bunch of random characters" />
+    <option name="LAST_COMMIT_MESSAGE" value="made test create a bunch of random characters" />
   </component>
 </project>

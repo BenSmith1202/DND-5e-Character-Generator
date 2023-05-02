@@ -126,7 +126,7 @@ public class BackgroundGenerator {
     //One night in [Location1], while I was [verbing] with my [relatives], we were [agressiveVerbed] by a [hostileParty]. After the tradgedy,
     //I swore to never let another person be [aggressive verbed] again, and so I took up arms as an adventurer.
 
-    //Call To Adventure 2
+    //Call To Adventure two
     //Being a [Background] doesn't pay enough for my taste, so when I overheard something about high-paying job
     //while [verbing] in [Location 2], I was interested. All I needed was my trusty [Object] and my [random ability] to
     //complete the quest, make sure the [Hostile Party] was [agressiveVerbed], and claim my coin. And that, is how I became an adventurer.

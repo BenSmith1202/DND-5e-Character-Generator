@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment.">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added JavaDoc and comments for many methods.">
+      <change afterPath="$PROJECT_DIR$/src/BackgroundGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomNameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomNameGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682986248142</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added JavaDoc and comments for many methods.">
+      <created>1682988078850</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1682988078850</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,6 +306,7 @@
     <MESSAGE value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
     <MESSAGE value="oops, fixed a couple warnings" />
     <MESSAGE value="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment." />
-    <option name="LAST_COMMIT_MESSAGE" value="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment." />
+    <MESSAGE value="Added JavaDoc and comments for many methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc and comments for many methods." />
   </component>
 </project>

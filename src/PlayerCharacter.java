@@ -1,43 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Ben Smith, David Olinger
  */
 
 public class PlayerCharacter {
-
-    private static final String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
-    "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",
-    "ro", "to", "bo", "ry", "co", "ca", "well", "max", "jo", "co", "la", "so", "tay", "" };
-
-    private static final String[] dwarfNameSyls = new String[]{"tik", "lik", "dik", "pik", "puk", "duk", "luk", "tuk", "arz", "alz" , "anz", "urz",
-    "unz", "ulz", "rok", "nok", "bok", "sok", "ruk", "nuk", "dwar", "vy", "suk", "buk", "enger", "dale", "tal", "mith", "koka", "darl", "karl", "snarl", "barl",
-    "jarl", "nug", "rog", "rik", "nik", "pik", "akz", "daye", "mond", "mund", "trund"};
-
-    private static final String[] elfNameSyls = new String[]{"dru", "ehr", "grim", "lynn", "wynn", "ev", "eth", "gael", "eltar", "bryl", "jan", "dar",
-    "ero", "lith", "gant", "faor", "fho", "fyl", "ha", "la", "ri", "paer", "ril", "thil", "aerm", "aum", "rath", "cali", "ban", "wisp", "bel",
-    "droth", "darry", "thor", "idan", "ian", "rian", "lian", "trine", "rina", "dal", "yor", "bel", "naith", "evos", "assin", "lil", "sus" };
-
-    private static final String[] elfSurnames = new String[]{"leaf", "branch", "river", "stone", "ice", "flame", "cove", "birch", "oak", "dawn", "dusk",
-    "flax", "flood", "gale", "breeze", "zephyr", "air", "sky", "ash", "silk", "vine", "jewel", "pond", "marsh", "moon", "star", "sun", "wild", "tide",
-    "heath", "hawk", "reef", "frost", "bud", "jay", "pine", "aspen", "cedar", "grove", "thorn", "wisp", "ink", "rook", "tree", "trunk", "bark", "stem",
-    "lord", "sage", "fruit", "seed", "sky", "storm", "rain", "apple", "mage", "lake", "swamp", "sea", ""};
-
-    private static final String[] humanSurnames = new String[]{"wheeler", "chapman", "smith", "olinger", "coward", "dempster", "davis", "fitz", "hurst",
-            "shaw", "townsend", "cruikshank", "moody", "lark", "taylor", "butcher", "gouy", "pozu", "heavyarms", "wheezer", "foster", "folger", "trombka",
-            "toms", "stanski", "mamajek", "jordan", "arkwright", "brewster", "walker", "marshall", "turner", "johnson", "lister", "lucky", "ebert", "wing", "williams",
-            "brown", "jones", "miller","rodriguez", "wilson", "anderson", "moore", "thompson", "lewis", "king", "matteran", "lucio", "hall", "green", "adams", "narn",
-            "skaye", "roberts", "nickel", "denarii", "jupiter", "mars", "reaker", "fulloat", "spinner", "power", "garnet", "flint",
-            "array", "stinger", "chrysos", "million"};
-
-    private static final String[] dwarfSurnamesModifyer = new String[]{"strong", "steel", "dark", "stormy", "diamond", "ruby", "onyx", "iron", "golden", "stoney",
-    "blazing", "slaughter", "war", "lumber", "rock", "splitter", "dwarven", "flinty", "mica", "granite", "marble", "under", "over", "twisted", "welded", "scrawny"};
-    private static final String[] dwarfSurnamesObject = new String[]{"crown", "sword", "pick", "mine", "gem", "flint", "rock", "armor", "weapon", "tools", "boots", "passage",
-    "dwarf", "blade", "edge", "head", "foot", "fist", "fists", "lord", "forge", "field", "drink", "ale", "plow", "beam", "plate", "guard", "gourd", "cheese",
-    "wood", "stone", "crystal", "hammer", "chisel", "saw"};
     private String name;
+
+    private String persona;
     private int level;
     private HashMap<String, Integer> abilityScores;
     //hashmap of spells needed
@@ -56,6 +29,7 @@ public class PlayerCharacter {
     //Keeps track of failed and succeeded death saves
     private int succDS;
     private int failDS;
+    private String alignment;
 
 
     /**
@@ -92,7 +66,7 @@ public class PlayerCharacter {
         }
 
         File trinkets = new File("trinketsList.txt"); //open file for trinkets
-        Scanner checkTrinkets = new Scanner(trinkets); //checks how many items are in the trinkets file so we don't have to
+        Scanner checkTrinkets = new Scanner(trinkets); //checks how many items are in the trinkets file so that we don't have to
         int trinketsLen = 0;
         while (checkTrinkets.hasNextLine()){
             trinketsLen++;
@@ -104,6 +78,7 @@ public class PlayerCharacter {
             Scanner scan = new Scanner(trinkets);
             for (int j = 0; j < rollDice(1, trinketsLen-1); j++) { //sides is number of lines in file -1
                 scan.nextLine(); //cycle to a random line
+
             }
             inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
             scan.close();
@@ -116,13 +91,18 @@ public class PlayerCharacter {
 
         this.name = name;
         this.level = level;
-        this.maxHealth = 8 + getMod("Constitution") + rollDice(level-1, 8, getMod("Constitution"));
+        this.maxHealth = 8 + rollDice(level-1, 8) + (level*getMod("Constitution"));
         this.gold = 10* rollDice(5, 4);
         this.armorClass = 10 + getMod("Dexterity");
-        this.speed = rollDice(1,6) * 5 + 10;
+        this.speed = rollDice(1,5, 3) * 5;
 
         this.succDS = 0;
         this.failDS = 0;
+
+        String[] ali1 = new String[] {"L", "N", "C"};
+        String[] ali2 = new String[] {"G", "N", "E"};
+        alignment = ali1[PlayerCharacter.rollDice(1, 3)-1] + ali2[PlayerCharacter.rollDice(1, 3)-1];
+        persona = RandomPersonaGenerator.getPersona(alignment);
 
         longRest();
     }
@@ -296,7 +276,7 @@ public class PlayerCharacter {
      * @param bonus = any bonus being added onto the total dice roll
      * @return the total combined number of the rolled dice
      */
-    public static int rollDice(int number, int sides, int bonus){
+    public static int rollDice(int number, int sides, int bonus) {
         Random r = new Random();
         int total = 0;
         for (int i = 0; i < number; i++) {
@@ -406,7 +386,7 @@ public class PlayerCharacter {
         System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(" + getMod("Intelligence")+ ")" + "   " +
                 "Wisdom: " + abilityScores.get("Wisdom") + "(" + getMod("Wisdom")+ ")" + "      " +
                 "Charisma: " + abilityScores.get("Charisma") + "(" + getMod("Charisma")+ ")");
-
+        System.out.println(persona + "\n");
         System.out.print("Inventory: ");
         if (inventory.size() == 0) System.out.println("Empty");
         else {
@@ -429,49 +409,7 @@ public class PlayerCharacter {
 
     }
 
-    public static String getDwarfName(){
-        StringBuilder firstNameBuilder = new StringBuilder();
-        StringBuilder lastNameBuilder = new StringBuilder();
-        Random random = new Random();
-        firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]); //pick two syllables for the first name
-        firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-        int r = random.nextInt(2); //sometimes the name gets an extra syllable
-        if (r != 1){firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);} //sometimes the names get an extra syllable
-        firstNameBuilder.append(" "); //put a space between names
-        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
-        lastNameBuilder.append(dwarfSurnamesModifyer[(random.nextInt(dwarfSurnamesModifyer.length))]);  //dwarf names have a modifyer which
-        lastNameBuilder.append(dwarfSurnamesObject[(random.nextInt(dwarfSurnamesObject.length))]);      //gets added before an object
-        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);//capitalize and return full name
-    }
 
-    public static String getHumanName(){
-        StringBuilder firstNameBuilder = new StringBuilder();
-        StringBuilder lastNameBuilder = new StringBuilder();
-        Random random = new Random();
-        firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]); //pick two syllables for the first name
-        firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
-        int r = random.nextInt(2);
-        if (r != 1){firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);} //sometimes the names get an extra syllable
-        firstNameBuilder.append(" ");
-        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
-        lastNameBuilder.append(humanSurnames[(random.nextInt(humanSurnames.length))]); //pick random last name
-        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
-    }
-
-    public static String getElfName(){
-        StringBuilder firstNameBuilder = new StringBuilder();
-        StringBuilder lastNameBuilder = new StringBuilder();
-        Random random = new Random();
-        firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]); //picks two syllables for the name
-        firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-        int r = random.nextInt(2);
-        if (r != 1){firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);} //sometimes they get an extra syllable
-        firstNameBuilder.append(" ");
-        String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
-        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]); //pick two last name parts
-        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
-        return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
-    }
 
 
     /**

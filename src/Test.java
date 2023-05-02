@@ -8,7 +8,7 @@ public class Test {
      */
     public static void main(String[] args) throws FileNotFoundException {
 
-        PlayerCharacter p1 = new PlayerCharacter(1,PlayerCharacter.getDwarfName()); //this is cool lol, this constructor works
+        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getDwarfName()); //this is cool lol, this constructor works
 
         PlayerCharacter p2 = new PlayerCharacter("FileCharacter.txt");
         p2.printSheet();

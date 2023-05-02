@@ -1,10 +1,9 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
     /**
-     * This class will be a interactive thingy that will promt the user to make a character and do stuffm
+     * This class will be an interactive thingy that will prompt the user to make a character and do stuff
      * @param args
      */
     public static void main(String[] args) throws FileNotFoundException {
@@ -19,17 +18,17 @@ public class Main {
         PlayerCharacter p1 = null;
 
             if (store.equals("createRandom")) {
-                System.out.println("Please enter one of the following character races: dwarf, elf, or human");
+                System.out.println("Please enter one of the following character races: Dwarf, Elf, or Human");
                 String race = scnr.next();
                 System.out.println("Please enter the characters level");
                 int level = scnr.nextInt();
                 String name = "";
-                if (race.equals("dwarf")) {
-                    name = PlayerCharacter.getDwarfName();
-                } else if (race.equals("elf")) {
-                    name = PlayerCharacter.getElfName();
-                } else if (race.equals("human")) {
-                    name = PlayerCharacter.getHumanName();
+                if (race.toUpperCase().equals("DWARF")) {
+                    name = RandomNameGenerator.getDwarfName();
+                } else if (race.toUpperCase().equals("ELF")) {
+                    name = RandomNameGenerator.getElfName();
+                } else if (race.toUpperCase().equals("HUMAN")) {
+                    name = RandomNameGenerator.getHumanName();
                 }
                 p1 = new PlayerCharacter(level, name);
                 p1.printSheet();

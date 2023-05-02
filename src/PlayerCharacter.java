@@ -12,6 +12,7 @@ public class PlayerCharacter {
     private String persona;
     private int level;
     private HashMap<String, Integer> abilityScores;
+    private HashMap<String,Integer> hitDieOptions;
     //hashmap of spells needed
     private ArrayList<InventoryItem> inventory;
     private ArrayList<Spell> spells;
@@ -27,14 +28,21 @@ public class PlayerCharacter {
     //Keeps track of failed and succeeded death saves
     private int succDS;
     private int failDS;
+    private int hitDie;
     private String alignment; //a two character alignment with the form '[L, N, or C][G, N, or E]'.
+    private String characterClass;
+    private String race;
+
+    private static String[] abilityList;
+
+
 
 
     /**
      * Default Constructor for PlayerCharacter
      *
      */
-    public PlayerCharacter(int level, String name) throws FileNotFoundException {
+    public PlayerCharacter(int level, String name, String race, String characterClass) throws FileNotFoundException {
 
         abilityScores = new HashMap<>(6); // roll all the stats
         abilityScores.put("Strength", rollCharacterStats());
@@ -43,6 +51,17 @@ public class PlayerCharacter {
         abilityScores.put("Intelligence", rollCharacterStats());
         abilityScores.put("Wisdom", rollCharacterStats());
         abilityScores.put("Charisma", rollCharacterStats());
+
+        hitDieOptions = new HashMap<>(6);
+        hitDieOptions.put("Barbarian",12);
+        hitDieOptions.put("Fighter",10);
+        hitDieOptions.put("Rouge",8);
+        hitDieOptions.put("Wizard",6);
+        hitDieOptions.put("Sorcerer",6);
+        hitDieOptions.put("Bard",8);
+
+        abilityList = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
+
 
         inventory =  new ArrayList<>();
         File starterItems = new File("starterItems.txt"); //open file for starting items
@@ -89,10 +108,30 @@ public class PlayerCharacter {
 
         this.name = name;
         this.level = level;
-        this.maxHealth = 8 + rollDice(level-1, 8) + (level*getMod("Constitution"));
         this.gold = 10* rollDice(5, 4);
         this.armorClass = 10 + getMod("Dexterity");
         this.speed = rollDice(1,5, 3) * 5;
+        if (characterClass.equals("Random")){
+            String highStat = "";
+            int highStatNum = 0;
+            for (int i = 0; i < 6; i++) {
+                if (abilityScores.get(abilityList[i]) > highStatNum){
+                    highStatNum = abilityScores.get(abilityList[i]);
+                    highStat = abilityList[i];
+                }
+            }
+            switch (highStat) {
+                case "Strength" -> characterClass = "Fighter";
+                case "Dexterity" -> characterClass = "Rouge";
+                case "Constitution" -> characterClass = "Barbarian";
+                case "Intelligence" -> characterClass = "Wizard";
+                case "Wisdom" -> characterClass = "Sorcerer";
+                case "Charisma" -> characterClass = "Bard";
+
+            }
+        }else this.characterClass = characterClass;
+        this.hitDie = hitDieOptions.get(characterClass);
+        this.maxHealth = hitDie + rollDice(level-1, hitDie) + (level*getMod("Constitution"));
 
         this.succDS = 0;
         this.failDS = 0;
@@ -135,6 +174,12 @@ public class PlayerCharacter {
         scnr.nextLine();
         scnr.next();
         armorClass = scnr.nextInt();
+        scnr.nextLine();
+        scnr.next();
+        characterClass = scnr.next();
+        scnr.nextLine();
+        scnr.next();
+        race = scnr.next();
         scnr.nextLine();
         scnr.next();
         gold = scnr.nextInt();
@@ -395,8 +440,9 @@ public class PlayerCharacter {
      * prints out the character sheet of the player in a file
      */
     public void printSheet(){
-        System.out.println("-----------------------------------------------");
-        System.out.println("Name: " + name +   "     Level: " + level + "     Alignment: " + alignment);
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("Name: " + name + "     Race: " + race + "      Class: " + characterClass +
+                "     Level: " + level + "    Alignment: " + alignment);
         System.out.println("Speed: " + speed + "              Armor Class: " + armorClass);
         System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "      Death Saves (S/F): " + succDS+"/"+failDS);
         System.out.println("Gold: " + gold);
@@ -415,6 +461,7 @@ public class PlayerCharacter {
             for (int i = 0; i < inventory.size(); i++) {
                 System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
             }
+            System.out.println("-------------------------------------------------------------");
             System.out.println();
         }
 

@@ -8,7 +8,7 @@ public class Test {
      */
     public static void main(String[] args) throws FileNotFoundException {
 
-        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getDwarfName()); //this is cool lol, this constructor works
+        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getDwarfName(),"Dwarf","Bard");
 
         PlayerCharacter p2 = new PlayerCharacter("FileCharacter.txt");
         p2.printSheet();
@@ -34,7 +34,18 @@ public class Test {
         p2.printSheet();
         p1.printSheet();
 
-
+        for (int i = 0; i < 1; i++) {
+            PlayerCharacter test = new PlayerCharacter(1, RandomNameGenerator.getDwarfName(),"Random","Random");
+            test.printSheet();
+        }
+        for (int i = 0; i < 1; i++) {
+            PlayerCharacter test = new PlayerCharacter(1,RandomNameGenerator.getHumanName(),"Random","Random");
+            test.printSheet();
+        }
+        for (int i = 0; i < 1; i++) {
+            PlayerCharacter test = new PlayerCharacter(1,RandomNameGenerator.getElfName(),"Random","Random");
+            test.printSheet();
+        }
 //        System.out.println(p2.rollToHit(sword));
 
 

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added JavaDoc and comments for many methods.">
-      <change afterPath="$PROJECT_DIR$/src/BackgroundGenerator.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Main now uses numbers for input instead of strings when applicable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileCharacter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FileCharacter.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +26,8 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_COMP 220 S23 Recursion starter.zip/starter/factorial/Factorial.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FileCharacter.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PlayerCharacter.java" root0="FORCE_HIGHLIGHTING" />
@@ -54,7 +56,7 @@
       <recent name="C:\Users\SMITHBA22\OneDrive - Grove City College\Documents\Homework\Comp 220\SmithOlingerProject5" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.nameGenerator">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SmithOlingerProject5" />
@@ -78,9 +80,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.nameGenerator" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.nameGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -254,19 +256,19 @@
       <option name="project" value="LOCAL" />
       <updated>1682701614038</updated>
     </task>
-    <task id="LOCAL-00024" summary="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment.">
-      <created>1682986248142</created>
+    <task id="LOCAL-00024" summary="made test create a bunch of random characters">
+      <created>1683056282185</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1682986248142</updated>
+      <updated>1683056282185</updated>
     </task>
-    <task id="LOCAL-00025" summary="Added JavaDoc and comments for many methods.">
-      <created>1682988078850</created>
+    <task id="LOCAL-00025" summary="Main now uses numbers for input instead of strings when applicable">
+      <created>1683065176071</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1682988078850</updated>
+      <updated>1683065176071</updated>
     </task>
     <option name="localTasksCounter" value="26" />
     <servers />
@@ -305,8 +307,8 @@
     <MESSAGE value="Fixed spell bug, added lists of possible items for inventory randomization" />
     <MESSAGE value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
     <MESSAGE value="oops, fixed a couple warnings" />
-    <MESSAGE value="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment." />
-    <MESSAGE value="Added JavaDoc and comments for many methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc and comments for many methods." />
+    <MESSAGE value="made test create a bunch of random characters" />
+    <MESSAGE value="Main now uses numbers for input instead of strings when applicable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main now uses numbers for input instead of strings when applicable" />
   </component>
 </project>

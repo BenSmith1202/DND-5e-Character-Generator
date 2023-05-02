@@ -2,11 +2,16 @@ import java.util.Random;
 
 public class RandomPersonaGenerator {
 
+    /**
+     * To my knowledge there was no preexisting method to get a random element out of an array.
+     * @param array The array you want to return a random element from.
+     * @return a random element from a given array.
+     */
     private static String getRandom(String[] array) {
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
     }
-    private static final String[] generalIdeals = new String[]{
+    private static final String[] generalIdeals = new String[]{ //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "Aspiration. I seek to prove my self worthy of my god's favor by matching my actions against his or her teachings. (Any)",
             "Aspiration. I'm determined to make something of myself. (Any)",
             "Honesty. Art should reflect the soul; it should come from within and reveal who we really are. (Any)",
@@ -20,7 +25,7 @@ public class RandomPersonaGenerator {
             "Aspiration. I'm going to prove that I'm worthy of a better life. (Any)]"
     };
 
-    private static final String[] lawfulIdeals = new String[]{
+    private static final String[] lawfulIdeals = new String[]{  //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "Faith. I trust that my deity will guide my actions. I have faith that if I work hard, things will go well. (Lawful)",
             "Power. I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)",
             "Fairness. I never target people who can't afford to lose a few coins. (Lawful)",
@@ -38,7 +43,7 @@ public class RandomPersonaGenerator {
             "Community. We have to take care of each other because no one else is going to do it. (Lawful)"
     };
 
-    private static final String[] neutralIdeals = new String[]{
+    private static final String[] neutralIdeals = new String[]{  //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "People. I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)",
             "People. I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)",
             "Sincerity. There's no good pretending to be something I'm not. (Neutral)",
@@ -52,7 +57,7 @@ public class RandomPersonaGenerator {
             "People. I help people who help me--that's what keeps us alive. (Neutral)"
     };
 
-    private static final String[] chaoticIdeals = new String[]{
+    private static final String[] chaoticIdeals = new String[]{  //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)",
             "Independence. I am a free spirit--no one tells me what to do. (Chaotic)",
             "Creativity. I never run the same con twice. (Chaotic)",
@@ -69,7 +74,7 @@ public class RandomPersonaGenerator {
             "Change. The low is lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)"
     };
 
-    private static final String[] goodIdeals = new String[] {
+    private static final String[] goodIdeals = new String[] {  //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "Charity. I always try to help those in need, no matter what the personal cost. (Good)",
             "Charity. I distribute money I acquire to the people who really need it. (Good)",
             "Friendship. Material goods come and go. Bonds of friendship last forever. (Good)",
@@ -88,7 +93,7 @@ public class RandomPersonaGenerator {
             "Respect. All people, rich or poor, deserve respect. (Good)"
     };
 
-    private static final String[] evilIdeals = new String[] {
+    private static final String[] evilIdeals = new String[] {  //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "Greed. I will do whatever it takes to become wealthy. (Evil)",
             "Greed. I'm only in it for the money and fame. (Evil)",
             "Might. If I become strong, I can take what I want--what I deserve. (Evil)",
@@ -102,7 +107,7 @@ public class RandomPersonaGenerator {
             "Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)"
     };
 
-    private static final String[] bonds = new String[]{
+    private static final String[] bonds = new String[]{  //Bonds from 5E Players Handbook and Dungeon Master's Guide
             "I would die to recover an ancient artifact of my faith that was lost long ago.",
             "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.",
             "I owe me life to the priest who took me in when my parents died.",
@@ -183,7 +188,7 @@ public class RandomPersonaGenerator {
             "No one else is going to have to endure the hardships I've been through."
     };
 
-    public static final String[] flaws = new String[]{
+    public static final String[] flaws = new String[]{ //from https://www.kassoon.com/dnd/5e/personality-ideals-bonds-flaws/
     "I judge others harshly, and myself even more severely.",
     "I put too much trust in those who wield power within my temple's hierarchy.",
     "My piety sometimes leads me to blindly trust those that profess faith in my god.",
@@ -317,12 +322,17 @@ public class RandomPersonaGenerator {
     "I'm always changing my mind—well, almost always.",
     };
 
-   public static String getPersona(String alignment){ //add allignment parameter
+    /**
+     * Used to generate random personalities based on a given alignment"
+     * @param alignment The given 2 character alignment in the form '[L, N, or C][G, N, or E]'.
+     * @return a block of text representing the traits of this character personality.
+     */
+   public static String getPersona(String alignment){ //returns a block of text describing a character's personality
        
       StringBuilder personaBuilder = new StringBuilder();
-      personaBuilder.append("PERSONALITY TRAITS:\n\nIdeals:\n");
+      personaBuilder.append("\nPERSONALITY TRAITS:\nIdeals:\n");
        switch (alignment.charAt(0)) {
-           case 'L' -> personaBuilder.append(getRandom(lawfulIdeals) + "\n");
+           case 'L' -> personaBuilder.append(getRandom(lawfulIdeals) + "\n"); //gets random ideals based on alignment.
            case 'N' -> personaBuilder.append(getRandom(neutralIdeals) + "\n");
            case 'C' -> personaBuilder.append(getRandom(chaoticIdeals) + "\n");
        }
@@ -332,9 +342,9 @@ public class RandomPersonaGenerator {
            case 'E' -> personaBuilder.append(getRandom(evilIdeals) + "\n");
        }
 
-       personaBuilder.append("\nBond:\n");
+       personaBuilder.append("Bond:\n"); //adds a random bond and flaw
        personaBuilder.append(getRandom(bonds) + "\n");
-       personaBuilder.append("\nFlaw:\n");
+       personaBuilder.append("Flaw:\n");
        personaBuilder.append(getRandom(flaws) + "\n");
        return personaBuilder.toString();
    }

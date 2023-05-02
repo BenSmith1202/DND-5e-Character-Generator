@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class RandomNameGenerator {
+public class RandomNameGenerator { //Generates Random Names for Characters! 100% of content developed by our team.
     private static final String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
             "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",
             "ro", "to", "bo", "ry", "co", "ca", "well", "max", "jo", "co", "la", "so", "tay", "" };
@@ -31,6 +31,11 @@ public class RandomNameGenerator {
             "dwarf", "blade", "edge", "head", "foot", "fist", "fists", "lord", "forge", "field", "drink", "ale", "plow", "beam", "plate", "guard", "gourd", "cheese",
             "wood", "stone", "crystal", "hammer", "chisel", "saw"};
 
+    /**
+     * Creates a name (first and last) for a dwarf character, using randomly chosen syllables suited to the style of
+     * dwarvish names, and picking a random surname consisting of a modifier (like stormy) and an object (like crown).
+     * @return a stylish randomized name for a dwarf character.
+     */
     public static String getDwarfName(){
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
@@ -45,7 +50,11 @@ public class RandomNameGenerator {
         lastNameBuilder.append(dwarfSurnamesObject[(random.nextInt(dwarfSurnamesObject.length))]);      //gets added before an object
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);//capitalize and return full name
     }
-
+    /**
+     * Creates a name (first and last) for a human character, using randomly chosen syllables suited to the style of
+     * human names, and picking a random surname.
+     * @return a stylish randomized name for a human character.
+     */
     public static String getHumanName(){
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
@@ -59,7 +68,11 @@ public class RandomNameGenerator {
         lastNameBuilder.append(humanSurnames[(random.nextInt(humanSurnames.length))]); //pick random last name
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
     }
-
+    /**
+     * Creates a name (first and last) for an elf character, using randomly chosen syllables suited to the style of
+     * elven names, and picking a random surname consisting of two nature themed words (i.e. Winterbirch).
+     * @return a stylish randomized name for an elf character.
+     */
     public static String getElfName(){
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();

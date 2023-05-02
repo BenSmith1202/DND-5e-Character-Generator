@@ -9,14 +9,12 @@ import java.util.concurrent.TimeUnit;
 
 public class PlayerCharacter {
     private String name;
-
     private String persona;
     private int level;
     private HashMap<String, Integer> abilityScores;
     //hashmap of spells needed
     private ArrayList<InventoryItem> inventory;
     private ArrayList<Spell> spells;
-
     private int[] maxSpellSlots;
     private int[] remainingSpellSlots;
 
@@ -29,7 +27,7 @@ public class PlayerCharacter {
     //Keeps track of failed and succeeded death saves
     private int succDS;
     private int failDS;
-    private String alignment;
+    private String alignment; //a two character alignment with the form '[L, N, or C][G, N, or E]'.
 
 
     /**
@@ -86,7 +84,7 @@ public class PlayerCharacter {
 
         spells = new ArrayList<>();
 
-        maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0};
+        maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0}; //sets max spell slots
         remainingSpellSlots = new int[9];
 
         this.name = name;
@@ -101,11 +99,12 @@ public class PlayerCharacter {
 
         String[] ali1 = new String[] {"L", "N", "C"};
         String[] ali2 = new String[] {"G", "N", "E"};
-        alignment = ali1[PlayerCharacter.rollDice(1, 3)-1] + ali2[PlayerCharacter.rollDice(1, 3)-1];
-        persona = RandomPersonaGenerator.getPersona(alignment);
+        alignment = ali1[PlayerCharacter.rollDice(1, 3)-1] + ali2[PlayerCharacter.rollDice(1, 3)-1]; //gets a random two character alignment.
+        persona = RandomPersonaGenerator.getPersona(alignment); //stores a random personality based on the random alignment.
 
-        longRest();
+        longRest(); //resets expendable stats to max.
     }
+
 
     /**
      *  Constructs a character using a file in the proper format to fill out each variable in the character sheet
@@ -152,6 +151,7 @@ public class PlayerCharacter {
         longRest();
     }
 
+
     /**
      * Returns the modifier that the player will get on an ability based on their score
      * @param = the ability in AbilityScores that will be calculated with
@@ -160,6 +160,7 @@ public class PlayerCharacter {
     public int getMod(String ability){
         return (abilityScores.get(ability) - 10) / 2;
     }
+
 
     /**
      * rolls a death saving throw, if failed will add to failDS, if suceeded will add to succDS, also acounts for critical rolls of 20
@@ -185,6 +186,7 @@ public class PlayerCharacter {
         }
     }
 
+
     /**
      * Clears the death saving throw count arrays after a player has survived
      */
@@ -192,6 +194,7 @@ public class PlayerCharacter {
         failDS = 0;
         succDS = 0;
     }
+
 
     /**
      * Prints out the attack roll and potential damage of an attack
@@ -202,6 +205,8 @@ public class PlayerCharacter {
         System.out.println("Roll to hit = " + rollToHit(weapon));
         System.out.println("Damage dealt on hit = " + rollDamage(weapon));
     }
+
+
     /**
      * Prints out the attack roll and potential damage of an attack, taken from a name string
      * @param weaponName = The name of the weapon that the player is attacking with
@@ -214,6 +219,7 @@ public class PlayerCharacter {
         }
     }
 
+
     /**
      * Returns the attack roll for trying to hit an enemy
      * @param weapon = The weapon that the player is attacking with
@@ -223,6 +229,7 @@ public class PlayerCharacter {
         return PlayerCharacter.rollDice(1, 20, weapon.getWeaponBonus() + getMod("Strength"));
     }
 
+
     /**
      * Returns the damage a weapon would do if it hits
      * @param weapon = The weapon that the player is attacking with
@@ -231,6 +238,7 @@ public class PlayerCharacter {
     public int rollDamage(Weapon weapon){
         return PlayerCharacter.rollDice(weapon.getNumDamageDice(), weapon.getDamageDie(), weapon.getWeaponBonus());
     }
+
 
     /**
      * Adds a new Item to the player's inventory
@@ -243,6 +251,8 @@ public class PlayerCharacter {
         InventoryItem newItem = new InventoryItem(itemString);
         inventory.add(newItem);
     }
+
+
     /**
      * removes an Item from the player's inventory
      * @param item = the item to be removed
@@ -250,6 +260,8 @@ public class PlayerCharacter {
     public void RemoveItem(InventoryItem item){
         inventory.remove(item);
     }
+
+
     /**
      * Adds a new spell to the player's spells
      * @param newSpell = the spell to be added
@@ -267,7 +279,7 @@ public class PlayerCharacter {
         int roll = rollDice(1,20,getMod(ability));
         return Math.max(roll, 1);
     }
-//    rollDie(Number, Sides,  Bonus)
+
 
     /**
      * Rolls a set of dice and returns the result
@@ -285,6 +297,8 @@ public class PlayerCharacter {
         total += bonus;
         return total;
     }
+
+
     /**
      * Rolls a set of dice and returns the result, doesn't use bonus
      * @param number = the number of dice being rolled
@@ -300,6 +314,8 @@ public class PlayerCharacter {
 
         return total;
     }
+
+
     public static int rollCharacterStats(){
         int total = 0;
         int lowest = 7;
@@ -325,6 +341,8 @@ public class PlayerCharacter {
         System.out.println(spell.getAffect());
         System.out.println("Damage dealt on hit = " + rollDamage(spell));
     }
+
+
     /**
      * Casts the given spell
      * @param spell the spell being casts
@@ -344,6 +362,7 @@ public class PlayerCharacter {
         }
     }
 
+
     /**
      * Returns the damage a spell would do if it hits
      * @param spell = The spell that the player is casting
@@ -362,6 +381,7 @@ public class PlayerCharacter {
         return this.gold;
     }
 
+
     /**
      * adds or subtracts gold from the players total gold
      * @param numChange = the amount to be added or subtracted
@@ -370,12 +390,13 @@ public class PlayerCharacter {
         this.gold += numChange;
     }
 
+
     /**
      * prints out the character sheet of the player in a file
      */
     public void printSheet(){
         System.out.println("-----------------------------------------------");
-        System.out.println("Name: " + name +   "        Level: " + level);
+        System.out.println("Name: " + name +   "     Level: " + level + "     Alignment: " + alignment);
         System.out.println("Speed: " + speed + "              Armor Class: " + armorClass);
         System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "      Death Saves (S/F): " + succDS+"/"+failDS);
         System.out.println("Gold: " + gold);
@@ -410,8 +431,6 @@ public class PlayerCharacter {
     }
 
 
-
-
     /**
      * performs a long rest, restoring all spell slots and returning health to max
      */
@@ -423,11 +442,11 @@ public class PlayerCharacter {
 
 
     /**
-     *
-     * @param numHitDice =
+     * restores a number of hit points appropriate for a short rest.
+     * @param numHitDice the number of hit dice to use during the rest
      */
     public void shortRest(int numHitDice){
-
+        currentHealth += PlayerCharacter.rollDice(8, 8);
     }
 
 

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="oops, fixed a couple warnings">
-      <change afterPath="$PROJECT_DIR$/src/RandomNameGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" afterDir="false" />
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomNameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomNameGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682701614038</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment.">
+      <created>1682986248142</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1682986248142</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,6 +300,7 @@
     <MESSAGE value="Fixed spell bug, added lists of possible items for inventory randomization" />
     <MESSAGE value="Added random inventory generation, cleaned up name generation, overloaded some constructors, and fixed a few minor bugs." />
     <MESSAGE value="oops, fixed a couple warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="oops, fixed a couple warnings" />
+    <MESSAGE value="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Big Changes. Added Personality Generation. And gave name generation its own class. Also added alignment." />
   </component>
 </project>

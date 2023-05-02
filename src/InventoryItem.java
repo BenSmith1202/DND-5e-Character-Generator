@@ -13,6 +13,11 @@ public class InventoryItem {
         this.name = name;
         this.quantity = quantity;
     }
+
+    /**
+     * constructs an Inventory item using a string.
+     * @param itemString a string formatted like "[int quantity] [the rest of the line is the name of the item]"
+     */
     public InventoryItem(String itemString){
         Scanner scan = new Scanner(itemString);
         if (scan.hasNextInt()){
@@ -34,9 +39,4 @@ public class InventoryItem {
     public void setQuantity(int quantity){
         this.quantity = quantity;
     }
-
-   /* public InventoryItem(){ //makes a new generic item
-        name = "Unknown Item";
-        quantity = 1;
-    }*/
 }

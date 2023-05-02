@@ -34,7 +34,18 @@ public class Test {
         p2.printSheet();
         p1.printSheet();
 
-
+        for (int i = 0; i < 5; i++) {
+            PlayerCharacter test = new PlayerCharacter(1, RandomNameGenerator.getDwarfName());
+            test.printSheet();
+        }
+        for (int i = 0; i < 5; i++) {
+            PlayerCharacter test = new PlayerCharacter(1,RandomNameGenerator.getHumanName());
+            test.printSheet();
+        }
+        for (int i = 0; i < 5; i++) {
+            PlayerCharacter test = new PlayerCharacter(1,RandomNameGenerator.getElfName());
+            test.printSheet();
+        }
 //        System.out.println(p2.rollToHit(sword));
 
 

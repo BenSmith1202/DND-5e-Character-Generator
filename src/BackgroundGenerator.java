@@ -122,9 +122,14 @@ public class BackgroundGenerator {
     //They should write songs about [Class]s like me. I may have started my life in [Location1] as a [Background], but I always dreamt I
     //would [doSomethingHeroic] and earn the respect of everyone. Unfortunately, the gods had other plans.
 
+    //Intro 4
+    //As a kid, I was raised in the wilds around [Location1] by [Creatures]. I [WasInSituation] most of the time, which is to say,
+    //life was [Adjective1]. Eventually, my parents and fellow [Creatures] thought I should go be with my own kind. A kind [Background]
+    //took me in to teach me to be a(n) [occupation modifier][Background].
+
     //Call To Adventure 1
     //One night in [Location1], while I was [verbing] with my [relatives], we were [agressiveVerbed] by a [hostileParty]. After the tradgedy,
-    //I swore to never let another person be [aggressive verbed] again, and so I took up arms as an adventurer.
+    //I swore to never let another person be [aggressive verbed] again, and so I took up arms as a [Class].
 
     //Call To Adventure two
     //Being a [Background] doesn't pay enough for my taste, so when I overheard something about high-paying job

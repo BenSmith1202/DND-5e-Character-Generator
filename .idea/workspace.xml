@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Main now uses numbers for input instead of strings when applicable">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="name generator change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileCharacter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FileCharacter.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BackgroundGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BackgroundGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomNameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomNameGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_COMP 220 S23 Recursion starter.zip/starter/factorial/Factorial.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FileCharacter.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PlayerCharacter.java" root0="FORCE_HIGHLIGHTING" />
@@ -56,7 +55,7 @@
       <recent name="C:\Users\SMITHBA22\OneDrive - Grove City College\Documents\Homework\Comp 220\SmithOlingerProject5" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.nameGenerator">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SmithOlingerProject5" />
@@ -80,9 +79,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.nameGenerator" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.nameGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -270,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683065176071</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="name generator change">
+      <created>1683149842192</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683149842192</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,6 +311,7 @@
     <MESSAGE value="oops, fixed a couple warnings" />
     <MESSAGE value="made test create a bunch of random characters" />
     <MESSAGE value="Main now uses numbers for input instead of strings when applicable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main now uses numbers for input instead of strings when applicable" />
+    <MESSAGE value="name generator change" />
+    <option name="LAST_COMMIT_MESSAGE" value="name generator change" />
   </component>
 </project>

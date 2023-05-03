@@ -3,7 +3,7 @@ import java.util.Random;
 public class RandomNameGenerator { //Generates Random Names for Characters! 100% of content developed by our team.
     private static final String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
             "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",
-            "ro", "to", "bo", "ry", "co", "ca", "well", "max", "jo", "co", "la", "so", "tay", "" };
+            "ro", "to", "bo", "ry", "co", "ca", "well", "max", "jo", "co", "la", "so", "tay"};
 
     private static final String[] dwarfNameSyls = new String[]{"tik", "lik", "dik", "pik", "puk", "duk", "luk", "tuk", "arz", "alz" , "anz", "urz",
             "unz", "ulz", "rok", "nok", "bok", "sok", "ruk", "nuk", "dwar", "vy", "suk", "buk", "enger", "dale", "tal", "mith", "koka", "darl", "karl", "snarl", "barl",
@@ -30,6 +30,9 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
     private static final String[] dwarfSurnamesObject = new String[]{"crown", "sword", "pick", "mine", "gem", "flint", "rock", "armor", "weapon", "tools", "boots", "passage",
             "dwarf", "blade", "edge", "head", "foot", "fist", "fists", "lord", "forge", "field", "drink", "ale", "plow", "beam", "plate", "guard", "gourd", "cheese",
             "wood", "stone", "crystal", "hammer", "chisel", "saw"};
+    private static final String[] locationNames = new String[]{"City", "Mountain", "Hill", "Town", "Village", "Palace", "Swamp", "Forest", "Plateau", "Grove",
+    "Valley", "Beach", "Island", "Lake", "Sea", "Hamlet", "Wood", "Wetlands", "City", "Mountain","Harbor", "Cove", "Wharf", "Sanctuary", "Town", "Village", "Landing",
+    "Crossroads", "Springs", "Creek", "Heights", "Bridge", "Passage", "Point", "Temple", "Glen", "Archipelago", "Bay", "Canyon", "Lagoon", "Tundra"};
 
     /**
      * Creates a name (first and last) for a dwarf character, using randomly chosen syllables suited to the style of
@@ -86,6 +89,47 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]); //pick two last name parts
         lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
+    }
+
+    public static String getPlaceName(){
+        StringBuilder identifier = new StringBuilder();
+        Random random = new Random();
+        switch (random.nextInt(2)) {
+            case 0 -> { //elf
+                identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+                int r = random.nextInt(2);
+                if (r != 1) {
+                    identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                }
+            }
+            case 1 -> { //dwarf
+                identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+                identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                int r2 = random.nextInt(2);
+                if (r2 != 1) {
+                    identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+                }
+            }
+            case 3 -> { //human
+                identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+                identifier.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+                int r3 = random.nextInt(2);
+                if (r3 != 1) {
+                    identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                }
+            }
+        }
+        int r4 = random.nextInt(10);
+        String locationName;
+        if (r4 <= 3)
+        {
+            identifier.append(" ");
+            locationName = identifier.substring(0,1).toUpperCase() + identifier.append(locationNames[(random.nextInt(locationNames.length))]).substring(1); //capitalize
+        } else {
+            locationName = identifier.substring(0,1).toUpperCase() + identifier.substring(1); //capitalize
+        }
+        return locationName;
     }
 }
 

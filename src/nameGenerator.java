@@ -23,6 +23,9 @@ public class nameGenerator {
         p2.printSheet();
         PlayerCharacter p3 = new PlayerCharacter(20, RandomNameGenerator.getElfName(),"Dwarf","Bard");
         p3.printSheet();
+        for (int i = 0; i < 30; i++) {
+            System.out.println(RandomNameGenerator.getPlaceName());
+        }
 
 
     }

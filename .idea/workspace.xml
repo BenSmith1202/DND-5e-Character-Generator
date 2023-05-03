@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Updated the file consturctor and the save methods for PlayerCharacter to include all variables except inventory and spells">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Updated Main to include saveCharacter as an option">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683141632506</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Updated Main to include saveCharacter as an option">
+      <created>1683144141149</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1683144141149</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,7 +317,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added stubs for Spell variables and Constructor" />
     <MESSAGE value="Fixing descrepancies with inventory item and weapon versions" />
     <MESSAGE value="Fixing descrepancies with spell version" />
     <MESSAGE value="Added to hit method and removed unnecessary default constructor for InventoryItem" />
@@ -333,6 +341,7 @@
     <MESSAGE value="Fixed a bug with name generator, updated PlayerCharacter, main, and printSheet to have random names, classes, and race at once" />
     <MESSAGE value="Added saveCharacter method" />
     <MESSAGE value="Updated the file consturctor and the save methods for PlayerCharacter to include all variables except inventory and spells" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the file consturctor and the save methods for PlayerCharacter to include all variables except inventory and spells" />
+    <MESSAGE value="Updated Main to include saveCharacter as an option" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Main to include saveCharacter as an option" />
   </component>
 </project>

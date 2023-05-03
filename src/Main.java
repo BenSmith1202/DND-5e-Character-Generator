@@ -88,7 +88,7 @@ public class Main {
                 //addItem
                 if (input == 1){
                     System.out.println("enter the string of the type of item you want to add from the following\n" +
-                            "[1] item\n[2] weapon\n[3] potion");
+                            "[1] item\n[2] weapon");
                     int s = scnr.nextInt();
                     if (s == 1) {
                         System.out.println("enter the name of the item you want to add to your inventory");
@@ -120,8 +120,6 @@ public class Main {
 
 
                         //adds a potion to inventory
-                    } else if (s == 3) {
-                        //for when or if we add potion functionality
                     }
 
                 }

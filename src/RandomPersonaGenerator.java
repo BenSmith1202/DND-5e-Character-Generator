@@ -54,7 +54,11 @@ public class RandomPersonaGenerator {
             "Self-improvement. The goal of a life of study is the betterment of oneself. (Neutral)",
             "People. I'm committed to my crewmates, not to ideals. (Neutral)",
             "Ideals aren't worth killing for or going to war for. (Neutral)",
-            "People. I help people who help me--that's what keeps us alive. (Neutral)"
+            "People. I help people who help me--that's what keeps us alive. (Neutral)",
+            "Survival. Living to see another day is more important than any ideal. (Neutral)",
+            "Balance. Excess in anything is unnecessary, balance is always desired. (Neutral)",
+            "Understanding. The goal of life is to understand the lives of those around you. (Neutral)",
+            "Mud. Nothing matters more in life than the joy I get from mud and its muddy qualities. (Neutral)"
     };
 
     private static final String[] chaoticIdeals = new String[]{  //Ideals from 5E Players Handbook and Dungeon Master's Guide
@@ -71,7 +75,8 @@ public class RandomPersonaGenerator {
             "No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)",
             "Freedom. The sea is freedom--the freedom to go anywhere and do anything. (Chaotic)",
             "Independence. When people follow orders blindly they embrace a kind of tyranny. (Chaotic)",
-            "Change. The low is lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)"
+            "Change. The low is lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)",
+            "Destruction. Things being destroyed is entertaining, and thus a worthwhile path for life. (Chaotic)"
     };
 
     private static final String[] goodIdeals = new String[] {  //Ideals from 5E Players Handbook and Dungeon Master's Guide

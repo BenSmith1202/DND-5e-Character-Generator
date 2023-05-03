@@ -71,15 +71,18 @@ public class Main {
                 System.out.println("""
 
 
-                        Choose any of the actions below by typing in the string, or type 'done' to exit:
-                        [1] addItem
-                        [2] addSpell
-                        [3] attack
-                        [4] castSpell
-                        [5] rest
-                        [6] changeHealth
-                        [7] rollDS
-                        [8] printSheet""");
+                        Choose any of the actions below by typing in the given number
+                        [1] Add Item
+                        [2] Add Spell
+                        [3] Attack
+                        [4] Cast Spell
+                        [5] Rest
+                        [6] Change Health
+                        [7] Roll Death Save
+                        [8] Print Character Sheet
+                        [9] Save Character
+                        [10] Exit Program""");
+
                 int input = scnr.nextInt();
 
                 //addItem
@@ -201,8 +204,13 @@ public class Main {
                     p1.printSheet();                //prints sheet
                 }
 
-                //ends cycle
+                //saves character sheet to file
                 if (input == 9){
+                    p1.saveCharacter();                //saves character
+                }
+
+                //ends cycle
+                if (input == 10){
                     done = true;              // ends loop
                 }
 

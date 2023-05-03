@@ -1,25 +1,25 @@
-Name: Grimdrothero Cedarstar
+Name: Kokaarz Undercrystal
 Level: 1
-MaxHealth: 10
+MaxHealth: 6
 Speed: 20
 ArmorClass: 11
-Class: Fighter
-Race: Elf
+Class: Wizard
+Race: Dwarf
 Gold: 100
-Strength 17
-Dexterity 13
+Strength 12
+Dexterity 12
 Constitution 11
-Intelligence 8
-Wisdom 17
-Charisma 13
-Alignment CN
+Intelligence 16
+Wisdom 14
+Charisma 8
+Alignment CG
 
 PERSONALITY TRAITS:
 Ideals:
-Freedom. Everyone should be free to pursue his or her livelihood. (Chaotic)
-People. I'm committed to my crewmates, not to ideals. (Neutral)
+No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)
+Respect. People deserve to be treated with dignity and respect. (Good)
 Bond:
-I idolize a hero of the old tales and measure my deeds against that person's.
+I've been searching my whole life for the answer to a certain question.
 Flaw:
-I've done unspeakable evil and will do anything to prevent others from finding out.
+I'd risk too much to uncover a lost bit of knowledge.
 

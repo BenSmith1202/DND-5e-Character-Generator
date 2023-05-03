@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -20,18 +21,23 @@ public class Main {
             if (store == 1) {
                 System.out.println("Please enter one of the following character races: [1] Dwarf, [2] Elf, [3] Human, or [4] Random Race");
                 int raceChoice = scnr.nextInt();
+                Random r = new Random();
                 String race = switch (raceChoice) {
                     case 1 -> "Dwarf";
                     case 2 -> "Elf";
                     case 3 -> "Human";
-                    case 4 -> "Random";
+                    case 4 -> switch (r.nextInt(1,4)){
+                        case 1 -> "Dwarf";
+                        case 2 -> "Elf";
+                        case 3 -> "Human";
+                        default -> "";
+                    };
                     default -> "";
                 };
                 String name = switch (race) {
                     case "Dwarf" -> RandomNameGenerator.getDwarfName();
                     case "Elf" -> RandomNameGenerator.getElfName();
                     case "Human" -> RandomNameGenerator.getHumanName();
-                    case "Random" -> RandomNameGenerator.getDwarfName();
                     default -> "";
                 };
                 System.out.println("Please enter one of the following classes: [1] Fighter, [2] Barbarian, [3] Bard, [4] Random Class");

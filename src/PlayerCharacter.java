@@ -42,7 +42,7 @@ public class PlayerCharacter {
      * Default Constructor for PlayerCharacter
      *
      */
-    public PlayerCharacter(int level, String name, String race, String characterClass) throws FileNotFoundException {
+    public PlayerCharacter(int level, String name, String race, String inputClass) throws FileNotFoundException {
 
         abilityScores = new HashMap<>(6); // roll all the stats
         abilityScores.put("Strength", rollCharacterStats());
@@ -111,7 +111,9 @@ public class PlayerCharacter {
         this.gold = 10* rollDice(5, 4);
         this.armorClass = 10 + getMod("Dexterity");
         this.speed = rollDice(1,5, 3) * 5;
-        if (characterClass.equals("Random")){
+        if (!inputClass.equals("Random")) {
+            this.characterClass = inputClass;
+        } else {
             String highStat = "";
             int highStatNum = 0;
             for (int i = 0; i < 6; i++) {
@@ -127,11 +129,20 @@ public class PlayerCharacter {
                 case "Intelligence" -> characterClass = "Wizard";
                 case "Wisdom" -> characterClass = "Sorcerer";
                 case "Charisma" -> characterClass = "Bard";
-
             }
-        }else this.characterClass = characterClass;
+        }
         this.hitDie = hitDieOptions.get(characterClass);
         this.maxHealth = hitDie + rollDice(level-1, hitDie) + (level*getMod("Constitution"));
+
+        Random r = new Random();
+        if (race.equals("Random")){
+            this.race = switch (r.nextInt(1,4)){
+                case 1 -> "Dwarf";
+                case 2 -> "Elf";
+                case 3 -> "Human";
+                default -> "";
+            };
+        } else this.race = race;
 
         this.succDS = 0;
         this.failDS = 0;

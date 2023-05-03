@@ -1,0 +1,14 @@
+Name: Luktikduk Flintysword
+Level: 1
+MaxHealth: 8
+Speed: 20
+ArmorClass: 8
+Class: Sorcerer
+Race: Dwarf
+Gold: 180
+Strength 11
+Dexterity 5
+Constitution 15
+Intelligence 12
+Wisdom 18
+Charisma 10

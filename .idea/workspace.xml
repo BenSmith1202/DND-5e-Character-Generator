@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added random generation for characterClass and race, also fixed bugs for both those variables being initialized in PlayerCharacter constructor">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Fixed a bug with name generator, updated PlayerCharacter, main, and printSheet to have random names, classes, and race at once">
+      <change afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_2023_1_04_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_2023_1_04_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomNameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomNameGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -276,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683123295114</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fixed a bug with name generator, updated PlayerCharacter, main, and printSheet to have random names, classes, and race at once">
+      <created>1683130530102</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683130530102</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,7 +299,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed the Package line thingy from each class&#10;&#10;Added stubs for most variables and methods in PlayerCharacter" />
     <MESSAGE value="Added more stubs to fill out PlayerCharacter methods and variable" />
     <MESSAGE value="Filled out the stubs for methods and variables in InventoryItem and Weapon Classes, also made weapon inherit from InventoryItem" />
     <MESSAGE value="Added stubs for Spell variables and Constructor" />
@@ -316,6 +323,7 @@
     <MESSAGE value="made test create a bunch of random characters" />
     <MESSAGE value="Main now uses numbers for input instead of strings when applicable" />
     <MESSAGE value="Added random generation for characterClass and race, also fixed bugs for both those variables being initialized in PlayerCharacter constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added random generation for characterClass and race, also fixed bugs for both those variables being initialized in PlayerCharacter constructor" />
+    <MESSAGE value="Fixed a bug with name generator, updated PlayerCharacter, main, and printSheet to have random names, classes, and race at once" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug with name generator, updated PlayerCharacter, main, and printSheet to have random names, classes, and race at once" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -545,4 +546,40 @@ public class PlayerCharacter {
         }
         System.out.println("Updated health: " + currentHealth + "/" + maxHealth);
     }
+
+    public void saveCharacter() throws FileNotFoundException {
+        File f = new File("output.txt");
+        PrintWriter pw = new PrintWriter(f);
+
+        pw.print("Name: ");
+        pw.println(name);
+
+        pw.print("Level: ");
+        pw.println(level);
+
+        pw.print("MaxHealth: ");
+        pw.println(maxHealth);
+
+        pw.print("Speed: ");
+        pw.println(speed);
+
+        pw.print("ArmorClass: ");
+        pw.println(armorClass);
+
+        pw.print("Class: ");
+        pw.println(characterClass);
+
+        pw.print("Race: ");
+        pw.println(race);
+
+        pw.print("Gold: ");
+        pw.println(gold);
+
+        for (int i = 0; i < 6; i++) {
+            pw.print(abilityList[i] + " ");
+            pw.println(abilityScores.get(abilityList[i]));
+        }
+
+        pw.close();
+        }
 }

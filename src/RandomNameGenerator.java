@@ -16,7 +16,7 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
     private static final String[] elfSurnames = new String[]{"leaf", "branch", "river", "stone", "ice", "flame", "cove", "birch", "oak", "dawn", "dusk",
             "flax", "flood", "gale", "breeze", "zephyr", "air", "sky", "ash", "silk", "vine", "jewel", "pond", "marsh", "moon", "star", "sun", "wild", "tide",
             "heath", "hawk", "reef", "frost", "bud", "jay", "pine", "aspen", "cedar", "grove", "thorn", "wisp", "ink", "rook", "tree", "trunk", "bark", "stem",
-            "lord", "sage", "fruit", "seed", "sky", "storm", "rain", "apple", "mage", "lake", "swamp", "sea", ""};
+            "lord", "sage", "fruit", "seed", "sky", "storm", "rain", "apple", "mage", "lake", "swamp", "sea"};
 
     private static final String[] humanSurnames = new String[]{"wheeler", "chapman", "smith", "olinger", "coward", "dempster", "davis", "fitz", "hurst",
             "shaw", "townsend", "cruikshank", "moody", "lark", "taylor", "butcher", "gouy", "pozu", "heavyarms", "wheezer", "foster", "folger", "trombka",

@@ -42,7 +42,7 @@ public class PlayerCharacter {
      * Default Constructor for PlayerCharacter
      *
      */
-    public PlayerCharacter(int level, String name, String race, String inputClass) throws FileNotFoundException {
+    public PlayerCharacter(int level, String inputName, String race, String inputClass) throws FileNotFoundException {
 
         abilityScores = new HashMap<>(6); // roll all the stats
         abilityScores.put("Strength", rollCharacterStats());
@@ -106,7 +106,7 @@ public class PlayerCharacter {
         maxSpellSlots = new int[]{4, 3, 3, 1, 0, 0, 0, 0, 0}; //sets max spell slots
         remainingSpellSlots = new int[9];
 
-        this.name = name;
+
         this.level = level;
         this.gold = 10* rollDice(5, 4);
         this.armorClass = 10 + getMod("Dexterity");
@@ -143,6 +143,17 @@ public class PlayerCharacter {
                 default -> "";
             };
         } else this.race = race;
+
+        if (!inputName.equals("Random")){
+            this.name = inputName;
+        } else {
+            this.name = switch (this.race) {
+                case "Dwarf" -> RandomNameGenerator.getDwarfName();
+                case "Elf" -> RandomNameGenerator.getElfName();
+                case "Human" -> RandomNameGenerator.getHumanName();
+                default -> "";
+            };
+        }
 
         this.succDS = 0;
         this.failDS = 0;
@@ -472,7 +483,6 @@ public class PlayerCharacter {
             for (int i = 0; i < inventory.size(); i++) {
                 System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
             }
-            System.out.println("-------------------------------------------------------------");
             System.out.println();
         }
 
@@ -485,7 +495,7 @@ public class PlayerCharacter {
             }
             System.out.println();
         }
-
+        System.out.println("-------------------------------------------------------------");
     }
 
 

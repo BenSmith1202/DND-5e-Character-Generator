@@ -40,13 +40,17 @@ public class Main {
                     case "Human" -> RandomNameGenerator.getHumanName();
                     default -> "";
                 };
-                System.out.println("Please enter one of the following classes: [1] Fighter, [2] Barbarian, [3] Bard, [4] Random Class");
+                System.out.println("Please enter one of the following classes: [1] Fighter, [2] Rouge, [3] Barbarian," +
+                        "[4] Wizard, [5] Sorcerer, [6] Bard, [7] Random Class");
                 int classChoice = scnr.nextInt();
                 String characterClass = switch (classChoice) {
                     case 1 -> "Fighter";
-                    case 2 -> "Barbarian";
-                    case 3 -> "Bard";
-                    case 4 -> "Random";
+                    case 2 -> "Rouge";
+                    case 3 -> "Barbarian";
+                    case 4 -> "Wizard";
+                    case 5 -> "Sorcerer";
+                    case 6 -> "Bard";
+                    case 7 -> "Random";
                     default -> "";
                 };
                 System.out.println("Please enter the characters level");

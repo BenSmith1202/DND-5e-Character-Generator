@@ -1,14 +1,25 @@
-Name: Luktikduk Flintysword
+Name: Grimdrothero Cedarstar
 Level: 1
-MaxHealth: 8
+MaxHealth: 10
 Speed: 20
-ArmorClass: 8
-Class: Sorcerer
-Race: Dwarf
-Gold: 180
-Strength 11
-Dexterity 5
-Constitution 15
-Intelligence 12
-Wisdom 18
-Charisma 10
+ArmorClass: 11
+Class: Fighter
+Race: Elf
+Gold: 100
+Strength 17
+Dexterity 13
+Constitution 11
+Intelligence 8
+Wisdom 17
+Charisma 13
+Alignment CN
+
+PERSONALITY TRAITS:
+Ideals:
+Freedom. Everyone should be free to pursue his or her livelihood. (Chaotic)
+People. I'm committed to my crewmates, not to ideals. (Neutral)
+Bond:
+I idolize a hero of the old tales and measure my deeds against that person's.
+Flaw:
+I've done unspeakable evil and will do anything to prevent others from finding out.
+

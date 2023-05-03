@@ -21,15 +21,14 @@ public class PlayerCharacter {
     private int[] remainingSpellSlots;
 
     //Player stats
-    private int maxHealth;
-    private int currentHealth;
-    private int gold;
-    private int armorClass;
-    private int speed;
-    //Keeps track of failed and succeeded death saves
-    private int succDS;
-    private int failDS;
-    private int hitDie;
+    private int maxHealth, currentHealth, gold, armorClass, speed, succDS, failDS, hitDie; //we can just declare these all at once
+//    private int currentHealth;
+//    private int gold;
+//    private int armorClass;
+//    private int speed;
+//    private int succDS;
+//    private int failDS;
+//    private int hitDie;
     private String alignment; //a two character alignment with the form '[L, N, or C][G, N, or E]'.
     private String characterClass;
     private String race;
@@ -206,10 +205,18 @@ public class PlayerCharacter {
         scnr.nextLine();
         scnr.next();
         gold = scnr.nextInt();
-
+        scnr.nextLine();
         for (int i = 0; i < 6; i++) {
             abilityScores.put(scnr.next(), scnr.nextInt());
             scnr.nextLine();
+        }
+        scnr.next();
+        alignment = scnr.next();
+        scnr.nextLine();
+        scnr.nextLine();
+        persona = "";
+        for (int i = 0; i < 8; i++) {
+            persona += scnr.nextLine() + "\n";
         }
 
         currentHealth = maxHealth;
@@ -476,7 +483,9 @@ public class PlayerCharacter {
         System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(" + getMod("Intelligence")+ ")" + "   " +
                 "Wisdom: " + abilityScores.get("Wisdom") + "(" + getMod("Wisdom")+ ")" + "      " +
                 "Charisma: " + abilityScores.get("Charisma") + "(" + getMod("Charisma")+ ")");
+
         System.out.println(persona + "\n");
+
         System.out.print("Inventory: ");
         if (inventory.size() == 0) System.out.println("Empty");
         else {
@@ -579,6 +588,10 @@ public class PlayerCharacter {
             pw.print(abilityList[i] + " ");
             pw.println(abilityScores.get(abilityList[i]));
         }
+        pw.print("Alignment ");
+        pw.println(alignment);
+
+        pw.println(persona);
 
         pw.close();
         }

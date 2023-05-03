@@ -1,14 +1,24 @@
-Name TestName
+Name Justin Folger
 Level 1
 MaxHealth 20
 Speed 30
 ArmorClass 11
 Class Bard
-Race Dwarf
-Gold 140
+Race Human
+Gold 0
 Strength 12
 Dexterity 12
 Constitution 12
 Intelligence 12
 Wisdom 12
 Charisma 12
+Alignment CE
+
+PERSONALITY TRAITS:
+Ideals:
+Expansion. I want to make an empire that spans the world. (Chaotic)
+Insanity. I will message each and every human in the world to make a community event in their area. (Evil)
+Bond:
+I love baristas.
+Flaw:
+No one but baristas love me.

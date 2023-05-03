@@ -31,8 +31,8 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
             "dwarf", "blade", "edge", "head", "foot", "fist", "fists", "lord", "forge", "field", "drink", "ale", "plow", "beam", "plate", "guard", "gourd", "cheese",
             "wood", "stone", "crystal", "hammer", "chisel", "saw"};
     private static final String[] locationNames = new String[]{"City", "Mountain", "Hill", "Town", "Village", "Palace", "Swamp", "Forest", "Plateau", "Grove",
-    "Valley", "Beach", "Island", "Lake", "Sea", "Hamlet", "Wood", "Wetlands", "City", "Mountain","Harbor", "Cove", "Wharf", "Sanctuary", "Town", "Village", "Landing",
-    "Crossroads", "Springs", "Creek", "Heights", "Bridge", "Passage", "Point", "Temple", "Glen", "Archipelago", "Bay", "Canyon", "Lagoon", "Tundra"};
+    "Valley", "Island", "Lake", "Sea", "Hamlet", "Wood", "Wetlands", "City", "Mountain","Harbor", "Cove", "Town", "Village", "Landing",
+    "Crossroads", "Springs", "Creek", "Heights", "Passage", "Archipelago", "Bay", "Canyon", "Lagoon", "Tundra", "Desert"};
 
     /**
      * Creates a name (first and last) for a dwarf character, using randomly chosen syllables suited to the style of
@@ -95,7 +95,7 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         StringBuilder identifier = new StringBuilder();
         Random random = new Random();
         switch (random.nextInt(2)) {
-            case 0 -> { //elf
+            case 0 -> { //elven name
                 identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
                 identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
                 int r = random.nextInt(2);
@@ -103,7 +103,7 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
                     identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
                 }
             }
-            case 1 -> { //dwarf
+            case 1 -> { //dwarven name
                 identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
                 identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
                 int r2 = random.nextInt(2);
@@ -111,7 +111,7 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
                     identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
                 }
             }
-            case 3 -> { //human
+            case 3 -> { //human name
                 identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
                 identifier.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
                 int r3 = random.nextInt(2);
@@ -122,7 +122,7 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         }
         int r4 = random.nextInt(10);
         String locationName;
-        if (r4 <= 3)
+        if (r4 <= 5)
         {
             identifier.append(" ");
             locationName = identifier.substring(0,1).toUpperCase() + identifier.append(locationNames[(random.nextInt(locationNames.length))]).substring(1); //capitalize

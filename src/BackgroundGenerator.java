@@ -61,12 +61,9 @@ public class BackgroundGenerator {
             "Archival Assistant",
     };
 
-    private static final String[] location1 = new String[]{
+    private static final String location1 = RandomNameGenerator.getPlaceName();
+    private static final String location2 = RandomNameGenerator.getPlaceName();
 
-    };
-    private static final String[] location2 = new String[]{
-
-    };
     private static final String[] adjective1 = new String[]{
 
     };

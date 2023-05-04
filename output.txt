@@ -1,25 +1,25 @@
-Name: Kokaarz Undercrystal
+Name: Wynnehrjan Grovelake
 Level: 1
-MaxHealth: 6
-Speed: 20
-ArmorClass: 11
-Class: Wizard
-Race: Dwarf
+MaxHealth: 11
+Speed: 40
+ArmorClass: 10
+Class: Fighter
+Race: Elf
 Gold: 100
-Strength 12
-Dexterity 12
-Constitution 11
-Intelligence 16
-Wisdom 14
-Charisma 8
-Alignment CG
+Strength 15
+Dexterity 9
+Constitution 12
+Intelligence 12
+Wisdom 9
+Charisma 9
+Alignment NN
 
 PERSONALITY TRAITS:
 Ideals:
-No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)
-Respect. People deserve to be treated with dignity and respect. (Good)
+People. I'm committed to my crewmates, not to ideals. (Neutral)
+Sincerity. There's no good pretending to be something I'm not. (Neutral)
 Bond:
-I've been searching my whole life for the answer to a certain question.
+I owe a debt I can never repay to the person who took pity on me.
 Flaw:
-I'd risk too much to uncover a lost bit of knowledge.
+If you question my courage, I will never back down.
 

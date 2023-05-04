@@ -22,7 +22,9 @@ public class RandomPersonaGenerator {
             "Glory. I must earn glory in battle, for myself and my clan. (Any)",
             "Aspiration. Someday I'll own my own ship and chart my own destiny. (Any)",
             "Nation. My city, nation, or people are all that matters. (Any)",
-            "Aspiration. I'm going to prove that I'm worthy of a better life. (Any)]"
+            "Aspiration. I'm going to prove that I'm worthy of a better life. (Any)",
+            "Fulfillment. I want to live a life that's worth living. (Any)",
+            "Kindness. No matter my goals I must be kind and loving to those around me. (Any)"
     };
 
     private static final String[] lawfulIdeals = new String[]{  //Ideals from 5E Players Handbook and Dungeon Master's Guide
@@ -76,7 +78,12 @@ public class RandomPersonaGenerator {
             "Freedom. The sea is freedom--the freedom to go anywhere and do anything. (Chaotic)",
             "Independence. When people follow orders blindly they embrace a kind of tyranny. (Chaotic)",
             "Change. The low is lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)",
-            "Destruction. Things being destroyed is entertaining, and thus a worthwhile path for life. (Chaotic)"
+            "Destruction. Things being destroyed is entertaining, and thus a worthwhile path for life. (Chaotic)",
+            "Noise. The world is too quiet, and must be filled with my noise. (Chaotic)",
+            "Excitement. Life and ideals are worthless if boring, I desire excitement above all else. (Chaotic)",
+            "Adventure. I set off not knowing where I will go, those in power shall guide my steps. (Chaotic)",
+            "Improvisation. I never plan more than one step ahead, life is meant to be improvised. (Chaotic)",
+            "Jumping. I don't like how the ground feels and am dedicated to always jumping. (Chaotic)"
     };
 
     private static final String[] goodIdeals = new String[] {  //Ideals from 5E Players Handbook and Dungeon Master's Guide
@@ -245,7 +252,6 @@ public class RandomPersonaGenerator {
     "Book learning is a waste of time. I have no patience for people who don't speak from experience.",
     "I almost always cheat. I can't help myself.",
     "I believe doom follows me and that anyone who gets close to me will face a tragic end.",
-    "I'm convinced something is after me, appearing in mirrors, dreams, and places where no one could.",
     "I'm especially superstitious and live life seeking to avoid bad luck, wicked spirits, or the Mists.",
     "I've done unspeakable evil and will do anything to prevent others from finding out.",
     "I am exceptionally credulous and believe any story or legend immediately.",

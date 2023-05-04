@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Ben Smith, David Olinger
+ * This class simulates a dnd character sheet, keeping track of player stats, inventory, and spell list. It can be constructed randomly
+ * Or by sending in a formatted file that has either been pre-made or saved from the character sheet.
  */
 
 public class PlayerCharacter {
@@ -22,13 +24,6 @@ public class PlayerCharacter {
 
     //Player stats
     private int maxHealth, currentHealth, gold, armorClass, speed, succDS, failDS, hitDie; //we can just declare these all at once
-//    private int currentHealth;
-//    private int gold;
-//    private int armorClass;
-//    private int speed;
-//    private int succDS;
-//    private int failDS;
-//    private int hitDie;
     private String alignment; //a two character alignment with the form '[L, N, or C][G, N, or E]'.
     private String characterClass;
     private String race;
@@ -39,7 +34,7 @@ public class PlayerCharacter {
 
 
     /**
-     * Default Constructor for PlayerCharacter
+     * Default Constructor for PlayerCharacter: Randomly generated stats and inventory
      *
      */
     public PlayerCharacter(int level, String inputName, String race, String inputClass) throws FileNotFoundException {
@@ -120,6 +115,11 @@ public class PlayerCharacter {
                 if (abilityScores.get(abilityList[i]) > highStatNum){
                     highStatNum = abilityScores.get(abilityList[i]);
                     highStat = abilityList[i];
+                } else if (abilityScores.get(abilityList[i]) == highStatNum){
+                    int random = rollDice(1,2);
+                    if (random == 2) {
+                        highStat = abilityList[i];  // if 2 stats tie it picks between one at random
+                    }
                 }
             }
             switch (highStat) {
@@ -245,20 +245,24 @@ public class PlayerCharacter {
         System.out.println("Death Save Roll = " + roll);
         if (roll == 1){
             failDS += 2;
-            System.out.println("fails: " + failDS + "\nsuccesses: " + succDS);
+            System.out.println("Critical Failure!");
         } else if (roll == 20){
             succDS = 3;
+            System.out.println("Critical Success!");
         } else if (roll < 10){
             failDS++;
-        } else succDS++;
+            System.out.println("Failure");
+        } else {
+            succDS++;
+            System.out.println("Success");
+        }
         if (succDS >= 3){
             System.out.println("You stabilize");
             clearDS();
-        }
-        if (failDS >= 3){
+        } else if (failDS >= 3){
             System.out.println("You Died");
             clearDS();
-        }
+        } else System.out.println("fails: " + failDS + "\nsuccesses: " + succDS);
     }
 
 

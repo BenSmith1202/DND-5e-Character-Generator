@@ -145,7 +145,7 @@ public class RandomBackgroundGenerator {
                     "life was {3}. Eventually, my parents and fellow {4} thought I should go be with my own kind. A kind {5}\n" +
                     "took me in to teach me to be a(n) {6} {7}.", location1, getRandom(creatures), getRandom(wasInSituation), getRandom(adjective1), getRandom(creatures), background, getRandom(occupationModifier), background);
         }
-        return backstory;
+        return backstory;//
     }
 
     //intro 1

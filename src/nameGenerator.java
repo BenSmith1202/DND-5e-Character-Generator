@@ -26,6 +26,7 @@ public class nameGenerator {
         for (int i = 0; i < 30; i++) {
             System.out.println(RandomNameGenerator.getPlaceName());
         }
+        System.out.println(RandomBackgroundGenerator.getBackstory(p1));
 
 
     }

@@ -599,4 +599,8 @@ public class PlayerCharacter {
 
         pw.close();
         }
+
+    public String getCharacterClass() {
+        return characterClass;
+    }
 }

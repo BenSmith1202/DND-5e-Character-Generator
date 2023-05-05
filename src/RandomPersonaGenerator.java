@@ -81,7 +81,7 @@ public class RandomPersonaGenerator {
             "Destruction. Things being destroyed is entertaining, and thus a worthwhile path for life. (Chaotic)",
             "Noise. The world is too quiet, and must be filled with my noise. (Chaotic)",
             "Excitement. Life and ideals are worthless if boring, I desire excitement above all else. (Chaotic)",
-            "Adventure. I set off not knowing where I will go, those in power shall guide my steps. (Chaotic)",
+            "Adventure. I set off not knowing where I will go, the powers that be shall guide my steps. (Chaotic)",
             "Improvisation. I never plan more than one step ahead, life is meant to be improvised. (Chaotic)",
             "Jumping. I don't like how the ground feels and am dedicated to always jumping. (Chaotic)"
     };

@@ -53,7 +53,6 @@ public class RandomBackgroundGenerator {
             "Caravan Specialist",
             "Harborfolk",
             "Gate Urchin",
-            "Secret Identity",
             "Shade Fanatic",
             "Trade Sheriff",
             "Gate Warden",
@@ -87,43 +86,52 @@ public class RandomBackgroundGenerator {
 
     };
     private static final String[] somethingHappenedToMe = new String[]{
-            "something happened to me"
+            "I developed a rare disease", "I caught the interest of a few less than benevolent parties", "I was invited to a lot of parties", "I felt a surge of determination coursing through me",
+            "I developed an allergy to goblins", "I was deemed worthy of inheriting my family's heirloom armor", "I was able to pull a legendary weapon out of a stone",
+            "I was tracked down by assassins and needed to fight my way out", "I was a natural in the ways of combat", "I was sent to a special school for kids like me"
     };
     private static final String[] occupationModifier = new String[]{
-            "apprentice"
+            "apprentice", "master", "journeyman", "novice", "supervisory", "terrible", "masterful", "skilled", "royal"
     };
     private static final String[] didSomethingBad = new String[]{
-            "did something bad"
+            "did something bad", "flirted with the wrong woman", "fell asleep when I shouldn't've", "stole a few things", "took a practical joke too seriously", "bruised a powerful ego", "killed a man in cold blood",
+            "failed a big project", "blew through my budget", "didn't uphold politcally correct ideals", "embezzled money", "tried to convert everyone around me to my religion", "revealed that I don't like cheese",
+            "fell in with a bad crew", "got caught looking through the leader's things", "tricked a coworker into doing my work for me"
     };
     private static final String[] doSomethingHeroic = new String[]{
-            "do something heroic"
+            "do something heroic", "save the town", "save the kingdom", "save the world", "save my family", "rescue a damsel in distress", "write the most beautiful song",
+            "slay a great beast", "sacrifice myself for a friend", "complete the eating challenge at my local tavern", "go on an epic journey", "master the blade",
+            "discover eternal life", "start a family"
     };
     private static final String[] creatures = new String[]{
-            "creatures"
+            "goblins", "wild dogs", "jackals", "tigers", "lions", "owlbears", "monkeys", "brown bears", "bobcats", "vipers", "pumas", "skeletons", "zombies", "tarantulas", "demons", "angels", "humans", "stray cats",
+            "dragons", "basilisks", "falcons", "eagles", "kobold", "gnolls", ""
     };
     private static final String[] verbing = new String[]{
-            "verbing"
+            "singing", "dancing", "partying", "relaxing in a hot tub", "eating a meal", "knitting a scarf", "whittling a piece of art", "painting", "splitting logs", "diving", "sleeping", "napping", "laughing"
     };
     private static final String[] relatives = new String[]{
-            "relatives"
+            "crew", "family", "friends", "co-workers", "brothers", "sisters", "comrades", "servants", "business partners", "classmates"
     };
     private static final String[] aggressiveVerbed = new String[]{
-            "aggressively verbed"
+            "attacked", "assaulted", "accosted", "killed", "murdered", "mutilated", "robbed", "mugged", "pranked", "drained of fluids"
     };
     private static final String[] hostileParty = new String[]{
-            "hostile party"
+            "dragon", "group of kobold", "group of goblins", "cult", "skeleton platoon", "zombie horde", "basement of vampires", "murder of crows,", "shiver of sharks"
     };
     private static final String[] randomObject = new String[]{
-            "random object"
+            "sword", "rubber ducky", "empty bottle", "jar of peanut butter", "pineapple", "hammer", "nail", "screw", "instrument", "egg", "crystal"
     };
     private static final String[] randomAbility = new String[]{
-            "strength"
+            "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"
     };
     private static final String[] mysterySite = new String[]{
-            "mystery site"
+            "abandoned building", "ominous cave", "majestic clearing", "ginormous ravine", "crystalline cavern", "mysterious ruins", "washed up shipwreck", "gigantic skeleton in the woods",
+            "forgotten temple", "ancient structure", "forbidden zone"
     };
     private static final String[] mysteryEntity = new String[]{
-            "mystery entity"
+            "unknown god", "archdemon", "extraterrestrial being", "unknowable horror", "benevolent angel", "beautiful goddess", "long dead king", "great old one", "aspect of the gods", "cloudy figure wrapped in smoke"
+            ,"flaming figure shining brightly", "crackling figure shedding crystals of ice", "thunderous figure arcing with lightning", "crumbling figure formed of earth", "caustic figure dripping with green ooze"
     };
 
     public static String getBackstory(PlayerCharacter pchar) {
@@ -138,11 +146,11 @@ public class RandomBackgroundGenerator {
             case 0 -> backstory = MessageFormat.format("Growing up in {0} was {1}. I {2}, which meant that {3}.\n" +
                     "These circumstances led me to life as a(n) {4}, but nothing lasts forever.",
                     location1, getRandom(adjective1), getRandom(wasInSituation), getRandom(somethingHappenedToMe), background);
-            case 1 -> backstory = MessageFormat.format("I was not always a(n) {0}, I grew up as a(n) {1} {2} in {3}. After I {4}, they fired me, which led to my current occupation. But being a {5} wasn't my final destiny", pclass, getRandom(occupationModifier), background, location1, getRandom(didSomethingBad), background);
+            case 1 -> backstory = MessageFormat.format("I was not always a(n) {0}, I grew up as a(n) {1} {2} in {3}. After I {4}, they fired me, which led to my current occupation. But being a {5} wasn't my final destiny", pclass, getRandom(occupationModifier), getRandom(backgrounds), location1, getRandom(didSomethingBad), background);
             case 2 -> backstory = MessageFormat.format("They should write songs about {0}s like me. I may have started my life in {1} as a {2}, but I always dreamt I\n" +
                     "would {3} and earn the respect of everyone. Unfortunately, the gods had other plans.", pclass, location1, background, getRandom(doSomethingHeroic));
             case 3 -> backstory = MessageFormat.format("As a kid, I was raised in the wilds around {0} by {1}. I {2} most of the time, which is to say,\n" +
-                    "life was {3}. Eventually, my parents and fellow {4} thought I should go be with my own kind. A kind {5}\n" +
+                    "life was {3}. Eventually, my parents and fellow {1} thought I should go be with my own kind. A kind {5}\n" +
                     "took me in to teach me to be a(n) {6} {7}.", location1, getRandom(creatures), getRandom(wasInSituation), getRandom(adjective1), getRandom(creatures), background, getRandom(occupationModifier), background);
         }
         return backstory;//
@@ -175,7 +183,7 @@ public class RandomBackgroundGenerator {
     //complete the quest, make sure the [Hostile Party] was [agressiveVerbed], and claim my coin. And that, is how I became an adventurer.
 
     //Call To Adventure 3
-    //One day, after a long night of drinking, some of my [relatives], my friend [getName] and I were exploring an abandoned
+    //One day, after a long night of drinking, some of my [relatives], my friend [getName] and I were exploring a(n)
     // [mysterySite] near [Location2], but I was separated from them at some point, and found myself standing in front of a [MysteryEntity].
     //I could feel its voice stirring something within me, reminding me of my ideals and strengthening my resolve. If I
     //wanted to achieve my dreams as a [Class], I couldn't just go [verbing] around any longer. I needed to become an adventurer.

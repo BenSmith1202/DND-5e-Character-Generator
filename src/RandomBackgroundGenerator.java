@@ -130,8 +130,8 @@ public class RandomBackgroundGenerator {
             "forgotten temple", "ancient structure", "forbidden zone"
     };
     private static final String[] mysteryEntity = new String[]{
-            "unknown god", "archdemon", "extraterrestrial being", "unknowable horror", "benevolent angel", "beautiful goddess", "long dead king", "great old one", "aspect of the gods", "cloudy figure wrapped in smoke"
-            ,"flaming figure shining brightly", "crackling figure shedding crystals of ice", "thunderous figure arcing with lightning", "crumbling figure formed of earth", "caustic figure dripping with green ooze"
+            "unknown god", "archdemon", "extraterrestrial being", "unknowable horror", "benevolent angel", "beautiful goddess", "long dead king", "great old one", "aspect of the gods", "cloudy figure wrapped in smoke",
+            "flaming figure shining brightly", "crackling figure shedding crystals of ice", "thunderous figure arcing with lightning", "crumbling figure formed of earth", "caustic figure dripping with green ooze"
     };
 
     public static String getBackstory(PlayerCharacter pchar) {

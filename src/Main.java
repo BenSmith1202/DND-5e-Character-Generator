@@ -69,23 +69,29 @@ public class Main {
             boolean done = false;
             while (!done){
                 System.out.println("""
-
-
+                        
                         Choose any of the actions below by typing in the given number
-                        [1] Add Item
-                        [2] Add Spell
-                        [3] Attack
-                        [4] Cast Spell
-                        [5] Rest
-                        [6] Change Health
-                        [7] Roll Death Save
-                        [8] Print Character Sheet
-                        [9] Save Character
-                        [10] Exit Program""");
+                        [0] Get Help with Backstory [1] Add Item
+                        [2] Add Spell               [3] Attack
+                        [4] Cast Spell              [5] Rest
+                        [6] Change Health           [7] Roll Death Save
+                        [8] Print Character Sheet   [9] Save Character
+                        [10] Reroll Personality     [11] Reroll Backstory
+                        [12] Exit Program""");
 
                 int input = scnr.nextInt();
 
                 //addItem
+                if (input == 0){
+                    if (p1.getBackstory().equals("There is nothing here now, but you can generate a backstory from the main menu")){
+                        p1.setBackstory(RandomBackgroundGenerator.getBackstory(p1));
+                    }
+                    System.out.println("Here's a randomly generated backstory that has been saved to your character:");
+                    System.out.println("----------------------------");
+                    System.out.println(p1.getBackstory());
+                    System.out.println("----------------------------");
+                }
+
                 if (input == 1){
                     System.out.println("enter the string of the type of item you want to add from the following\n" +
                             "[1] item\n[2] weapon");
@@ -119,7 +125,7 @@ public class Main {
                         p1.addItem(weapon); //this constructor is super long but idk how to make it better
 
 
-                        //adds a potion to inventory
+                        //adds a weapon to inventory
                     }
 
                 }
@@ -204,11 +210,37 @@ public class Main {
 
                 //saves character sheet to file
                 if (input == 9){
-                    p1.saveCharacter();                //saves character
-                }
+                    boolean properInput = false;
+                    do {
 
+                        System.out.println("Name your save file (save1.txt, for example)");
+                        Scanner scan = new Scanner(System.in);
+                        String fileName = scan.nextLine();
+                        if (!fileName.substring(fileName.length()-4).equals(".txt")){
+                            System.out.println("That wasn't a proper name for a file, try again.");
+                            continue;
+                        }
+                        properInput = true;
+                        p1.saveCharacter(fileName);
+
+                    } while (!properInput);//saves character
+                }
+                if (input == 10) {
+                    System.out.println("Rerolling Persona...");
+                    p1.setPersona(RandomPersonaGenerator.getPersona(p1));
+                    System.out.println("-----NEW  PERSONALITY-----");
+                    System.out.println(p1.getPersona());
+                    System.out.println("--------------------------");
+                }
+                if (input == 11) {
+                    System.out.println("Rerolling backstory...");
+                    p1.setBackstory(RandomBackgroundGenerator.getBackstory(p1));
+                    System.out.println("------NEW  BACKSTORY------");
+                    System.out.println(p1.getBackstory());
+                    System.out.println("--------------------------");
+                }
                 //ends cycle
-                if (input == 10){
+                if (input == 12){
                     done = true;              // ends loop
                 }
 

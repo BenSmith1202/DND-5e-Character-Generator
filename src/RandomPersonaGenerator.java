@@ -334,14 +334,14 @@ public class RandomPersonaGenerator {
     };
 
     /**
-     * Used to generate random personalities based on a given alignment"
-     * @param alignment The given 2 character alignment in the form '[L, N, or C][G, N, or E]'.
+     * Used to generate random personalities based on a given character
+     * @param pchar the character to generate a persona for
      * @return a block of text representing the traits of this character personality.
      */
-   public static String getPersona(String alignment){ //returns a block of text describing a character's personality
-       
-      StringBuilder personaBuilder = new StringBuilder();
-      personaBuilder.append("\nPERSONALITY TRAITS:\nIdeals:\n");
+   public static String getPersona(PlayerCharacter pchar){ //returns a block of text describing a character's personality
+       String alignment = pchar.getAlignment();
+       StringBuilder personaBuilder = new StringBuilder();
+       personaBuilder.append("\nPERSONALITY TRAITS:\nIdeals:\n");
        switch (alignment.charAt(0)) {
            case 'L' -> personaBuilder.append(getRandom(lawfulIdeals) + "\n"); //gets random ideals based on alignment.
            case 'N' -> personaBuilder.append(getRandom(neutralIdeals) + "\n");

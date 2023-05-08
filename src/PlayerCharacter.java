@@ -28,7 +28,9 @@ public class PlayerCharacter {
     private String characterClass;
     private String race;
 
-    private static String[] abilityList;
+    private String backstory;
+
+    private static String[] abilityList = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
 
 
 
@@ -38,6 +40,7 @@ public class PlayerCharacter {
      *
      */
     public PlayerCharacter(int level, String inputName, String race, String inputClass) throws FileNotFoundException {
+        backstory = "There is nothing here now, but you can generate a backstory from the main menu";
 
         abilityScores = new HashMap<>(6); // roll all the stats
         abilityScores.put("Strength", rollCharacterStats());
@@ -50,7 +53,7 @@ public class PlayerCharacter {
         hitDieOptions = new HashMap<>(6);
         hitDieOptions.put("Barbarian",12);
         hitDieOptions.put("Fighter",10);
-        hitDieOptions.put("Rouge",8);
+        hitDieOptions.put("Rogue",8);
         hitDieOptions.put("Wizard",6);
         hitDieOptions.put("Sorcerer",6);
         hitDieOptions.put("Bard",8);
@@ -86,15 +89,15 @@ public class PlayerCharacter {
         }
         checkTrinkets.close();
 
-        for (int i = 0; i < 3; i++) {
-            Scanner scan = new Scanner(trinkets);
-            for (int j = 0; j < rollDice(1, trinketsLen-1); j++) { //sides is number of lines in file -1
-                scan.nextLine(); //cycle to a random line
 
-            }
-            inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
-            scan.close();
+        Scanner scan = new Scanner(trinkets);
+        for (int j = 0; j < rollDice(1, trinketsLen-1); j++) { //sides is number of lines in file -1
+            scan.nextLine(); //cycle to a random line
+
         }
+        inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
+        scan.close();
+
 
         spells = new ArrayList<>();
 
@@ -124,7 +127,7 @@ public class PlayerCharacter {
             }
             switch (highStat) {
                 case "Strength" -> characterClass = "Fighter";
-                case "Dexterity" -> characterClass = "Rouge";
+                case "Dexterity" -> characterClass = "Rogue";
                 case "Constitution" -> characterClass = "Barbarian";
                 case "Intelligence" -> characterClass = "Wizard";
                 case "Wisdom" -> characterClass = "Sorcerer";
@@ -161,7 +164,7 @@ public class PlayerCharacter {
         String[] ali1 = new String[] {"L", "N", "C"};
         String[] ali2 = new String[] {"G", "N", "E"};
         alignment = ali1[PlayerCharacter.rollDice(1, 3)-1] + ali2[PlayerCharacter.rollDice(1, 3)-1]; //gets a random two character alignment.
-        persona = RandomPersonaGenerator.getPersona(alignment); //stores a random personality based on the random alignment.
+        persona = RandomPersonaGenerator.getPersona(this); //stores a random personality based on the random alignment.
 
         longRest(); //resets expendable stats to max.
     }
@@ -172,6 +175,8 @@ public class PlayerCharacter {
      * @param fileName = a file containing strings with the proper info to create a character
      */
     public PlayerCharacter(String fileName) throws FileNotFoundException {
+        backstory = "There is nothing here now, but you can generate a backstory from the main menu";
+
         inventory = new ArrayList<>();
         spells = new ArrayList<>();
 
@@ -560,8 +565,8 @@ public class PlayerCharacter {
         System.out.println("Updated health: " + currentHealth + "/" + maxHealth);
     }
 
-    public void saveCharacter() throws FileNotFoundException {
-        File f = new File("output.txt");
+    public void saveCharacter(String fileName) throws FileNotFoundException {
+        File f = new File(fileName);
         PrintWriter pw = new PrintWriter(f);
 
         pw.print("Name: ");
@@ -602,5 +607,25 @@ public class PlayerCharacter {
 
     public String getCharacterClass() {
         return characterClass;
+    }
+
+    public void setBackstory(String backstory) {
+        this.backstory = backstory;
+    }
+
+    public String getBackstory() {
+        return backstory;
+    }
+
+    public String getPersona() {
+        return persona;
+    }
+
+    public void setPersona(String persona) {
+        this.persona = persona;
+    }
+
+    public String getAlignment() {
+        return alignment;
     }
 }

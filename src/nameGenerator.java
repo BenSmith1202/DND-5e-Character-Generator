@@ -17,17 +17,22 @@ public class nameGenerator {
             System.out.println(RandomNameGenerator.getElfName());
         }
 
-        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getHumanName(),"Dwarf","Bard");
+        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getHumanName(),"Elf","Wizard");
         p1.printSheet();
-        PlayerCharacter p2 = new PlayerCharacter(5, RandomNameGenerator.getDwarfName(),"Dwarf","Bard");
+        PlayerCharacter p2 = new PlayerCharacter(5, RandomNameGenerator.getDwarfName(),"Human","Bard");
         p2.printSheet();
-        PlayerCharacter p3 = new PlayerCharacter(20, RandomNameGenerator.getElfName(),"Dwarf","Bard");
+        PlayerCharacter p3 = new PlayerCharacter(20, RandomNameGenerator.getElfName(),"Dwarf","Barbarian");
         p3.printSheet();
         for (int i = 0; i < 30; i++) {
             System.out.println(RandomNameGenerator.getPlaceName());
         }
+        System.out.println("----------------------------");
         System.out.println(RandomBackgroundGenerator.getBackstory(p1));
-
+        System.out.println("----------------------------");
+        System.out.println(RandomBackgroundGenerator.getBackstory(p2));
+        System.out.println("----------------------------");
+        System.out.println(RandomBackgroundGenerator.getBackstory(p3));
+        System.out.println("----------------------------");
 
     }
 }

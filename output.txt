@@ -1,25 +1,25 @@
-Name: Wynnehrjan Grovelake
+Name: Trinerianwisp Pinebreeze
 Level: 1
-MaxHealth: 11
-Speed: 40
-ArmorClass: 10
-Class: Fighter
+MaxHealth: 8
+Speed: 30
+ArmorClass: 11
+Class: Bard
 Race: Elf
-Gold: 100
-Strength 15
-Dexterity 9
-Constitution 12
-Intelligence 12
-Wisdom 9
-Charisma 9
-Alignment NN
+Gold: 150
+Strength 9
+Dexterity 13
+Constitution 11
+Intelligence 10
+Wisdom 14
+Charisma 14
+Alignment NE
 
 PERSONALITY TRAITS:
 Ideals:
-People. I'm committed to my crewmates, not to ideals. (Neutral)
-Sincerity. There's no good pretending to be something I'm not. (Neutral)
+People. I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)
+Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)
 Bond:
-I owe a debt I can never repay to the person who took pity on me.
+Those who fight beside me are those worth dying for.
 Flaw:
-If you question my courage, I will never back down.
+Book learning is a waste of time. I have no patience for people who don't speak from experience.
 

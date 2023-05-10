@@ -1,7 +1,13 @@
 import java.io.FileNotFoundException;
 
-public class nameGenerator {
+public class RandomGeneratorTester {
     public static void main(String[] args) throws FileNotFoundException {
+        for (int i = 0; i < 10; i++) {
+            PlayerCharacter test = new PlayerCharacter(1, "Random","Random","Random");
+            test.printSheet();
+        }
+        System.out.println("\n\n\n\n\n\n\n\n");
+
         System.out.println("DWARF NAMES:");
         for (int i = 0; i < 25; i++) {
             System.out.println(RandomNameGenerator.getDwarfName());
@@ -17,15 +23,18 @@ public class nameGenerator {
             System.out.println(RandomNameGenerator.getElfName());
         }
 
-        PlayerCharacter p1 = new PlayerCharacter(1, RandomNameGenerator.getHumanName(),"Elf","Wizard");
-        p1.printSheet();
-        PlayerCharacter p2 = new PlayerCharacter(5, RandomNameGenerator.getDwarfName(),"Human","Bard");
-        p2.printSheet();
-        PlayerCharacter p3 = new PlayerCharacter(20, RandomNameGenerator.getElfName(),"Dwarf","Barbarian");
-        p3.printSheet();
+        System.out.println("\n\n\n\n\n");
+        System.out.println("LOCATIONS:\n");
+
         for (int i = 0; i < 30; i++) {
             System.out.println(RandomNameGenerator.getPlaceName());
         }
+
+        System.out.println("\n\n\n\n\n");
+        System.out.println("BACK STORIES:\n");
+        PlayerCharacter p1 = new PlayerCharacter(1, "Random","Random","Random");
+        PlayerCharacter p2 = new PlayerCharacter(1, "Random","Random","Random");
+        PlayerCharacter p3 = new PlayerCharacter(1, "Random","Random","Random");
         System.out.println("----------------------------");
         System.out.println(RandomBackgroundGenerator.getBackstory(p1));
         System.out.println("----------------------------");
@@ -33,6 +42,7 @@ public class nameGenerator {
         System.out.println("----------------------------");
         System.out.println(RandomBackgroundGenerator.getBackstory(p3));
         System.out.println("----------------------------");
+
 
     }
 }

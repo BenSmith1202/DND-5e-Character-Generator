@@ -11,28 +11,36 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class PlayerCharacter {
-    private String name;
-    private String persona;
-    private int level;
-    private HashMap<String, Integer> abilityScores;
-    private HashMap<String,Integer> hitDieOptions;
+    private String name; //Character name
+    private String persona; // The characters personality traits
+    private int level; //character level
+    private HashMap<String, Integer> abilityScores; // Holds the scores mapped to each of the 6 main ability stats
+    private HashMap<String,Integer> hitDieOptions; // holds the hit die mapped to each of the 6 usable classes
     //hashmap of spells needed
-    private ArrayList<InventoryItem> inventory;
-    private ArrayList<Spell> spells;
-    private int[] maxSpellSlots;
-    private int[] remainingSpellSlots;
+    private ArrayList<InventoryItem> inventory; // array list containing the players inventory items
+    private ArrayList<Spell> spells; // array list containing the players spells
+    private int[] maxSpellSlots; // the players maximum spells slots
+    private int[] remainingSpellSlots; // remaining spell slots
 
     //Player stats
-    private int maxHealth, currentHealth, gold, armorClass, speed, succDS, failDS, hitDie; //we can just declare these all at once
+    private int maxHealth, currentHealth, gold, armorClass, speed, succDS, failDS, hitDie; // single int player variables
     private String alignment; //a two character alignment with the form '[L, N, or C][G, N, or E]'.
-    private String characterClass;
-    private String race;
+    private String characterClass; // class
+    private String race; // race
 
-    private String backstory;
+    private String backstory; // the characters randomly generated backstory
 
     private static String[] abilityList = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
+    // holds the names of the main 6 character ability scores
 
 
+
+
+
+
+
+
+    // Constructors and character sheet methods
 
 
     /**
@@ -60,7 +68,7 @@ public class PlayerCharacter {
             };
         } else this.race = race;
 
-        switch (race){ //grants racial stat bonuses, uses high elf, mountain dwarf, and standard human
+        switch (this.race){ //grants racial stat bonuses, uses high elf, mountain dwarf, and standard human
             case "Elf" -> {this.speed = 35; abilityScores.put("Dexterity", abilityScores.get("Dexterity") + 2);
                 abilityScores.put("Intelligence", abilityScores.get("Intelligence") + 1);}
             case "Dwarf" -> {this.speed = 25; abilityScores.put("Constitution", abilityScores.get("Constitution") + 2);
@@ -258,8 +266,165 @@ public class PlayerCharacter {
 
 
     /**
+     * prints out the character sheet of the player in a file
+     */
+    public void printSheet(){
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+        System.out.println("Name: " + name + "     Race: " + race + "      Class: " + characterClass +
+                "     Level: " + level + "    Alignment: " + alignment);
+        System.out.println("Speed: " + speed + "              Armor Class: " + armorClass);
+        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "       Death Saves (S/F): " + succDS+"/"+failDS);
+        System.out.println("Gold: " + gold);
+
+        System.out.println("Strength: " + abilityScores.get("Strength") + "(" + getMod("Strength")+ ")" + "       " +
+                "Dexterity: " + abilityScores.get("Dexterity") + "(" + getMod("Dexterity")+ ")" + "   " +
+                "Constitution: " + abilityScores.get("Constitution") + "(" + getMod("Constitution")+ ")");
+        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(" + getMod("Intelligence")+ ")" + "   " +
+                "Wisdom: " + abilityScores.get("Wisdom") + "(" + getMod("Wisdom")+ ")" + "      " +
+                "Charisma: " + abilityScores.get("Charisma") + "(" + getMod("Charisma")+ ")");
+
+        System.out.println(persona + "\n");
+
+        System.out.print("Inventory: ");
+        if (inventory.size() == 0) System.out.println("Empty");
+        else {
+            System.out.print("\n");
+            for (int i = 0; i < inventory.size(); i++) {
+                System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
+            }
+            System.out.println();
+        }
+
+        System.out.print("Spells: ");
+        if (spells.size() == 0) System.out.println("Empty");
+        else {
+            for (int i = 0; i < spells.size(); i++) {
+                if (i > 0) System.out.print("i");
+                System.out.print(spells.get(i).getName());
+            }
+            System.out.println();
+        }
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+    }
+
+    /**
+     *
+     * @param fileName
+     * @throws FileNotFoundException  NEEDS JAVA DOC
+     */
+    public void saveCharacter(String fileName) throws FileNotFoundException {
+        File f = new File(fileName);
+        PrintWriter pw = new PrintWriter(f);
+
+        pw.print("Name: ");
+        pw.println(name);
+
+        pw.print("Level: ");
+        pw.println(level);
+
+        pw.print("MaxHealth: ");
+        pw.println(maxHealth);
+
+        pw.print("Speed: ");
+        pw.println(speed);
+
+        pw.print("ArmorClass: ");
+        pw.println(armorClass);
+
+        pw.print("Class: ");
+        pw.println(characterClass);
+
+        pw.print("Race: ");
+        pw.println(race);
+
+        pw.print("Gold: ");
+        pw.println(gold);
+
+        for (int i = 0; i < 6; i++) {
+            pw.print(abilityList[i] + " ");
+            pw.println(abilityScores.get(abilityList[i]));
+        }
+        pw.print("Alignment ");
+        pw.println(alignment);
+
+        pw.print(persona);
+
+        pw.println("Inventory:");
+        for (InventoryItem i : inventory) {
+            pw.println(i);
+        }
+        pw.println("Backstory:");
+        pw.println(backstory);
+
+        pw.close();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // Dice Roll Methods
+
+
+    /**
+     * Rolls a set of dice and returns the result
+     * @param number = the number of dice being rolled
+     * @param sides = the number of sides each of those dice has
+     * @param bonus = any bonus being added onto the total dice roll
+     * @return the total combined number of the rolled dice
+     */
+    public static int rollDice(int number, int sides, int bonus) {
+        Random r = new Random();
+        int total = 0;
+        for (int i = 0; i < number; i++) {
+            total += r.nextInt(1,sides+1);
+        }
+        total += bonus;
+        return total;
+    }
+
+
+    /**
+     * Rolls a set of dice and returns the result, doesn't use bonus
+     * @param number = the number of dice being rolled
+     * @param sides = the number of sides each of those dice has
+     * @return the total combined number of the rolled dice
+     */
+    public static int rollDice(int number, int sides){
+        Random r = new Random();
+        int total = 0;
+        for (int i = 0; i < number; i++) {
+            total += r.nextInt(1,sides+1);
+        }
+
+        return total;
+    }
+    public static int rollCharacterStats(){
+        int total = 0;
+        int lowest = 7;
+        for (int i = 0; i < 4; i++) {
+            int num = rollDice(1, 6);
+            if (num < lowest){
+                lowest = num;
+            }
+            total += num;
+        }
+        total -= lowest;
+
+        return total;
+    }
+
+
+    /**
      * Returns the modifier that the player will get on an ability based on their score
-     * @param = the ability in AbilityScores that will be calculated with
+     * @param ability = the ability in AbilityScores that will be calculated with
      * @return The ability modifier number
      */
     public int getMod(String ability){
@@ -303,6 +468,57 @@ public class PlayerCharacter {
         failDS = 0;
         succDS = 0;
     }
+
+    /**
+     * rolls a d20 for an ability check, calculating with the players ability modifiers
+     * @return the total result of the roll
+     */
+    public int rollAbilityCheck(String ability){
+        int roll = rollDice(1,20,getMod(ability));
+        return Math.max(roll, 1);
+    }
+
+
+
+
+
+
+
+
+    // Item Methods
+
+
+    /**
+     * Adds a new Item to the player's inventory
+     * @param newItem = the item to be added
+     */
+    public void addItem(InventoryItem newItem){
+        inventory.add(newItem);
+    }
+    public void addItem(String itemString){
+        InventoryItem newItem = new InventoryItem(itemString);
+        inventory.add(newItem);
+    }
+
+
+    /**
+     * removes an Item from the player's inventory
+     * @param item = the item to be removed
+     */
+    public void RemoveItem(InventoryItem item){
+        inventory.remove(item);
+    }
+
+
+
+
+
+
+
+
+
+
+    // Weapon Methods
 
 
     /**
@@ -349,26 +565,18 @@ public class PlayerCharacter {
     }
 
 
-    /**
-     * Adds a new Item to the player's inventory
-     * @param newItem = the item to be added
-     */
-    public void addItem(InventoryItem newItem){
-        inventory.add(newItem);
-    }
-    public void addItem(String itemString){
-        InventoryItem newItem = new InventoryItem(itemString);
-        inventory.add(newItem);
-    }
 
 
-    /**
-     * removes an Item from the player's inventory
-     * @param item = the item to be removed
-     */
-    public void RemoveItem(InventoryItem item){
-        inventory.remove(item);
-    }
+
+
+
+
+
+
+
+
+
+    //   Spell Methods
 
 
     /**
@@ -377,67 +585,6 @@ public class PlayerCharacter {
      */
     public void addSpell(Spell newSpell){
         spells.add(newSpell);
-    }
-
-
-    /**
-     * rolls a d20 for an ability check, calculating with the players ability modifiers
-     * @return the total result of the roll
-     */
-    public int rollAbilityCheck(String ability){
-        int roll = rollDice(1,20,getMod(ability));
-        return Math.max(roll, 1);
-    }
-
-
-    /**
-     * Rolls a set of dice and returns the result
-     * @param number = the number of dice being rolled
-     * @param sides = the number of sides each of those dice has
-     * @param bonus = any bonus being added onto the total dice roll
-     * @return the total combined number of the rolled dice
-     */
-    public static int rollDice(int number, int sides, int bonus) {
-        Random r = new Random();
-        int total = 0;
-        for (int i = 0; i < number; i++) {
-            total += r.nextInt(1,sides+1);
-        }
-        total += bonus;
-        return total;
-    }
-
-
-    /**
-     * Rolls a set of dice and returns the result, doesn't use bonus
-     * @param number = the number of dice being rolled
-     * @param sides = the number of sides each of those dice has
-     * @return the total combined number of the rolled dice
-     */
-    public static int rollDice(int number, int sides){
-        Random r = new Random();
-        int total = 0;
-        for (int i = 0; i < number; i++) {
-            total += r.nextInt(1,sides+1);
-        }
-
-        return total;
-    }
-
-
-    public static int rollCharacterStats(){
-        int total = 0;
-        int lowest = 7;
-        for (int i = 0; i < 4; i++) {
-            int num = rollDice(1, 6);
-            if (num < lowest){
-                lowest = num;
-            }
-            total += num;
-        }
-        total -= lowest;
-
-        return total;
     }
 
 
@@ -482,65 +629,19 @@ public class PlayerCharacter {
     }
 
 
-    /**
-     * Returns the amount of gold the player has
-     * @return the amount of gold
-     */
-    public int getGold() {
-        return this.gold;
-    }
 
 
-    /**
-     * adds or subtracts gold from the players total gold
-     * @param numChange = the amount to be added or subtracted
-     */
-    public void changeGold(int numChange){
-        this.gold += numChange;
-    }
 
 
-    /**
-     * prints out the character sheet of the player in a file
-     */
-    public void printSheet(){
-        System.out.println("-------------------------------------------------------------");
-        System.out.println("Name: " + name + "     Race: " + race + "      Class: " + characterClass +
-                "     Level: " + level + "    Alignment: " + alignment);
-        System.out.println("Speed: " + speed + "              Armor Class: " + armorClass);
-        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "       Death Saves (S/F): " + succDS+"/"+failDS);
-        System.out.println("Gold: " + gold);
 
-        System.out.println("Strength: " + abilityScores.get("Strength") + "(" + getMod("Strength")+ ")" + "       " +
-                "Dexterity: " + abilityScores.get("Dexterity") + "(" + getMod("Dexterity")+ ")" + "   " +
-                "Constitution: " + abilityScores.get("Constitution") + "(" + getMod("Constitution")+ ")");
-        System.out.println("Intelligence: " + abilityScores.get("Intelligence") + "(" + getMod("Intelligence")+ ")" + "   " +
-                "Wisdom: " + abilityScores.get("Wisdom") + "(" + getMod("Wisdom")+ ")" + "      " +
-                "Charisma: " + abilityScores.get("Charisma") + "(" + getMod("Charisma")+ ")");
 
-        System.out.println(persona + "\n");
 
-        System.out.print("Inventory: ");
-        if (inventory.size() == 0) System.out.println("Empty");
-        else {
-            System.out.print("\n");
-            for (int i = 0; i < inventory.size(); i++) {
-                System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
-            }
-            System.out.println();
-        }
 
-        System.out.print("Spells: ");
-        if (spells.size() == 0) System.out.println("Empty");
-        else {
-            for (int i = 0; i < spells.size(); i++) {
-                if (i > 0) System.out.print("i");
-                System.out.print(spells.get(i).getName());
-            }
-            System.out.println();
-        }
-        System.out.println("-------------------------------------------------------------");
-    }
+
+
+
+    //Variable methods
+
 
 
     /**
@@ -561,27 +662,6 @@ public class PlayerCharacter {
         currentHealth += PlayerCharacter.rollDice(8, 8);
     }
 
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getArmorClass() {
-        return armorClass;
-    }
-
-    public void setArmorClass(int armorClass) {
-        this.armorClass = armorClass;
-    }
-
-    public int getCurrentHealth() {
-        return currentHealth;
-    }
-
     public void changeHealth(int change) {
         this.currentHealth += change;
         if (currentHealth > maxHealth){
@@ -589,53 +669,6 @@ public class PlayerCharacter {
         }
         System.out.println("Updated health: " + currentHealth + "/" + maxHealth);
     }
-
-    public void saveCharacter(String fileName) throws FileNotFoundException {
-        File f = new File(fileName);
-        PrintWriter pw = new PrintWriter(f);
-
-        pw.print("Name: ");
-        pw.println(name);
-
-        pw.print("Level: ");
-        pw.println(level);
-
-        pw.print("MaxHealth: ");
-        pw.println(maxHealth);
-
-        pw.print("Speed: ");
-        pw.println(speed);
-
-        pw.print("ArmorClass: ");
-        pw.println(armorClass);
-
-        pw.print("Class: ");
-        pw.println(characterClass);
-
-        pw.print("Race: ");
-        pw.println(race);
-
-        pw.print("Gold: ");
-        pw.println(gold);
-
-        for (int i = 0; i < 6; i++) {
-            pw.print(abilityList[i] + " ");
-            pw.println(abilityScores.get(abilityList[i]));
-        }
-        pw.print("Alignment ");
-        pw.println(alignment);
-
-        pw.print(persona);
-
-        pw.println("Inventory:");
-        for (InventoryItem i : inventory) {
-            pw.println(i);
-        }
-        pw.println("Backstory:");
-        pw.println(backstory);
-
-        pw.close();
-        }
 
     public String getCharacterClass() {
         return characterClass;
@@ -660,4 +693,42 @@ public class PlayerCharacter {
     public String getAlignment() {
         return alignment;
     }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+    /**
+     * Returns the amount of gold the player has
+     * @return the amount of gold
+     */
+    public int getGold() {
+        return this.gold;
+    }
+
+
+    /**
+     * adds or subtracts gold from the players total gold
+     * @param numChange = the amount to be added or subtracted
+     */
+    public void changeGold(int numChange){
+        this.gold += numChange;
+    }
+
+
 }

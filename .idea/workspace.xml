@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="added more options for backstory generation">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Minor QOL fixes to main, added options for personality and backstory generation and rerolling.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InventoryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InventoryItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RandomBackgroundGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomBackgroundGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nameGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weaponsList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weaponsList.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,19 +46,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SMITHBA22\OneDrive - Grove City College\Documents\Homework\Comp 220\SmithOlingerProject5" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.nameGenerator">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SmithOlingerProject5" />
@@ -84,8 +84,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.nameGenerator" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -315,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683524269607</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Minor QOL fixes to main, added options for personality and backstory generation and rerolling.">
+      <created>1683572824634</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683572824634</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,7 +337,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing descrepancies with spell version" />
     <MESSAGE value="Added to hit method and removed unnecessary default constructor for InventoryItem" />
     <MESSAGE value="added javadocs for some classes" />
     <MESSAGE value="Fixed Construction error due to ordering,&#10;Added to PrintSheet Method&#10;Added Getters for InventoryItem variables" />
@@ -355,6 +361,7 @@
     <MESSAGE value="Added backstory rudementary backstory generation" />
     <MESSAGE value="fixed typo" />
     <MESSAGE value="added more options for backstory generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more options for backstory generation" />
+    <MESSAGE value="Minor QOL fixes to main, added options for personality and backstory generation and rerolling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor QOL fixes to main, added options for personality and backstory generation and rerolling." />
   </component>
 </project>

@@ -14,7 +14,7 @@ public class Weapon extends InventoryItem {
      * @param weaponType strength or dexterity weapon
      * @param damageType slashing/bludgeoning etc.
      */
-    public Weapon(String name, int weaponBonus, int damageDie, int numDamageDice, String weaponType, String damageType){
+    public Weapon(int numDamageDice, int damageDie, int weaponBonus, String weaponType, String damageType, String name){
         super(name, 1);
         this.weaponBonus = weaponBonus;
         this.damageDie = damageDie;
@@ -40,5 +40,9 @@ public class Weapon extends InventoryItem {
 
     public int getDamageDie() {
         return damageDie;
+    }
+
+    public String toString(){
+        return "1" + " " + numDamageDice + " " + damageDie + " " + weaponBonus + " " + weaponType + " " + damageType + " " + super.getName();
     }
 }

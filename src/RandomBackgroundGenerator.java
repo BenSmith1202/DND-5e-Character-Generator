@@ -111,7 +111,7 @@ public class RandomBackgroundGenerator {
             "dragon", "group of kobold", "group of goblins", "cult", "skeleton platoon", "zombie horde", "basement of vampires", "murder of crows", "shiver of sharks", "flock of dracoliches", "triplet of gnomes in a trenchcoat"
     };
     private static final String[] randomObject = new String[]{
-            "sword", "rubber ducky", "empty bottle", "jar of peanut butter", "pineapple", "hammer", "nail", "screw", "instrument", "egg", "crystal", "dagger", "potion", "spear", "shield", "armor", "pet dog", "macguffin"
+            "sword", "rubber ducky", "bottle", "jar of peanut butter", "pineapple", "hammer", "nail", "screw", "instrument", "egg", "crystal", "dagger", "potion", "spear", "shield", "armor", "pet dog", "macguffin"
     };
     private static final String[] randomAbility = new String[]{
             "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "rizz"
@@ -122,7 +122,7 @@ public class RandomBackgroundGenerator {
     };
     private static final String[] mysteryEntity = new String[]{
             "unknown god", "archdemon", "extraterrestrial being", "unknowable horror", "benevolent angel", "beautiful goddess", "long dead king", "great old one", "aspect of the gods", "cloudy figure wrapped in smoke",
-            "flaming figure shining brightly", "crackling figure shedding crystals of ice", "thunderous figure arcing with lightning", "crumbling figure formed of earth", "caustic figure dripping with green ooze"
+            "flaming figure that shone brightly", "crackling figure clothed in crystals of ice", "thunderous figure arcing with lightning", "crumbling figure formed of earth", "caustic figure dripping with green ooze"
     };
 
     /**
@@ -139,7 +139,7 @@ public class RandomBackgroundGenerator {
         String background = getRandom(backgrounds);
         String pclass = pchar.getCharacterClass();
         int introNum = rand.nextInt(4);
-        int ctaNum = rand.nextInt(3);
+        int ctaNum = rand.nextInt(4);
 
         switch (introNum) { //DO NOT USE APOSTROPHE OR OTHER UNESCAPED CHARACTERS
             case 0 -> backstory = MessageFormat.format("Growing up in {0} was {1}. I {2}, which meant that {3}.\n" +
@@ -154,6 +154,7 @@ public class RandomBackgroundGenerator {
                     "life was {3}. Eventually, my parents and fellow {1} thought I should go be with my own kind. A kind {5}\n" +
                     "took me in to teach me to be a(n) {6} {7}.\n", location1, getRandom(creatures), getRandom(wasInSituation), getRandom(adjective1), getRandom(creatures), background, getRandom(occupationModifier), background);
         }
+
         switch (ctaNum) { //DO NOT USE APOSTROPHE OR OTHER UNESCAPED CHARACTERS
             case 0 -> backstory = backstory + MessageFormat.format("\nOne night in {0}, while I was {1} with my {2}, we were {3} by a {4}. After the tradgedy,\n" +
                             "I swore to never let another person be {3} again, and so I took up arms as a {5}.\n",
@@ -163,11 +164,17 @@ public class RandomBackgroundGenerator {
                     "complete the quest, make sure the {5} was {6}, and claim my coin. And that is how I became an adventurer.",
                     background, getRandom(verbing), location2, getRandom(randomObject), getRandom(randomAbility), getRandom(hostileParty), getRandom(aggressiveVerbed));
             case 2 -> backstory = backstory + MessageFormat.format("\nOne day, after a long night of {6}, some of my {0}, my friend {1} and I were exploring a(n)\n" +
-                    "{2} near {3}. Unfortunately, I was separated from them at some point, and found myself standing in front of a {4}.\n" +
-                    "I could feel their voice stirring something within me, reminding me of my ideals and strengthening my resolve. If I\n" +
-                    "wanted to achieve my dreams as a {5}, I could not just go {6} willy-nilly any longer. I needed to become an adventurer.",
+                            "{2} near {3}. Unfortunately, I was separated from them at some point, and found myself standing in front of a {4}.\n" +
+                            "I could feel their voice stirring something within me, reminding me of my ideals and strengthening my resolve. If I\n" +
+                            "wanted to achieve my dreams as a {5}, I could not just go {6} willy-nilly any longer. I needed to become an adventurer.",
                     getRandom(relatives), RandomNameGenerator.getHumanName(), getRandom(mysterySite), location2, getRandom(mysteryEntity), pclass, getRandom(verbing));
-           }
+            case 3 -> backstory = backstory + MessageFormat.format("\nOne day, while walking through {0}, a place I was not familiar with, a group of people approached me,\n" +
+                            "hailing me as the chosen one, praising my {1} and {2} in my honor. The leader approached me, introducing themself as {6}.\n" +
+                            "They claimed I had been sent by a(n) {3} to rid the land of the {4} that was oppressing the people. They led me to\n" +
+                            "a(n) {7} and bestowed me with a holy {5}, then sent me on my way. That is how I became an adventurer.",
+                    location2, getRandom(randomAbility), getRandom(verbing), getRandom(mysteryEntity), getRandom(hostileParty), getRandom(randomObject), RandomNameGenerator.getElfName(), getRandom(mysterySite));
+
+        }
         return backstory;//
     }
 
@@ -203,4 +210,10 @@ public class RandomBackgroundGenerator {
     //I could feel its voice stirring something within me, reminding me of my ideals and strengthening my resolve. If I
     //wanted to achieve my dreams as a [Class], I couldn't just go [verbing] around any longer. I needed to become an adventurer.
 
+    /*Call to adventure 4
+    One day, while walking through [Location2], a place I was not familiar with, a group of people approached me,
+    hailing me as the chosen one, praising my [ability] and [verbing] in my honor. The leader approached me, introducing themself as [getName].
+    They claimed I had been sent by a(n) [mysteryEntity] to rid the land of the [hostileParty] that was oppressing the people. They led me to
+    a(n) [mysterySite] and bestowed me with a holy [randomObject], then sent me on my way. That is how I became an adventurer.
+     */
 }

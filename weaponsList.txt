@@ -2,3 +2,16 @@
 1 8 0 Dexterity slashing Iron Shortsword
 1 10 0 Strength bludgeoning Iron Hammer
 1 4 0 Dexterity piercing Iron Dagger
+1 10 0 Dexterity piercing Iron Spear
+1 12 0 Strength slashing Steel Glaive
+1 8 0 Dexterity piercing Longbow
+1 10 0 Dexterity piercing Crossbow
+1 10 1 Strength slashing Magical Iron Longsword
+1 8 1 Dexterity slashing Magical Iron Shortsword
+1 10 1 Strength bludgeoning Magical Iron Hammer
+1 4 1 Dexterity piercing Magical Iron Dagger
+1 10 1 Dexterity piercing Magical Iron Spear
+1 12 1 Strength slashing Magical Steel Glaive
+1 8 1 Dexterity piercing Magical Longbow
+1 10 1 Dexterity piercing Magical Crossbow
+2 8 2 Strength slashing Legendary Glaive Prime

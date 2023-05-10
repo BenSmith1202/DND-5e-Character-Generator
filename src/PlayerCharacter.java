@@ -50,6 +50,25 @@ public class PlayerCharacter {
         abilityScores.put("Wisdom", rollCharacterStats());
         abilityScores.put("Charisma", rollCharacterStats());
 
+        Random r = new Random();
+        if (race.equals("Random")){
+            this.race = switch (r.nextInt(1,4)){
+                case 1 -> "Dwarf";
+                case 2 -> "Elf";
+                case 3 -> "Human";
+                default -> "";
+            };
+        } else this.race = race;
+
+        switch (race){ //grants racial stat bonuses, uses high elf, mountain dwarf, and standard human
+            case "Elf" -> {this.speed = 35; abilityScores.put("Dexterity", abilityScores.get("Dexterity") + 2);
+                abilityScores.put("Intelligence", abilityScores.get("Intelligence") + 1);}
+            case "Dwarf" -> {this.speed = 25; abilityScores.put("Constitution", abilityScores.get("Constitution") + 2);
+                abilityScores.put("Strength", abilityScores.get("Strength") + 2);}
+            case "Human" -> {this.speed = 30; for (String stat : abilityList) {abilityScores.put(stat, abilityScores.get(stat) + 1);} }
+        }
+
+
         hitDieOptions = new HashMap<>(6);
         hitDieOptions.put("Barbarian",12);
         hitDieOptions.put("Fighter",10);
@@ -108,7 +127,6 @@ public class PlayerCharacter {
         this.level = level;
         this.gold = 10* rollDice(5, 4);
         this.armorClass = 10 + getMod("Dexterity");
-        this.speed = rollDice(1,5, 3) * 5;
         if (!inputClass.equals("Random")) {
             this.characterClass = inputClass;
         } else {
@@ -136,16 +154,6 @@ public class PlayerCharacter {
         }
         this.hitDie = hitDieOptions.get(characterClass);
         this.maxHealth = hitDie + rollDice(level-1, hitDie) + (level*getMod("Constitution"));
-
-        Random r = new Random();
-        if (race.equals("Random")){
-            this.race = switch (r.nextInt(1,4)){
-                case 1 -> "Dwarf";
-                case 2 -> "Elf";
-                case 3 -> "Human";
-                default -> "";
-            };
-        } else this.race = race;
 
         if (!inputName.equals("Random")){
             this.name = inputName;
@@ -186,42 +194,59 @@ public class PlayerCharacter {
         abilityScores = new HashMap<>(6);
 
         File f = new File(fileName);
-        Scanner scnr = new Scanner(f);
+        Scanner scan = new Scanner(f);
 
-        scnr.next();
-        name = scnr.nextLine();
-        scnr.next();
-        level = scnr.nextInt();
-        scnr.nextLine();
-        scnr.next();
-        maxHealth = scnr.nextInt();
-        scnr.nextLine();
-        scnr.next();
-        speed = scnr.nextInt();
-        scnr.nextLine();
-        scnr.next();
-        armorClass = scnr.nextInt();
-        scnr.nextLine();
-        scnr.next();
-        characterClass = scnr.next();
-        scnr.nextLine();
-        scnr.next();
-        race = scnr.next();
-        scnr.nextLine();
-        scnr.next();
-        gold = scnr.nextInt();
-        scnr.nextLine();
+        scan.next();
+        name = scan.nextLine();
+        scan.next();
+        level = scan.nextInt();
+        scan.nextLine();
+        scan.next();
+        maxHealth = scan.nextInt();
+        scan.nextLine();
+        scan.next();
+        speed = scan.nextInt();
+        scan.nextLine();
+        scan.next();
+        armorClass = scan.nextInt();
+        scan.nextLine();
+        scan.next();
+        characterClass = scan.next();
+        scan.nextLine();
+        scan.next();
+        race = scan.next();
+        scan.nextLine();
+        scan.next();
+        gold = scan.nextInt();
+        scan.nextLine();
         for (int i = 0; i < 6; i++) {
-            abilityScores.put(scnr.next(), scnr.nextInt());
-            scnr.nextLine();
+            abilityScores.put(scan.next(), scan.nextInt());
+            scan.nextLine();
         }
-        scnr.next();
-        alignment = scnr.next();
-        scnr.nextLine();
-        scnr.nextLine();
+        scan.next();
+        alignment = scan.next();
+        scan.nextLine();
+        scan.nextLine();
         persona = "";
         for (int i = 0; i < 8; i++) {
-            persona += scnr.nextLine() + "\n";
+            persona += scan.nextLine() + "\n";
+        }
+        scan.nextLine(); //skip inventory header
+        //Inventory
+        while (scan.hasNextInt()){
+            Scanner scanline = new Scanner(scan.nextLine());
+            int quantity = scanline.nextInt();
+            if (scanline.hasNextInt()){
+                InventoryItem weap = new Weapon(scanline.nextInt(), scanline.nextInt(), scanline.nextInt(), scanline.next(), scanline.next(), scanline.nextLine());
+                inventory.add(weap);
+            } else {
+                inventory.add(new InventoryItem(scanline.nextLine(), quantity));
+            }
+        }
+        scan.nextLine();
+        backstory = scan.nextLine();
+        while (scan.hasNextLine()){
+            backstory = "\n" + backstory + scan.nextLine();
         }
 
         currentHealth = maxHealth;
@@ -600,7 +625,14 @@ public class PlayerCharacter {
         pw.print("Alignment ");
         pw.println(alignment);
 
-        pw.println(persona);
+        pw.print(persona);
+
+        pw.println("Inventory:");
+        for (InventoryItem i : inventory) {
+            pw.println(i);
+        }
+        pw.println("Backstory:");
+        pw.println(backstory);
 
         pw.close();
         }

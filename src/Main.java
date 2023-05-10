@@ -41,7 +41,7 @@ public class Main {
                     default -> "";
                 };
                 System.out.println("Please enter one of the following classes: [1] Fighter, [2] Rouge, [3] Barbarian," +
-                        "[4] Wizard, [5] Sorcerer, [6] Bard, [7] Random Class");
+                        "[4] Wizard, [5] Sorcerer, [6] Bard, [7] Random Ideal Class");
                 int classChoice = scnr.nextInt();
                 String characterClass = switch (classChoice) {
                     case 1 -> "Fighter";
@@ -121,7 +121,7 @@ public class Main {
                         String weaponType = scnr.next();
                         System.out.println("enter the type of damage the weapon deals");
                         String damageType = scnr.next();
-                        InventoryItem weapon = new Weapon(name, weaponBonus, damageDie, numDamageDice, weaponType, damageType);
+                        InventoryItem weapon = new Weapon(numDamageDice, damageDie, weaponBonus, weaponType, damageType, name);
                         p1.addItem(weapon); //this constructor is super long but idk how to make it better
 
 

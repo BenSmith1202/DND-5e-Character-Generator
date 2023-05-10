@@ -1,6 +1,10 @@
 import java.text.MessageFormat;
 import java.util.Random;
 
+/**
+ * @author  Ben Smith, David Olinger
+ * Generates a random dnd background story
+ */
 public class RandomBackgroundGenerator {
     private static String getRandom(String[] array) { //returns a random String from an array
         int rnd = new Random().nextInt(array.length);

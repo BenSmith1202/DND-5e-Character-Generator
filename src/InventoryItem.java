@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * @author Ben Smith, David Olinger
+ * This class simulate a dnd item and is inherited from by weapon
+ */
 public class InventoryItem {
     private String name;
     private int quantity;

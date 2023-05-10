@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: Ben Smith, David Olinger
+ * @author Ben Smith, David Olinger
  * This class simulates a dnd character sheet, keeping track of player stats, inventory, and spells. It can be constructed randomly
  * Or by sending in a formatted file that has either been pre-made or saved from the character sheet.
  */
@@ -34,6 +34,9 @@ public class PlayerCharacter {
     // holds the names of the main 6 character ability scores
 
     public static Weapon unarmed = new Weapon(1, 1, 0, "Strength", "bludgeoning", "Unarmed Strike");
+
+
+    // Lists of items to be added randomly to inventory
 
     private static String[] starterKit= new String[] {
             "3 20 feet of rope",
@@ -64,6 +67,10 @@ public class PlayerCharacter {
 
 
 
+
+
+
+
     // Constructors and character sheet methods
 
 
@@ -74,7 +81,7 @@ public class PlayerCharacter {
     public PlayerCharacter(int level, String inputName, String race, String inputClass) throws FileNotFoundException {
         backstory = "There is nothing here now, but you can generate a backstory from the main menu";
 
-        abilityScores = new HashMap<>(6); // roll all the stats
+        abilityScores = new HashMap<>(6); // rolls all the stats
         abilityScores.put("Strength", rollCharacterStats());
         abilityScores.put("Dexterity", rollCharacterStats());
         abilityScores.put("Constitution", rollCharacterStats());
@@ -348,12 +355,11 @@ public class PlayerCharacter {
             System.out.println();
         }
 
-        System.out.print("Spells: ");
+        System.out.println("Spells: ");
         if (spells.size() == 0) System.out.println("Empty");
         else {
             for (int i = 0; i < spells.size(); i++) {
-                if (i > 0) System.out.print("i");
-                System.out.print(spells.get(i).getName());
+                System.out.println((i+1) + ". " + spells.get(i).getName());
             }
             System.out.println();
         }
@@ -361,9 +367,9 @@ public class PlayerCharacter {
     }
 
     /**
-     *
-     * @param fileName
-     * @throws FileNotFoundException  NEEDS JAVA DOC
+     * Saves the character sheet to a file that can be loaded by the file constructor
+     * @param fileName = the name of the file being created and printed to
+     * @throws FileNotFoundException
      */
     public void saveCharacter(String fileName) throws FileNotFoundException {
         File f = new File(fileName);
@@ -491,7 +497,7 @@ public class PlayerCharacter {
 
 
     /**
-     * rolls a death saving throw, if failed will add to failDS, if suceeded will add to succDS, also acounts for critical rolls of 20
+     * rolls a death saving throw, if failed will add to failDS, if succeeded will add to succDS, also accounts for critical rolls of 20
      */
     public void rollDS(){
         int roll = rollDice(1,20,0);
@@ -576,6 +582,7 @@ public class PlayerCharacter {
 
 
 
+
     // Weapon Methods
 
 
@@ -633,6 +640,12 @@ public class PlayerCharacter {
 
 
 
+
+
+
+
+
+
     //   Spell Methods
 
 
@@ -645,33 +658,20 @@ public class PlayerCharacter {
     }
 
 
-    /**
-     * Casts the given spell
-     * @param spell the spell being casts
-     */
-    public void castAttackSpell(Spell spell){
-        System.out.println("Casting " + spell.getName() + ":");
-        System.out.println(spell.getAffect());
-        System.out.println("Damage dealt on hit = " + rollDamage(spell));
-    }
-
 
     /**
      * Casts the given spell
      * @param spell the spell being casts
      */
+
     public void castSpell(Spell spell){
-        System.out.println(spell.getAffect());
-    }
-    public void castSpell(String spellName, boolean attackSpell){
-        for (int i = 0; i < spells.size(); i++) {
-            if (spellName.equals(spells.get(i).getName())){
-                if (attackSpell){
-                    castAttackSpell(spells.get(i));
-                } else {
-                castSpell(spells.get(i));
-                }
-            }
+        if (spell.isAttackSpell()){
+            System.out.println("Casting " + spell.getName() + ":");
+            System.out.println(spell.getAffect());
+            System.out.println("Damage dealt on hit = " + rollDamage(spell));
+        } else {
+            System.out.println("Casting " + spell.getName() + ":");
+            System.out.println(spell.getAffect());
         }
     }
 
@@ -682,8 +682,12 @@ public class PlayerCharacter {
      * @return number of damage dealt
      */
     public int rollDamage(Spell spell){
-        return PlayerCharacter.rollDice(spell.getNumDamageDice(), spell.getDamageDie(), 0); // idk how spell bonus works
+        return PlayerCharacter.rollDice(spell.getNumDamageDice(), spell.getDamageDie(), 0);
     }
+
+
+
+
 
 
 
@@ -786,6 +790,9 @@ public class PlayerCharacter {
 
     public ArrayList getInventory() {
         return inventory;
+    }
+    public ArrayList getSpells() {
+        return spells;
     }
 
     private static String getRandom(String[] array) { //returns a random String from an array

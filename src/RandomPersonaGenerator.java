@@ -1,5 +1,9 @@
 import java.util.Random;
 
+/**
+ * @author Ben Smith, David Olinger
+ * Generates a random dnd personality
+ */
 public class RandomPersonaGenerator {
 
     /**

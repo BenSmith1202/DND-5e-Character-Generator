@@ -3,8 +3,18 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * @author Ben Smith, David Olinger
+ * Allows the user to create, store, and use a Dungeons and Dragons character sheet
+ */
 public class Main {
-
+    /**
+     * Checks to make sure that user input is correct
+     * @param prompt = the string printed out to tell the user what to input
+     * @param rangeStart = start of range of accepted ints
+     * @param rangeEnd = end of range of accepted ints
+     * @return = the correct user input
+     */
     public static int checkedInput(String prompt, int rangeStart, int rangeEnd ){
         boolean goodIn = false;
         int input = 12;
@@ -25,6 +35,12 @@ public class Main {
         } while (!goodIn);
         return input;
     }
+
+    /**
+     * Checks to make sure that user input is correct
+     * @param prompt = the string printed out to tell the user what to input
+     * @return = the correct user input
+     */
     public static int checkedInput(String prompt){
         boolean goodIn = false;
         int input = 12;
@@ -46,6 +62,11 @@ public class Main {
         return input;
     }
 
+    /**
+     * Runs the main loop allowing the user to create a character and interact with the character sheet and abilities
+     * @param args
+     * @throws FileNotFoundException = throws exception
+     */
     public static void main(String[] args) throws FileNotFoundException {
 
         int store = checkedInput("""
@@ -171,24 +192,21 @@ public class Main {
                 //adds a spell to spells list
                 if (input == 2){
                     System.out.println("enter the name of the spell you want to add to your spell list");
-                    scnr.nextLine();
                     String name = scnr.nextLine();
                     int slot = checkedInput("enter what spell slot it uses");
                     int damageSpellCheck = checkedInput("is it a damage roll spell? enter '1' for yes or '0' for no", 0 ,1);
 
 
                     if (damageSpellCheck == 1){
-                        int damageDie = checkedInput("enter the number sides of the damage die it uses");
+                        int damageDie = checkedInput("enter the number of sides of the damage die it uses");
                         int numDamageDice = checkedInput("enter the amount of damage dice it uses");
                         System.out.println("enter what the spell does on cast");
-                        scnr.nextLine();
                         String affect = scnr.nextLine();
                         Spell spell = new Spell(name, damageDie, numDamageDice, slot, affect);
                         p1.addSpell(spell);
                     }
                     else {
                         System.out.println("enter what the spell does on cast");
-                        scnr.nextLine();
                         String affect = scnr.nextLine();
                         Spell spell = new Spell(name, slot, affect);
                         p1.addSpell(spell);
@@ -200,7 +218,7 @@ public class Main {
                 //attack
                 if (input == 3){
                     ArrayList inventory = p1.getInventory();
-                    int indexOfWeapon = checkedInput("enter the inventory slot number of the weapon you want to attack with (0 for an unarmed strike).", 0, inventory.size()+1)-1;
+                    int indexOfWeapon = checkedInput("enter the inventory slot number of the weapon you want to attack with (0 for an unarmed strike).", 0, inventory.size())-1;
                     if (indexOfWeapon == -1) {
                         p1.attack(PlayerCharacter.unarmed);
                     } else if (inventory.get(indexOfWeapon) instanceof Weapon){
@@ -213,10 +231,14 @@ public class Main {
 
                 //castSpell
                 if (input == 4){
-                    System.out.println("enter what spell you want to cast");
-                    String s = scnr.next();
-                    int isDamage = checkedInput("Is it a damage spell? type '1' for yes, or '0' for no.", 0, 1);
-                    p1.castSpell(s, isDamage == 1);        //casts given spell
+                    ArrayList<Spell> spells = p1.getSpells();
+                    if (spells.isEmpty()){
+                        System.out.println("You have no spells to cast!");
+                        break;
+                    }
+                    int spellIndex = checkedInput("enter the list number of the spell you want to cast",1,spells.size());
+
+                    p1.castSpell(spells.get(spellIndex - 1));        //casts given spell
                 }
 
 

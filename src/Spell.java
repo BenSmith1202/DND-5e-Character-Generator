@@ -1,13 +1,18 @@
+/**
+ * @Author: Ben Smith, David Olinger
+ * This class simulates a dnd spell in an abstract form, storing what the spell does and what damage it can do
+ * but not specific premade dnd spells
+ */
 public class Spell {
 
-  //hopefully this pushes now
+  // Spell Variables
     private String name;
   private int damageDie;
   private int numDamageDice;
   private String affect;
   private int slotLevel;
+  private boolean attackSpell;
 
-  private String damageType; // i think this is a part of spells too right?
   /**
    * constructs a spell
    * @param name name of spell
@@ -20,6 +25,7 @@ public class Spell {
     this.numDamageDice = numDamageDice;
     this.slotLevel = slotLevel;
     this.affect = affect;
+    this.attackSpell = true;
   }
   public Spell(String name, int slotLevel, String affect){
     this.name = name;
@@ -27,8 +33,11 @@ public class Spell {
     this.numDamageDice = 0;
     this.slotLevel = slotLevel;
     this.affect = affect;
+    this.attackSpell = false;
   }
 
+
+  // Getters and Setters for spell variables
 
   public String getName() {
     return name;
@@ -48,5 +57,9 @@ public class Spell {
 
   public String getAffect() {
     return affect;
+  }
+
+  public boolean isAttackSpell() {
+    return attackSpell;
   }
 }

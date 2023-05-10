@@ -1,5 +1,9 @@
 import java.io.FileNotFoundException;
 
+/**
+ * @author Ben Smith, David Olinger
+ * Generates many versions of various randomly generated aspects of characters
+ */
 public class RandomGeneratorTester {
     public static void main(String[] args) throws FileNotFoundException {
         for (int i = 0; i < 10; i++) {

@@ -1,5 +1,9 @@
 import java.util.Random;
 
+/**
+ * @author Ben Smith, David Olinger
+ * Randomly generates a name from lists of syllables
+ */
 public class RandomNameGenerator { //Generates Random Names for Characters! 100% of content developed by our team.
     private static final String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
             "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",

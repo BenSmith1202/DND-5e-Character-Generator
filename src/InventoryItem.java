@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class InventoryItem {
-    private final String name;
+    private String name;
     private int quantity;
 
     /**
@@ -42,5 +42,8 @@ public class InventoryItem {
 
     public String toString(){
         return quantity + " " + name;
+    }
+    public void setName(String n){
+        this.name = n;
     }
 }

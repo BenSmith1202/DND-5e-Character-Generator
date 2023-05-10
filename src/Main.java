@@ -77,11 +77,11 @@ public class Main {
                     default -> "";
                 };
 
-                int classChoice = checkedInput("Please enter one of the following classes: [1] Fighter, [2] Rouge, [3] Barbarian," +
+                int classChoice = checkedInput("Please enter one of the following classes: [1] Fighter, [2] Rogue, [3] Barbarian," +
                         "[4] Wizard, [5] Sorcerer, [6] Bard, [7] Random Ideal Class", 1, 7);
                 String characterClass = switch (classChoice) {
                     case 1 -> "Fighter";
-                    case 2 -> "Rouge";
+                    case 2 -> "Rogue";
                     case 3 -> "Barbarian";
                     case 4 -> "Wizard";
                     case 5 -> "Sorcerer";
@@ -113,7 +113,7 @@ public class Main {
                             [8]  Print Character Sheet   [9]  Save Character
                             [10] Reroll Personality      [11] Reroll Backstory
                             [12] Roll Skill Check        [13] Edit Stats
-                            [14] Exit Program""", 0, 12);
+                            [14] Exit Program""", 0, 14);
                 //addItem
                 if (input == 0){
                     if (p1.getBackstory().equals("There is nothing here now, but you can generate a backstory from the main menu")){
@@ -200,8 +200,14 @@ public class Main {
                 //attack
                 if (input == 3){
                     ArrayList inventory = p1.getInventory();
-                    System.out.println("enter the inventory slot number of the weapon you want to attack with"); //attacks with given weapon
-                    p1.attack((Weapon) inventory.get(checkedInput("enter the inventory slot number of the weapon you want to attack with", 1, inventory.size()+1)-1));
+                    int indexOfWeapon = checkedInput("enter the inventory slot number of the weapon you want to attack with (0 for an unarmed strike).", 0, inventory.size()+1)-1;
+                    if (indexOfWeapon == -1) {
+                        p1.attack(PlayerCharacter.unarmed);
+                    } else if (inventory.get(indexOfWeapon) instanceof Weapon){
+                        p1.attack((Weapon) inventory.get(indexOfWeapon));
+                    } else {
+                        System.out.println("That's not going to do much. Use the number of an inventory slot with a weapon next time.");
+                    }
                 }
 
 

@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Ben Smith, David Olinger
- * This class simulates a dnd character sheet, keeping track of player stats, inventory, and spell list. It can be constructed randomly
+ * This class simulates a dnd character sheet, keeping track of player stats, inventory, and spells. It can be constructed randomly
  * Or by sending in a formatted file that has either been pre-made or saved from the character sheet.
  */
 
@@ -33,9 +33,33 @@ public class PlayerCharacter {
     private static String[] abilityList = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
     // holds the names of the main 6 character ability scores
 
+    public static Weapon unarmed = new Weapon(1, 1, 0, "Strength", "bludgeoning", "Unarmed Strike");
 
+    private static String[] starterKit= new String[] {
+            "3 20 feet of rope",
+            "10 torches",
+            "10 Rations",
+            "1 sharpening stone",
+            "1 extra adventuring clothes",
+            "1 repair kit for armor",};
 
+    private static String[] miscItems= new String[] {
+            "1 canteen of wine",
+            "1 wallet containing 50gp",
+            "3 empty bottles",
+            "1 set of dragon chess",
+            "1 50 caltrops",
+            "5 100 ball bearings",
+            "1 pair of gloves",
+            "1 jar of ink",
+            "1 shovel"};
 
+    private static String[] utilityItems= new String[] {
+            "1 thief's tools",
+            "1 artisan's tools",
+            "1 poisoner's kit",
+            "1 tinderbox",
+            "1 disguise kit",};
 
 
 
@@ -89,7 +113,11 @@ public class PlayerCharacter {
 
 
         inventory =  new ArrayList<>();
-        File starterItems = new File("starterItems.txt"); //open file for starting items
+        Random rand = new Random();
+
+
+        //LEGACY V
+        /*File starterItems = new File("starterItems.txt"); //open file for starting items
         Scanner checkStartingItems = new Scanner(starterItems); //checks how many items are in the Starting items file so we don't have to
         int starterItemsLen = 0;
         while (checkStartingItems.hasNextLine()){
@@ -100,12 +128,22 @@ public class PlayerCharacter {
 
         for (int i = 0; i < 8; i++) {
             Scanner scan = new Scanner(starterItems);
-            for (int j = 0; j < rollDice(1, starterItemsLen-1); j++) { //sides is number of lines in file -1
+
+            for (int j = 0; j < rand.nextInt(starterItemsLen); j++) { //sides is number of lines in file -1
                 scan.nextLine(); //cycle to a random line
             }
             inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
             scan.close();
+        }*/
+        //LEGACY ^
+
+
+        for (String s : starterKit) {
+            inventory.add(new InventoryItem(s));
         }
+        inventory.add(new InventoryItem(getRandom(miscItems)));
+        inventory.add(new InventoryItem(getRandom(utilityItems)));
+
 
         File trinkets = new File("trinketsList.txt"); //open file for trinkets
         Scanner checkTrinkets = new Scanner(trinkets); //checks how many items are in the trinkets file so that we don't have to
@@ -118,13 +156,24 @@ public class PlayerCharacter {
 
 
         Scanner scan = new Scanner(trinkets);
-        for (int j = 0; j < rollDice(1, trinketsLen-1); j++) { //sides is number of lines in file -1
+        for (int j = 0; j < rand.nextInt(trinketsLen); j++) { //sides is number of lines in file -1
             scan.nextLine(); //cycle to a random line
 
         }
         inventory.add(new InventoryItem(scan.nextLine())); //add what's on that line
         scan.close();
 
+
+
+
+        //Weapons source files are currently only being tracked manually
+        File weaponsList = new File("weaponsList.txt"); //open file for trinkets
+        Scanner scanWeapons = new Scanner(weaponsList);
+        for (int j = 0; j < rand.nextInt(17); j++) { //sides is number of lines in file -1
+            scanWeapons.nextLine(); //cycle to a random line
+        }
+        inventory.add(new Weapon(scanWeapons.nextLine())); //add what's on that line
+        scanWeapons.close();
 
         spells = new ArrayList<>();
 
@@ -245,10 +294,10 @@ public class PlayerCharacter {
             Scanner scanline = new Scanner(scan.nextLine());
             int quantity = scanline.nextInt();
             if (scanline.hasNextInt()){
-                InventoryItem weap = new Weapon(scanline.nextInt(), scanline.nextInt(), scanline.nextInt(), scanline.next(), scanline.next(), scanline.nextLine());
+                InventoryItem weap = new Weapon(scanline.nextInt(), scanline.nextInt(), scanline.nextInt(), scanline.next(), scanline.next(), scanline.nextLine().trim());
                 inventory.add(weap);
             } else {
-                inventory.add(new InventoryItem(scanline.nextLine(), quantity));
+                inventory.add(new InventoryItem(scanline.nextLine().trim(), quantity));
             }
         }
         scan.nextLine();
@@ -290,7 +339,11 @@ public class PlayerCharacter {
         else {
             System.out.print("\n");
             for (int i = 0; i < inventory.size(); i++) {
-                System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
+                if (inventory.get(i) instanceof Weapon){
+                    System.out.println((i+1) + ". " + ((Weapon) inventory.get(i)).toReadableString());
+                } else {
+                    System.out.println((i+1) + ". " + inventory.get(i).getQuantity() + "x " + inventory.get(i).getName());
+                }
             }
             System.out.println();
         }
@@ -406,6 +459,11 @@ public class PlayerCharacter {
 
         return total;
     }
+
+    /**
+     * rolls 4d6, drops the lowest
+     * @return a number used for generating character stats
+     */
     public static int rollCharacterStats(){
         int total = 0;
         int lowest = 7;
@@ -526,9 +584,9 @@ public class PlayerCharacter {
      * @param weapon = The weapon that the player is attacking with
      */
     public void attack(Weapon weapon){
-        System.out.println("Attacking with " + weapon.getName() + ":"); // Need to Implement Crits now
+        System.out.println("Attacking with " + weapon.getName() + ":");
         System.out.println("Roll to hit = " + rollToHit(weapon));
-        System.out.println("Damage dealt on hit = " + rollDamage(weapon));
+        System.out.println(rollDamage(weapon));
     }
 
 
@@ -551,7 +609,11 @@ public class PlayerCharacter {
      * @return the attack roll
      */
     public int rollToHit(Weapon weapon){
-        return PlayerCharacter.rollDice(1, 20, weapon.getWeaponBonus() + getMod("Strength"));
+        int val = PlayerCharacter.rollDice(1, 20, weapon.getWeaponBonus() + getMod(weapon.getWeaponType()) + 4);//3 is prof bonus
+        if (val >= (20+getMod(weapon.getWeaponType())+4)){
+            System.out.println("CRITICAL HIT!");
+        }
+        return val;
     }
 
 
@@ -561,15 +623,10 @@ public class PlayerCharacter {
      * @return number of damage dealt
      */
     public int rollDamage(Weapon weapon){
-        return PlayerCharacter.rollDice(weapon.getNumDamageDice(), weapon.getDamageDie(), weapon.getWeaponBonus());
+        int dmg = PlayerCharacter.rollDice(weapon.getNumDamageDice(), weapon.getDamageDie(), weapon.getWeaponBonus())+getMod(weapon.getWeaponType());
+        System.out.println("You did " + dmg + " " + weapon.getDamageType() + " damage!");
+        return dmg;
     }
-
-
-
-
-
-
-
 
 
 
@@ -632,14 +689,6 @@ public class PlayerCharacter {
 
 
 
-
-
-
-
-
-
-
-
     //Variable methods
 
 
@@ -662,6 +711,10 @@ public class PlayerCharacter {
         currentHealth += PlayerCharacter.rollDice(8, 8);
     }
 
+    /**
+     * Changes the value of a PC's health.
+     * @param change the amount to change it by (positive or negative)
+     */
     public void changeHealth(int change) {
         this.currentHealth += change;
         if (currentHealth > maxHealth){
@@ -731,4 +784,12 @@ public class PlayerCharacter {
     }
 
 
+    public ArrayList getInventory() {
+        return inventory;
+    }
+
+    private static String getRandom(String[] array) { //returns a random String from an array
+        int rnd = new Random().nextInt(array.length);
+        return array[rnd];
+    }
 }

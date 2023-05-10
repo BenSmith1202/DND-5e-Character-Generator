@@ -1,25 +1,25 @@
-Name: Trinerianwisp Pinebreeze
+Name: Dukrik Lumberflint
 Level: 1
-MaxHealth: 8
-Speed: 30
+MaxHealth: 11
+Speed: 25
 ArmorClass: 11
-Class: Bard
-Race: Elf
-Gold: 150
-Strength 9
+Class: Fighter
+Race: Dwarf
+Gold: 130
+Strength 14
 Dexterity 13
-Constitution 11
-Intelligence 10
-Wisdom 14
-Charisma 14
-Alignment NE
+Constitution 13
+Intelligence 11
+Wisdom 8
+Charisma 15
+Alignment CN
 
 PERSONALITY TRAITS:
 Ideals:
-People. I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)
-Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)
+Independence. I am a free spirit--no one tells me what to do. (Chaotic)
+Knowledge. The path to power and self-improvement is through knowledge. (Neutral)
 Bond:
-Those who fight beside me are those worth dying for.
+My town or city is my home, and I'll fight to defend it.
 Flaw:
-Book learning is a waste of time. I have no patience for people who don't speak from experience.
+My secret could get me expelled from my house.
 

@@ -508,7 +508,7 @@ public class PlayerCharacter {
         System.out.println("Name: " + name + "     Race: " + race + "      Class: " + characterClass +
                 "     Level: " + level + "    Alignment: " + alignment);
         System.out.println("Speed: " + speed + "              Armor Class: " + armorClass);
-        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "      Death Saves (S/F): " + succDS+"/"+failDS);
+        System.out.println("Hit Points: " + currentHealth+"/"+maxHealth + "       Death Saves (S/F): " + succDS+"/"+failDS);
         System.out.println("Gold: " + gold);
 
         System.out.println("Strength: " + abilityScores.get("Strength") + "(" + getMod("Strength")+ ")" + "       " +

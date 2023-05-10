@@ -68,19 +68,28 @@ public class Main {
 
             boolean done = false;
             while (!done){
-                System.out.println("""
-                        
-                        Choose any of the actions below by typing in the given number
-                        [0] Get Help with Backstory [1] Add Item
-                        [2] Add Spell               [3] Attack
-                        [4] Cast Spell              [5] Rest
-                        [6] Change Health           [7] Roll Death Save
-                        [8] Print Character Sheet   [9] Save Character
-                        [10] Reroll Personality     [11] Reroll Backstory
-                        [12] Exit Program""");
+                boolean goodIn = false;
+                int input = 12;
+                do {
 
-                int input = scnr.nextInt();
+                    System.out.println("""
+                                                    
+                            Choose any of the actions below by typing in the given number
+                            [0] Get Help with Backstory [1] Add Item
+                            [2] Add Spell               [3] Attack
+                            [4] Cast Spell              [5] Rest
+                            [6] Change Health           [7] Roll Death Save
+                            [8] Print Character Sheet   [9] Save Character
+                            [10] Reroll Personality     [11] Reroll Backstory
+                            [12] Exit Program""");
 
+                    String inputStr = scnr.next();
+                    Scanner intCheck = new Scanner(inputStr);
+                    if (intCheck.hasNextInt()) {
+                        input = intCheck.nextInt();
+                        goodIn = true;
+                    }
+                } while (!goodIn);
                 //addItem
                 if (input == 0){
                     if (p1.getBackstory().equals("There is nothing here now, but you can generate a backstory from the main menu")){

@@ -118,7 +118,15 @@ public class Main {
 
             if (store == 2) {
                 System.out.println("Please enter the file name you wish to create a character from");
-                p1 = new PlayerCharacter(scnr.next());
+                boolean goodInput = false;
+                while (!goodInput) {
+                    try {
+                        p1 = new PlayerCharacter(scnr.next());
+                        goodInput = true;
+                    } catch (FileNotFoundException e) {
+                        System.out.println("That's not a real file name! Try again");
+                    }
+                }
                 p1.printSheet();
             }
 

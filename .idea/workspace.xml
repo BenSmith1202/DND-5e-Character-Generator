@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added javaDoc comments to every class and various methods">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added error handling to main file constructor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +43,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SMITHBA22\OneDrive - Grove City College\Documents\Homework\Comp 220\SmithOlingerProject5" />
@@ -57,6 +59,13 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SmithOlingerProject5" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomGeneratorTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RandomGeneratorTester" />
       <module name="SmithOlingerProject5" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -79,6 +88,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RandomGeneratorTester" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.nameGenerator" />
       </list>
@@ -310,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683758204287</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Added error handling to main file constructor">
+      <created>1683775263617</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683775263617</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -325,7 +342,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added to hit method and removed unnecessary default constructor for InventoryItem" />
     <MESSAGE value="added javadocs for some classes" />
     <MESSAGE value="Fixed Construction error due to ordering,&#10;Added to PrintSheet Method&#10;Added Getters for InventoryItem variables" />
     <MESSAGE value="Added spells arrayList, added to Spell class, Made rollDamage and RollToHit methods for spells, added to PrintSheet method" />
@@ -350,6 +366,7 @@
     <MESSAGE value="fixed typo" />
     <MESSAGE value="added a single space to the print character text" />
     <MESSAGE value="Fixed spell options in main and changed Spell class formatting to be more efficient, also added many javaDoc comments to each class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed spell options in main and changed Spell class formatting to be more efficient, also added many javaDoc comments to each class" />
+    <MESSAGE value="Added error handling to main file constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added error handling to main file constructor" />
   </component>
 </project>

@@ -98,16 +98,24 @@ public class Main {
                     default -> "";
                 };
 
-                int classChoice = checkedInput("Please enter one of the following classes: [1] Fighter, [2] Rogue, [3] Barbarian," +
-                        "[4] Wizard, [5] Sorcerer, [6] Bard, [7] Random Ideal Class", 1, 7);
+                int classChoice = checkedInput("Please enter one of the following classes: \n[1] Fighter, [2] Rogue, [3] Barbarian," +
+                        "[4] Wizard, [5] Cleric, [6] Bard, [7]Sorcerer\n[8]Paladin, [9] Ranger, [10]Druid, [11] Monk," +
+                        " [12] Warlock, [13] Artificer, [14] Random", 1, 14);
                 String characterClass = switch (classChoice) {
                     case 1 -> "Fighter";
                     case 2 -> "Rogue";
                     case 3 -> "Barbarian";
                     case 4 -> "Wizard";
-                    case 5 -> "Sorcerer";
+                    case 5 -> "Cleric";
                     case 6 -> "Bard";
-                    case 7 -> "Random";
+                    case 7 -> "Sorcerer";
+                    case 8 -> "Paladin";
+                    case 9 -> "Ranger";
+                    case 10 -> "Druid";
+                    case 11 -> "Monk";
+                    case 12 -> "Warlock";
+                    case 13 -> "Artificer";
+                    case 14 -> "Random";
                     default -> "";
                 };
 

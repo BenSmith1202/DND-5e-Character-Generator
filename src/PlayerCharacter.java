@@ -114,7 +114,13 @@ public class PlayerCharacter {
         hitDieOptions.put("Rogue",8);
         hitDieOptions.put("Wizard",6);
         hitDieOptions.put("Sorcerer",6);
-        hitDieOptions.put("Bard",8);
+        hitDieOptions.put("Paladin",10);
+        hitDieOptions.put("Ranger",10);
+        hitDieOptions.put("Cleric",8);
+        hitDieOptions.put("Druid",8);
+        hitDieOptions.put("Monk",8);
+        hitDieOptions.put("Warlock",8);
+        hitDieOptions.put("Artificer",8);
 
         abilityList = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
 
@@ -208,12 +214,47 @@ public class PlayerCharacter {
                 }
             }
             switch (highStat) {
-                case "Strength" -> characterClass = "Fighter";
-                case "Dexterity" -> characterClass = "Rogue";
-                case "Constitution" -> characterClass = "Barbarian";
-                case "Intelligence" -> characterClass = "Wizard";
-                case "Wisdom" -> characterClass = "Sorcerer";
-                case "Charisma" -> characterClass = "Bard";
+                case "Strength" -> {
+                    switch(r.nextInt(1,6)){
+                        case 1,2,3,4 -> characterClass = "Fighter";
+                        case 5 -> characterClass = "Paladin";
+                    }
+                }
+                case "Dexterity" -> {
+                    switch(r.nextInt(1,9)){
+                        case 1,2,3,4,5 -> characterClass = "Rogue";
+                        case 6,7 -> characterClass = "Monk";
+                        case 8 -> characterClass = "Ranger";
+                    }
+                }
+                case "Constitution" -> {
+                    switch(r.nextInt(1,7)){
+                        case 1,2,3,4,5 -> characterClass = "Barbarian";
+                        case 6 -> characterClass = "Fighter";
+                    }
+                }
+                case "Intelligence" -> {
+                    switch(r.nextInt(1,6)){
+                        case 1,2,3,4 -> characterClass = "Wizard";
+                        case 5 -> characterClass = "Artificer";
+                    }
+                }
+                case "Wisdom" -> {
+                    switch(r.nextInt(1,6)){
+                        case 1,2 -> characterClass = "Cleric";
+                        case 3,4 -> characterClass = "Druid";
+                        case 5 -> characterClass = "Ranger";
+                    }
+                }
+                case "Charisma" -> {
+                    switch(r.nextInt(1,6)){
+                        case 1,2,3 -> characterClass = "Bard";
+                        case 4,5 -> characterClass = "Sorcerer";
+                        case 6,7  -> characterClass = "Warlock";
+                        case 8 -> characterClass = "Paladin";
+
+                    }
+                }
             }
         }
         this.hitDie = hitDieOptions.get(characterClass);

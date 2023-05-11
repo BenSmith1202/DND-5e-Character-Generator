@@ -39,7 +39,7 @@ public class PlayerCharacter {
     // Lists of items to be added randomly to inventory
 
     private static String[] starterKit= new String[] {
-            "3 20 feet of rope",
+            "3 twenty feet of rope",
             "10 torches",
             "10 Rations",
             "1 sharpening stone",

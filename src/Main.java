@@ -127,7 +127,7 @@ public class Main {
                 int input = checkedInput("""
                                                     
                             Choose any of the actions below by typing in the given number
-                            [0]  Get Help with Backstory [1]  Add Item
+                            [0]  Print Backstory         [1]  Add Item
                             [2]  Add Spell               [3]  Attack
                             [4]  Cast Spell              [5]  Rest
                             [6]  Change Health           [7]  Roll Death Save

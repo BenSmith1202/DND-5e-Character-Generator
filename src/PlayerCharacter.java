@@ -51,8 +51,8 @@ public class PlayerCharacter {
             "1 wallet containing 50gp",
             "3 empty bottles",
             "1 set of dragon chess",
-            "1 50 caltrops",
-            "5 100 ball bearings",
+            "1 fifty caltrops",
+            "5 one hundred ball bearings",
             "1 pair of gloves",
             "1 jar of ink",
             "1 shovel"};

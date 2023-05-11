@@ -5,6 +5,12 @@ import java.util.Random;
  * Randomly generates a name from lists of syllables
  */
 public class RandomNameGenerator { //Generates Random Names for Characters! 100% of content developed by our team.
+
+    private static String getRandom(String[] array) { //returns a random String from an array
+        int index = (int)(Math.round(Math.random() * (array.length-1)));
+        return array[index];
+
+    }
     private static final String[] humanNameSyls = new String[]{"ra", "ba", "lar", "tab", "ga", "ben", "dav", "log", "pre", "car", "rop", "dav", "sar",
             "lit", "pog", "frag", "slag", "pic", "hor", "lee", "smit", "oll", "in", "ger", "di", "kin", "son", "dell", "ing", "er", "win", "rick", "tal",
             "ro", "to", "bo", "ry", "co", "ca", "well", "max", "jo", "co", "la", "so", "tay"};
@@ -47,14 +53,14 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
         Random random = new Random();
-        firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);               //pick two syllables for the first name
-        firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+        firstNameBuilder.append(getRandom(dwarfNameSyls));               //pick two syllables for the first name
+        firstNameBuilder.append(getRandom(dwarfNameSyls));
         int r = random.nextInt(2);                                                             //sometimes the name gets an extra syllable
-        if (r != 1){firstNameBuilder.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);} //sometimes the names get an extra syllable
+        if (r != 1){firstNameBuilder.append(getRandom(dwarfNameSyls));} //sometimes the names get an extra syllable
         firstNameBuilder.append(" ");                                                                //put a space between names
         String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
-        lastNameBuilder.append(dwarfSurnamesModifyer[(random.nextInt(dwarfSurnamesModifyer.length))]);  //dwarf names have a modifyer which
-        lastNameBuilder.append(dwarfSurnamesObject[(random.nextInt(dwarfSurnamesObject.length))]);      //gets added before an object
+        lastNameBuilder.append(getRandom(dwarfSurnamesModifyer));  //dwarf names have a modifyer which
+        lastNameBuilder.append(getRandom(dwarfSurnamesObject));      //gets added before an object
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1);//capitalize and return full name
     }
     /**
@@ -66,13 +72,13 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
         Random random = new Random();
-        firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]); //pick two syllables for the first name
-        firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+        firstNameBuilder.append(getRandom(humanNameSyls)); //pick two syllables for the first name
+        firstNameBuilder.append(getRandom(humanNameSyls));
         int r = random.nextInt(2);
-        if (r != 1){firstNameBuilder.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);} //sometimes the names get an extra syllable
+        if (r != 1){firstNameBuilder.append(getRandom(humanNameSyls));} //sometimes the names get an extra syllable
         firstNameBuilder.append(" ");
         String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
-        lastNameBuilder.append(humanSurnames[(random.nextInt(humanSurnames.length))]); //pick random last name
+        lastNameBuilder.append(getRandom(humanSurnames)); //pick random last name
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
     }
     /**
@@ -84,14 +90,14 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         StringBuilder firstNameBuilder = new StringBuilder();
         StringBuilder lastNameBuilder = new StringBuilder();
         Random random = new Random();
-        firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]); //picks two syllables for the name
-        firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+        firstNameBuilder.append(getRandom(elfNameSyls)); //picks two syllables for the name
+        firstNameBuilder.append(getRandom(elfNameSyls));
         int r = random.nextInt(2);
-        if (r != 1){firstNameBuilder.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);} //sometimes they get an extra syllable
+        if (r != 1){firstNameBuilder.append(getRandom(elfNameSyls));} //sometimes they get an extra syllable
         firstNameBuilder.append(" ");
         String firstName = firstNameBuilder.substring(0,1).toUpperCase() + firstNameBuilder.substring(1); //capitalize
-        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]); //pick two last name parts
-        lastNameBuilder.append(elfSurnames[(random.nextInt(elfSurnames.length))]);
+        lastNameBuilder.append(getRandom(elfSurnames)); //pick two last name parts
+        lastNameBuilder.append(getRandom(elfSurnames));
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
     }
 
@@ -104,27 +110,27 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         Random random = new Random();
         switch (random.nextInt(2)) {
             case 0 -> { //elven name
-                identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
-                identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+                identifier.append(getRandom(elfNameSyls));
+                identifier.append(getRandom(dwarfNameSyls));
                 int r = random.nextInt(2);
                 if (r != 1) {
-                    identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                    identifier.append(getRandom(elfNameSyls));
                 }
             }
             case 1 -> { //dwarven name
-                identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-                identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                identifier.append(getRandom(dwarfNameSyls));
+                identifier.append(getRandom(elfNameSyls));
                 int r2 = random.nextInt(2);
                 if (r2 != 1) {
-                    identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
+                    identifier.append(getRandom(dwarfNameSyls));
                 }
             }
             case 3 -> { //human name
-                identifier.append(dwarfNameSyls[(random.nextInt(dwarfNameSyls.length))]);
-                identifier.append(humanNameSyls[(random.nextInt(humanNameSyls.length))]);
+                identifier.append(getRandom(dwarfNameSyls));
+                identifier.append(getRandom(humanNameSyls));
                 int r3 = random.nextInt(2);
                 if (r3 != 1) {
-                    identifier.append(elfNameSyls[(random.nextInt(elfNameSyls.length))]);
+                    identifier.append(getRandom(elfNameSyls));
                 }
             }
         }
@@ -133,7 +139,7 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         if (r4 <= 5)
         {
             identifier.append(" ");
-            locationName = identifier.substring(0,1).toUpperCase() + identifier.append(locationNames[(random.nextInt(locationNames.length))]).substring(1); //capitalize
+            locationName = identifier.substring(0,1).toUpperCase() + identifier.append(getRandom(locationNames)).substring(1); //capitalize
         } else {
             locationName = identifier.substring(0,1).toUpperCase() + identifier.substring(1); //capitalize
         }

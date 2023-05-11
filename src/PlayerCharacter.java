@@ -121,6 +121,7 @@ public class PlayerCharacter {
         hitDieOptions.put("Monk",8);
         hitDieOptions.put("Warlock",8);
         hitDieOptions.put("Artificer",8);
+        hitDieOptions.put("Bard", 8);
 
         abilityList = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
 
@@ -247,7 +248,7 @@ public class PlayerCharacter {
                     }
                 }
                 case "Charisma" -> {
-                    switch(r.nextInt(1,6)){
+                    switch(r.nextInt(1,9)){
                         case 1,2,3 -> characterClass = "Bard";
                         case 4,5 -> characterClass = "Sorcerer";
                         case 6,7  -> characterClass = "Warlock";
@@ -257,8 +258,6 @@ public class PlayerCharacter {
                 }
             }
         }
-        this.hitDie = hitDieOptions.get(characterClass);
-        this.maxHealth = hitDie + rollDice(level-1, hitDie) + (level*getMod("Constitution"));
 
         if (!inputName.equals("Random")){
             this.name = inputName;
@@ -278,6 +277,8 @@ public class PlayerCharacter {
         String[] ali2 = new String[] {"G", "N", "E"};
         alignment = ali1[PlayerCharacter.rollDice(1, 3)-1] + ali2[PlayerCharacter.rollDice(1, 3)-1]; //gets a random two character alignment.
         persona = RandomPersonaGenerator.getPersona(this); //stores a random personality based on the random alignment.
+        this.hitDie = hitDieOptions.get(characterClass);
+        this.maxHealth = hitDie + rollDice(level-1, hitDie) + (level*getMod("Constitution"));
 
         longRest(); //resets expendable stats to max.
     }
@@ -351,7 +352,7 @@ public class PlayerCharacter {
         scan.nextLine();
         backstory = scan.nextLine();
         while (scan.hasNextLine()){
-            backstory = "\n" + backstory + scan.nextLine();
+            backstory = backstory + "\n" + scan.nextLine();
         }
 
         currentHealth = maxHealth;
@@ -489,7 +490,6 @@ public class PlayerCharacter {
         total += bonus;
         return total;
     }
-
 
     /**
      * Rolls a set of dice and returns the result, doesn't use bonus

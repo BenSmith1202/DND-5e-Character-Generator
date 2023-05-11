@@ -11,9 +11,10 @@ public class RandomPersonaGenerator {
      * @param array The array you want to return a random element from.
      * @return a random element from a given array.
      */
-    private static String getRandom(String[] array) {
-        int rnd = new Random().nextInt(array.length);
-        return array[rnd];
+    private static String getRandom(String[] array) { //returns a random String from an array
+        int index = (int)(Math.round(Math.random() * (array.length-1)));
+        return array[index];
+
     }
 
     /**

@@ -46,7 +46,8 @@ public class RandomGeneratorTester {
         System.out.println("----------------------------");
         System.out.println(RandomBackgroundGenerator.getBackstory(p3));
         System.out.println("----------------------------");
+        RandomBackgroundGenerator.testEntity(10);
 
-
+        System.out.println(PlayerCharacter.rollDice(1, 10));
     }
 }

@@ -179,12 +179,10 @@ public class Main {
                         // adds a weapon to inventory
                     } else if (s == 2) {
                         System.out.println("enter the name of the weapon you want to add to your inventory");
-                        scnr.nextLine();
                         String name = scnr.nextLine();
                         int damageDie = checkedInput("enter the number sides of the damage die it uses");
                         int numDamageDice = checkedInput("enter the amount of damage dice it uses");
                         int weaponBonus = checkedInput("enter the weapon bonus (if there is no bonus type 0)");
-                        System.out.println("enter what type of weapon it is: 1 for Dexterity, 2 for Strength");
                         int weaponTypeIn = checkedInput("enter what type of weapon it is: 1 for Dexterity, 2 for Strength", 1, 2);
                         String weaponType = switch (weaponTypeIn) {
                             case 1 -> "Dexterity";

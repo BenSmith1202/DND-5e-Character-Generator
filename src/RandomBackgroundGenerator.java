@@ -7,8 +7,9 @@ import java.util.Random;
  */
 public class RandomBackgroundGenerator {
     private static String getRandom(String[] array) { //returns a random String from an array
-        int rnd = new Random().nextInt(array.length);
-        return array[rnd];
+        int index = (int)(Math.round(Math.random() * (array.length-1)));
+        return array[index];
+
     }
 
     private static final String[] backgrounds = new String[]{ //Backgrounds from http://dnd5e.wikidot.com
@@ -144,6 +145,27 @@ public class RandomBackgroundGenerator {
 
         }
         return backstory;//
+
+    }
+
+    public static void testEntity(int i){
+        for (int j = 0; j < i; j++) {
+            System.out.println(getRandom(mysteryEntity));
+        }
+        System.out.println("----------");
+        for (int j = 0; j < i; j++) {
+            System.out.println(getRandom(mysterySite));
+        }
+        System.out.println("----------");
+
+        for (int j = 0; j < i; j++) {
+            System.out.println(getRandom(backgrounds));
+        }
+        System.out.println("----------");
+        
+        for (int j = 0; j < i; j++) {
+            System.out.println(getRandom(creatures));
+        }
     }
 
     //intro 1

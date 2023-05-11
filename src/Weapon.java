@@ -5,11 +5,10 @@ import java.util.Scanner;
  * This class simulates a dnd weapon and inherits from InventoryItem
  */
 public class Weapon extends InventoryItem {
-    private int weaponBonus;
-    private int damageDie;
-    private int numDamageDice;
-    private String weaponType;
-    private String damageType;
+
+    // Weapon Variables
+    private int weaponBonus, damageDie, numDamageDice;
+    private String weaponType, damageType;
 
     /**
      * constructor for a weapon object
@@ -44,6 +43,26 @@ public class Weapon extends InventoryItem {
     }
 
 
+    /**
+     * Formats the weapon into a string that is usable by the file constructor
+     * @return = the weapon and its variables in a string
+     */
+    public String toString(){
+        return "1" + " " + numDamageDice + " " + damageDie + " " + weaponBonus + " " + weaponType + " " + damageType + " " + super.getName();
+    }
+
+    /**
+     * Formats the weapon into a string for the player to read
+     * @return = the weapon and its variables in a string
+     */
+    public String toReadableString(){
+        return "+" + weaponBonus + " " +super.getName() + " (" + numDamageDice + "d" + damageDie + "+" + weaponBonus +  " " + damageType + " damage)";
+    }
+
+
+
+    // Getters and Setters
+
     public int getWeaponBonus() {
         return weaponBonus;
     }
@@ -60,12 +79,6 @@ public class Weapon extends InventoryItem {
         return damageDie;
     }
 
-    public String toString(){
-        return "1" + " " + numDamageDice + " " + damageDie + " " + weaponBonus + " " + weaponType + " " + damageType + " " + super.getName();
-    }
-    public String toReadableString(){
-        return "+" + weaponBonus + " " +super.getName() + " (" + numDamageDice + "d" + damageDie + "+" + weaponBonus +  " " + damageType + " damage)";
-    }
     public String getDamageType(){
         return this.damageType;
     }

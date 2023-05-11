@@ -27,6 +27,10 @@ public class RandomBackgroundGenerator {
     private static String location1;
     private static String location2;
 
+
+    /**
+     * Below are many various words that will be filled into the backstory templates to create randomness
+     */
     private static final String[] adjective1 = new String[]{
             "fun", "hard", "exciting", "interesting", "unusual", "incredible", "a thoroughly wet experience", "not a walk in the park", "extraordinarily difficult", "a slog", "terrible",
             "not worth it", "confusing", "infuriating", "stellar", "violent", "unexplained but fortuitous", "cruel", "great and perhaps disatrous", "a black tie event",

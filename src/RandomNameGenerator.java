@@ -95,6 +95,10 @@ public class RandomNameGenerator { //Generates Random Names for Characters! 100%
         return firstName + lastNameBuilder.substring(0,1).toUpperCase() + lastNameBuilder.substring(1); //capitalize, build, return
     }
 
+    /**
+     * Creates a random place name using various name syllables and various place types
+     * @return = place name
+     */
     public static String getPlaceName(){
         StringBuilder identifier = new StringBuilder();
         Random random = new Random();

@@ -5,6 +5,8 @@ import java.util.Scanner;
  * This class simulate a dnd item and is inherited from by weapon
  */
 public class InventoryItem {
+
+    // Variables
     private String name;
     private int quantity;
 
@@ -33,6 +35,8 @@ public class InventoryItem {
         scan.close();
     }
 
+
+    // Getters and Setters
     public String getName() {
         return name;
     }

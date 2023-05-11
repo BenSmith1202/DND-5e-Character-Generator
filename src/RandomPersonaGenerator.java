@@ -7,7 +7,7 @@ import java.util.Random;
 public class RandomPersonaGenerator {
 
     /**
-     * To my knowledge there was no preexisting method to get a random element out of an array.
+     * Gets a random element from the array and returns it
      * @param array The array you want to return a random element from.
      * @return a random element from a given array.
      */
@@ -15,6 +15,10 @@ public class RandomPersonaGenerator {
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
     }
+
+    /**
+     * Below are all the various Ideals, Bonds, and Flaws that have been mostly taken from DND handbooks, some added by us
+     */
     private static final String[] generalIdeals = new String[]{ //Ideals from 5E Players Handbook and Dungeon Master's Guide
             "Aspiration. I seek to prove my self worthy of my god's favor by matching my actions against his or her teachings. (Any)",
             "Aspiration. I'm determined to make something of myself. (Any)",

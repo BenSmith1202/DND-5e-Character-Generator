@@ -693,8 +693,8 @@ public class PlayerCharacter {
 
 
 
-    //Variable methods
 
+// Health Methods
 
 
     /**
@@ -726,6 +726,14 @@ public class PlayerCharacter {
         }
         System.out.println("Updated health: " + currentHealth + "/" + maxHealth);
     }
+
+
+
+
+
+
+
+    //Getters and Setters
 
     public String getCharacterClass() {
         return characterClass;
@@ -770,19 +778,12 @@ public class PlayerCharacter {
     public int getCurrentHealth() {
         return currentHealth;
     }
-    /**
-     * Returns the amount of gold the player has
-     * @return the amount of gold
-     */
+
     public int getGold() {
         return this.gold;
     }
 
 
-    /**
-     * adds or subtracts gold from the players total gold
-     * @param numChange = the amount to be added or subtracted
-     */
     public void changeGold(int numChange){
         this.gold += numChange;
     }

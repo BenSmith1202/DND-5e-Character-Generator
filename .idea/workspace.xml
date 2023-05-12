@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added error handling to main file constructor">
+    <list default="true" id="4f16282a-d1a9-408e-9a82-7b0520d7ae94" name="Changes" comment="Added rest of classes and basic randomness for class generation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomBackgroundGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomBackgroundGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomGeneratorTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomGeneratorTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomNameGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomNameGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomPersonaGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_COMP 220 S23 Recursion starter.zip/starter/factorial/Factorial.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FileCharacter.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PlayerCharacter.java" root0="FORCE_HIGHLIGHTING" />
@@ -371,10 +365,7 @@
     <MESSAGE value="fixed typo" />
     <MESSAGE value="added a single space to the print character text" />
     <MESSAGE value="Fixed spell options in main and changed Spell class formatting to be more efficient, also added many javaDoc comments to each class" />
-    <MESSAGE value="fixed rope bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed rope bug" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SmithOlingerProject5$Main.ic" NAME="Main Coverage Results" MODIFIED="1683774898405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <MESSAGE value="Added error handling to main file constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added error handling to main file constructor" />
   </component>
 </project>

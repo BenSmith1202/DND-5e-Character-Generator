@@ -100,7 +100,7 @@ public class Main {
 
                 int classChoice = checkedInput("Please enter one of the following classes: \n[1] Fighter, [2] Rogue, [3] Barbarian, " +
                         "[4] Wizard, [5] Cleric, [6] Bard, [7] Sorcerer,\n[8] Paladin, [9] Ranger, [10] Druid, [11] Monk," +
-                        " [12] Warlock, [13] Artificer, [14] Random Ideal Class", 1, 14);
+                        " [12] Warlock, [13] Artificer, [14] Random Ideal Class (Reccomended)", 1, 14);
                 String characterClass = switch (classChoice) {
                     case 1 -> "Fighter";
                     case 2 -> "Rogue";

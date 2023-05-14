@@ -340,6 +340,12 @@ public class RandomPersonaGenerator {
     "I never give away anything for free and always expect something in return.",
     "I have many vices and tend to indulge them.",
     "I'm always changing my mind—well, almost always.",
+    "I have a crippling fear of wood.",
+    "I have a crippling fear of stone.",
+    "I have unbelievable arachnophobia.",
+    "I am allergic to unfiltered water.",
+    "Any time I tell a lie, I enter a coughing fit."
+
     };
 
     /**

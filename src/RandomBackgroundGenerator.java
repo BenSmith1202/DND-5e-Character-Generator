@@ -42,7 +42,7 @@ public class RandomBackgroundGenerator {
             "had two loving parents", "had two dead parents", "had two creatures for parents", "only had one friend, a stray dog", "was born with a missing limb",
             "had a knack for getting myself in trouble", "failed out of every school I went to", "was born of noble blood", "had a pet moose", "couldn't handle a moose",
             "had a love for fine art", "had a large group of friends", "was hit by a runaway carriage", "wanted nothing more that to see the ocean", "had an unknown medical condition",
-            "spent years studying physics", "spent years studying religion", "spent years studying mud", "spent my childhood in prison", "was taken from my birth parents"
+            "spent years studying physics", "spent years studying religion", "spent years studying mud", "spent my childhood in prison", "was taken from my birth parents", "contracted a magical illness"
 
     };
     private static final String[] somethingHappenedToMe = new String[]{

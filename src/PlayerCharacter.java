@@ -201,10 +201,14 @@ public class PlayerCharacter {
         if (!inputClass.equals("Random")) {
             this.characterClass = inputClass;
         } else {
+            String secHighStat = "";
+            int secHighStatNum = 0;
             String highStat = "";
             int highStatNum = 0;
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 6; i++) { // Finds the character's two highest stats
                 if (abilityScores.get(abilityList[i]) > highStatNum){
+                    secHighStatNum = highStatNum;
+                    secHighStat = highStat;
                     highStatNum = abilityScores.get(abilityList[i]);
                     highStat = abilityList[i];
                 } else if (abilityScores.get(abilityList[i]) == highStatNum){
@@ -212,48 +216,82 @@ public class PlayerCharacter {
                     if (random == 2) {
                         highStat = abilityList[i];  // if 2 stats tie it picks between one at random
                     }
+                    if (abilityScores.get(abilityList[i]) == secHighStatNum) {
+                        if (rollDice(1, 2) == 2) {
+                            secHighStat = abilityList[i];  // if 2 stats tie it picks between one at random
+                        }
+                    }
                 }
             }
-            switch (highStat) {
-                case "Strength" -> {
-                    switch(r.nextInt(1,6)){
-                        case 1,2,3,4 -> characterClass = "Fighter";
-                        case 5 -> characterClass = "Paladin";
-                    }
+            if (highStat.equals("Strength")&&secHighStat.equals("Dexterity")){
+                characterClass = "Fighter";
+            } else if (highStat.equals("Strength")&&secHighStat.equals("Constitution")){
+                characterClass = "Barbarian";
+            } else if (highStat.equals("Strength")&&secHighStat.equals("Charisma")){
+                characterClass = "Paladin";
+            } else if (highStat.equals("Wisdom")&&secHighStat.equals("Strength")){
+                characterClass = "Cleric";
+            } else if (highStat.equals("Wisdom")&&secHighStat.equals("Constitution")){
+                characterClass = "Druid";
+            } else if (highStat.equals("Dexterity")&&secHighStat.equals("Wisdom")){
+                switch(rollDice(1, 2)){
+                    case 1 -> characterClass = "Monk";
+                    case 2 -> characterClass = "Ranger";
                 }
-                case "Dexterity" -> {
-                    switch(r.nextInt(1,9)){
-                        case 1,2,3,4,5 -> characterClass = "Rogue";
-                        case 6,7 -> characterClass = "Monk";
-                        case 8 -> characterClass = "Ranger";
-                    }
+            } else if (highStat.equals("Dexterity") && (secHighStat.equals("Strength")||secHighStat.equals("Charisma"))){
+                characterClass = "Rogue";
+            } else if (highStat.equals("Charisma")&&secHighStat.equals("Constitution")){
+                characterClass = "Sorcerer";
+            } else if (highStat.equals("Charisma")&&secHighStat.equals("Dexterity")){
+                characterClass = "Warlock";
+            } else if (highStat.equals("Intelligence")&&secHighStat.equals("Dexterity")) {
+                switch(rollDice(1, 2)){
+                    case 1 -> characterClass = "Wizard";
+                    case 2 -> characterClass = "Artificer";
                 }
-                case "Constitution" -> {
-                    switch(r.nextInt(1,7)){
-                        case 1,2,3,4,5 -> characterClass = "Barbarian";
-                        case 6 -> characterClass = "Fighter";
-                    }
-                }
-                case "Intelligence" -> {
-                    switch(r.nextInt(1,6)){
-                        case 1,2,3,4 -> characterClass = "Wizard";
-                        case 5 -> characterClass = "Artificer";
-                    }
-                }
-                case "Wisdom" -> {
-                    switch(r.nextInt(1,6)){
-                        case 1,2 -> characterClass = "Cleric";
-                        case 3,4 -> characterClass = "Druid";
-                        case 5 -> characterClass = "Ranger";
-                    }
-                }
-                case "Charisma" -> {
-                    switch(r.nextInt(1,9)){
-                        case 1,2,3 -> characterClass = "Bard";
-                        case 4,5 -> characterClass = "Sorcerer";
-                        case 6,7  -> characterClass = "Warlock";
-                        case 8 -> characterClass = "Paladin";
 
+            } else {
+                switch (highStat) {
+                    case "Strength" -> {
+                        switch (r.nextInt(1, 6)) {
+                            case 1, 2, 3, 4 -> characterClass = "Fighter";
+                            case 5 -> characterClass = "Paladin";
+                        }
+                    }
+                    case "Dexterity" -> {
+                        switch (r.nextInt(1, 9)) {
+                            case 1, 2, 3, 4, 5 -> characterClass = "Rogue";
+                            case 6, 7 -> characterClass = "Monk";
+                            case 8 -> characterClass = "Ranger";
+                        }
+                    }
+                    case "Constitution" -> {
+                        switch (r.nextInt(1, 7)) {
+                            case 1, 2, 3 -> characterClass = "Barbarian";
+                            case 4, 5, 6 -> characterClass = "Fighter";
+                        }
+                    }
+                    case "Intelligence" -> {
+                        switch (r.nextInt(1, 6)) {
+                            case 1, 2, 3, 4 -> characterClass = "Wizard";
+                            case 5 -> characterClass = "Artificer";
+                        }
+                    }
+                    case "Wisdom" -> {
+                        switch (r.nextInt(1, 6)) {
+                            case 1, 2 -> characterClass = "Cleric";
+                            case 3, 4 -> characterClass = "Druid";
+                            case 5 -> characterClass = "Ranger";
+                        }
+                    }
+                    case "Charisma" -> {
+                        switch (r.nextInt(1, 9)) {
+                            case 1, 2, 3 -> characterClass = "Bard";
+                            case 4, 5 -> characterClass = "Sorcerer";
+                            case 6, 7 -> characterClass = "Warlock";
+                            case 8 -> characterClass = "Paladin";
+
+                        }
                     }
                 }
             }
